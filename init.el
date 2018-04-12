@@ -201,6 +201,22 @@
   (save-some-buffers)
   (kill-emacs))
 
+(defun my-frame-tweaks (&optional frame)
+  "My personal frame tweaks."
+  (unless frame
+    (setq frame (selected-frame)))
+  (when frame
+    (with-selected-frame frame
+      (when (display-graphic-p)
+    (tool-bar-mode -1)))))
+
+;; For the case that the init file runs after the frame has been created.
+;; Call of emacs without --daemon option.
+(my-frame-tweaks) 
+;; For the case that the init file runs before the frame is created.
+;; Call of emacs with --daemon option.
+(add-hook 'after-make-frame-functions #'my-frame-tweaks t)
+
 (global-set-key (kbd "C-c i")
 (lambda() (interactive)(org-babel-load-file "~/.emacs.d/init.org")))
 
