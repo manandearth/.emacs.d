@@ -78,7 +78,7 @@
 (pdf-tools-install)
 (setq pdf-view-use-unicode-ligther nil)
 
-;; (elpy-enable)
+;;(elpy-enable)
 ;; (elpy-use-ipython)
 
 ;; (when (require 'flycheck nil t)
@@ -139,6 +139,37 @@
 (setq scimax-dir "/home/adam/scimax/")
 (add-to-list 'load-path "/home/adam/scimax/") ;; TODO find how to require from scimax
 
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+
+(require 'js2-refactor)
+(require 'xref-js2)
+
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-r")
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+
+;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+;; unbind it.
+(define-key js-mode-map (kbd "M-.") nil)
+
+(add-hook 'js2-mode-hook (lambda ()
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+
+(use-package indium
+  :ensure t
+  :diminish (indium-interaction-mode . "In" )
+  :init
+  (add-hook 'js2-mode-hook #'indium-interaction-mode))
+
+(use-package simple-httpd
+  :ensure t)
+
+(require 'ledger-mode)
+
 (load-library "paren")
 (show-paren-mode 1)
 (transient-mark-mode t)
@@ -195,6 +226,23 @@
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
 
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+
+(require 'move-text)
+(move-text-default-bindings)
+
+(setq kill-whole-line t)
+
+(use-package smex
+  :bind (("M-x" . smex))
+  :config (smex-initialize))
+
+(require 'iedit)
+(use-package iedit
+  :config (set-face-background 'iedit-occurrence "Magenta"))
+
+(global-set-key (kbd "C-:") 'iedit-mode)
+
 (defun server-shutdown ()
   "Save buffers, Quit, and Shutdown (kill) server"
   (interactive)
@@ -220,10 +268,22 @@
 (global-set-key (kbd "C-c i")
 (lambda() (interactive)(org-babel-load-file "~/.emacs.d/init.org")))
 
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+(define-key esc-map "." #'xref-find-definitions)
+
+(eval-after-load 'verilog-mode 
+  '(define-key verilog-mode-map (kbd "C-{") 'verilog-beg-of-defun))
+(eval-after-load 'verilog-mode 
+  '(define-key verilog-mode-map (kbd "C-}") 'verilog-end-of-defun))
+
 ; status globally
 (global-set-key (kbd "C-x g") 'magit-status)
 ; pop up of pop ups globally
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; Specify the jupyter executable name, and the start dir of the server
+(defvar my:jupyter_location (executable-find "jupyter"))
+(defvar my:jupyter_start_dir "/home/adam/notebooks/")
 
 (add-to-list 'load-path "~/.emacs.d/lpy/")
 (require 'lpy)
@@ -550,21 +610,21 @@ _vr_ reset      ^^                       ^^                 ^^
 (require 'mu4e)
 (require 'smtpmail)
 (use-package mu4e-alert
-  :ensure t
-  :after mu4e
-  :init
-  (setq mu4e-alert-interesting-mail-query
-    (concat
-     "flag:unread maildir:/INBOX "
-     ))
-  (mu4e-alert-enable-mode-line-display)
-  (defun gjstein-refresh-mu4e-alert-mode-line ()
-    (interactive)
-    (mu4e~proc-kill)
-    (mu4e-alert-enable-mode-line-display)
-    )
-  (run-with-timer 0 60 'gjstein-refresh-mu4e-alert-mode-line)
-  )
+ :ensure t
+ :after mu4e
+ :init
+ (setq mu4e-alert-interesting-mail-query
+   (concat
+    "flag:unread maildir:/INBOX "
+    ))
+ (mu4e-alert-enable-mode-line-display)
+ (defun gjstein-refresh-mu4e-alert-mode-line ()
+   (interactive)
+  (mu4e~proc-kill)
+   (mu4e-alert-enable-mode-line-display)
+   )
+ (run-with-timer 0 60 'gjstein-refresh-mu4e-alert-mode-line)
+ )
 
 (setq mu4e-get-mail-command "offlineimap")
 
@@ -587,7 +647,8 @@ _vr_ reset      ^^                       ^^                 ^^
 ;; (setq user-mail-address "adam@manandearth.net"
       ;; user-full-name  "Adam Gefen")
 
-
+;; intervals between updating the incoming mail
+(setq mu4e-update-interval 300)
 ;; for nullmailer:
 ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
 
@@ -596,7 +657,7 @@ _vr_ reset      ^^                       ^^                 ^^
       mu4e-drafts-folder "/Drafts"
       mu4e-trash-folder "/Trash"
       message-send-mail-function 'smtpmail-send-it
-      user-mail-address "adam@manandearth.net"
+      user-mail-address "adamgefen@posteo.net"
       user-full-name  "Adam Gefen"
       smtpmail-default-smtp-server "smtp.posteo.de"
       smtpmail-smtp-server "posteo.de"
@@ -638,6 +699,13 @@ _vr_ reset      ^^                       ^^                 ^^
                        (equal (match-string 2) (match-string 3)))
                   (org-todo 'done)
                 (org-todo 'todo)))))))
+
+(defun leuven-good-old-fill-paragraph ()
+  (interactive)
+  (let ((fill-paragraph-function nil)
+        (adaptive-fill-function nil))
+    (fill-paragraph)))
+(define-key org-mode-map "\M-q" 'leuven-good-old-fill-paragraph)
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -896,6 +964,7 @@ _vr_ reset      ^^                       ^^                 ^^
  'org-babel-load-languages
  '((python . t)
    (ipython . t)
+   (ledger . t)
     ))
 
 (setq org-src-fontify-natively t

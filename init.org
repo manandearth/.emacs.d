@@ -112,7 +112,7 @@
 ** some python commented functionality
 #+begin_src emacs-lisp
 
-;; (elpy-enable)
+;;(elpy-enable)
 ;; (elpy-use-ipython)
 
 ;; (when (require 'flycheck nil t)
@@ -127,7 +127,7 @@
 #+end_src
 ** python enviornment (test)
 ,#+BEGIN_SRC emacs-lisp
-(setenv "PYTHONPATH" "/home/adam/anaconda3/bin/python3.5")
+(setenv "PYTHONPATH" "/home/adam/anaconda3/bin/ipython3")
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 ,#+END_SRC
@@ -189,6 +189,62 @@
 #+BEGIN_SRC emacs-lisp
 (setq scimax-dir "/home/adam/scimax/")
 (add-to-list 'load-path "/home/adam/scimax/") ;; TODO find how to require from scimax
+#+END_SRC
+** js2
+#+BEGIN_SRC emacs-lisp
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+#+END_SRC
+** js2-refractor and xref-js2
+#+BEGIN_SRC emacs-lisp
+(require 'js2-refactor)
+(require 'xref-js2)
+
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-r")
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+
+;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+;; unbind it.
+(define-key js-mode-map (kbd "M-.") nil)
+
+(add-hook 'js2-mode-hook (lambda ()
+  (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+#+END_SRC
+** js2 company and tern
+,#+BEGIN_SRC emacs-lisp
+(require 'company)
+(require 'company-tern)
+
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js2-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
+                           
+;; Disable completion keybindings, as we use xref-js2 instead
+(define-key tern-mode-keymap (kbd "M-.") nil)
+(define-key tern-mode-keymap (kbd "M-,") nil)
+#+END_SRC
+** indium
+#+BEGIN_SRC emacs-lisp
+
+(use-package indium
+  :ensure t
+  :diminish (indium-interaction-mode . "In" )
+  :init
+  (add-hook 'js2-mode-hook #'indium-interaction-mode))
+
+(use-package simple-httpd
+  :ensure t)
+#+END_SRC
+
+** ledger 
+#+BEGIN_SRC emacs-lisp
+(require 'ledger-mode)
+
 #+END_SRC
 * general functionality
 ** parenthesis
@@ -268,6 +324,37 @@
 
 #+END_SRC
 
+** backup files folder
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+#+END_SRC
+
+** move-text
+#+BEGIN_SRC emacs-lisp
+(require 'move-text)
+(move-text-default-bindings)
+#+END_SRC
+
+** remove whole line with C-k
+#+BEGIN_SRC emacs-lisp
+(setq kill-whole-line t)
+#+END_SRC
+
+** smex - improved M-x
+#+BEGIN_SRC emacs-lisp
+(use-package smex
+  :bind (("M-x" . smex))
+  :config (smex-initialize))
+#+END_SRC
+
+** iedit highlight occurences with C-:
+#+BEGIN_SRC emacs-lisp
+(require 'iedit)
+(use-package iedit
+  :config (set-face-background 'iedit-occurrence "Magenta"))
+
+(global-set-key (kbd "C-:") 'iedit-mode)
+#+END_SRC
 * emacsclient related
 ** shutdown server
 #+BEGIN_SRC emacs-lisp
@@ -301,6 +388,19 @@
 (global-set-key (kbd "C-c i")
 (lambda() (interactive)(org-babel-load-file "~/.emacs.d/init.org")))
 #+END_SRC
+** js2r-kill (C-k) and xref-find-definition (M-.)
+#+BEGIN_SRC emacs-lisp
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+(define-key esc-map "." #'xref-find-definitions) 
+#+END_SRC
+** verilog test
+#+BEGIN_SRC emacs-lisp
+(eval-after-load 'verilog-mode 
+  '(define-key verilog-mode-map (kbd "C-{") 'verilog-beg-of-defun))
+(eval-after-load 'verilog-mode 
+  '(define-key verilog-mode-map (kbd "C-}") 'verilog-end-of-defun))
+
+#+END_SRC
 * magit
 ** status binding 
 
@@ -311,6 +411,46 @@
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 #+END_SRC
 
+* ein
+** jupyter and notebook location 
+#+BEGIN_SRC emacs-lisp
+
+;; Specify the jupyter executable name, and the start dir of the server
+(defvar my:jupyter_location (executable-find "jupyter"))
+(defvar my:jupyter_start_dir "/home/adam/notebooks/")
+#+END_SRC
+
+** backend 
+,#+BEGIN_SRC emacs-lisp
+(add-hook 'ein:notebook-mode-hook #'anaconda-mode)
+
+  (defun user-ein-reply-callback (args content -metadata-not-used-)
+    (let ((callback (plist-get args :callback))
+          (candidates (plist-get content :matches)))
+      (funcall callback candidates)))
+
+  (defun user-company-ein-callback (callback)
+    (ein:kernel-complete
+     (ein:get-kernel)
+     (thing-at-point 'line)
+     (current-column)
+     (list :complete_reply
+           (cons #'user-ein-reply-callback (list :callback callback))))
+    )
+
+  (defun user-company-ein-backend (command &optional arg &rest ignored)
+    (interactive (list 'interactive))
+    (case command
+      (interactive (company-begin-backend 'user-company-ein-backend))
+      (prefix (company-anaconda-prefix))
+      (candidates (cons :async #'user-company-ein-callback))
+      (location nil)
+      (sorted t)
+      )
+    )
+
+(add-to-list 'company-backends #'user-company-ein-backend)
+#+END_SRC
 * lpy
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/lpy/")
@@ -670,21 +810,21 @@ _vr_ reset      ^^                       ^^                 ^^
 (require 'mu4e)
 (require 'smtpmail)
 (use-package mu4e-alert
-  :ensure t
-  :after mu4e
-  :init
-  (setq mu4e-alert-interesting-mail-query
-    (concat
-     "flag:unread maildir:/INBOX "
-     ))
-  (mu4e-alert-enable-mode-line-display)
-  (defun gjstein-refresh-mu4e-alert-mode-line ()
-    (interactive)
-    (mu4e~proc-kill)
-    (mu4e-alert-enable-mode-line-display)
-    )
-  (run-with-timer 0 60 'gjstein-refresh-mu4e-alert-mode-line)
-  )
+ :ensure t
+ :after mu4e
+ :init
+ (setq mu4e-alert-interesting-mail-query
+   (concat
+    "flag:unread maildir:/INBOX "
+    ))
+ (mu4e-alert-enable-mode-line-display)
+ (defun gjstein-refresh-mu4e-alert-mode-line ()
+   (interactive)
+  (mu4e~proc-kill)
+   (mu4e-alert-enable-mode-line-display)
+   )
+ (run-with-timer 0 60 'gjstein-refresh-mu4e-alert-mode-line)
+ )
 #+end_src
 ** offlineimap and more settings
 #+begin_src emacs-lisp
@@ -709,7 +849,8 @@ _vr_ reset      ^^                       ^^                 ^^
 ;; (setq user-mail-address "adam@manandearth.net"
       ;; user-full-name  "Adam Gefen")
 
-
+;; intervals between updating the incoming mail
+(setq mu4e-update-interval 300)
 ;; for nullmailer:
 ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
 #+end_src
@@ -720,7 +861,7 @@ _vr_ reset      ^^                       ^^                 ^^
       mu4e-drafts-folder "/Drafts"
       mu4e-trash-folder "/Trash"
       message-send-mail-function 'smtpmail-send-it
-      user-mail-address "adam@manandearth.net"
+      user-mail-address "adamgefen@posteo.net"
       user-full-name  "Adam Gefen"
       smtpmail-default-smtp-server "smtp.posteo.de"
       smtpmail-smtp-server "posteo.de"
@@ -780,7 +921,15 @@ Note that the code requires that a checkbox statistics cookie (the [/] or [%] th
 
 #+RESULTS:
 : ndk/checkbox-list-complete
-
+** org-fill-paragraph ("M-q")
+#+BEGIN_SRC emacs-lisp
+(defun leuven-good-old-fill-paragraph ()
+  (interactive)
+  (let ((fill-paragraph-function nil)
+        (adaptive-fill-function nil))
+    (fill-paragraph)))
+(define-key org-mode-map "\M-q" 'leuven-good-old-fill-paragraph)
+#+END_SRC
 ** org basic configuration
 #+BEGIN_SRC emacs-lisp
 
@@ -844,8 +993,6 @@ Note that the code requires that a checkbox statistics cookie (the [/] or [%] th
 #+end_src
 ** email links to mu4e
 #+BEGIN_SRC emacs-lisp
-
-
 ;; email links to mu4e
 (require 'org-mu4e)
 #+END_SRC
@@ -878,7 +1025,7 @@ Symbol's value as variable is void: org-structure-template-alist
 #+END_SRC 
 
 * ORG cont...
-** key bindings
+** Key bindings
 
 #+BEGIN_SRC emacs-lisp
 
@@ -1123,6 +1270,7 @@ Symbol's value as variable is void: org-structure-template-alist
  'org-babel-load-languages
  '((python . t)
    (ipython . t)
+   (ledger . t)
     ))
 
 (setq org-src-fontify-natively t
@@ -1291,7 +1439,7 @@ ad-do-it
 
 #+RESULTS:
 * check out:
-** TODO abo abo in github for:
+** DONE abo abo in github for:
 - [X] lpy 
 - [ ] helm 
 - [ ] hydra
@@ -1299,12 +1447,12 @@ ad-do-it
 *** TODO a different file naming and organization
 *** TODO automatic upload? regular?
 *** TODO understanding it.
-** TODO uncle something, look at his configuration through the emacs overflow question I answered
+** DONE uncle something, look at his configuration through the emacs overflow question I answered
 *** DONE a C-x o alternative
 *** DONE switch window focus patch he used
 ** TODO the chua lady's blog
 ** TODO get the archived and temp files in their own folders
-** mu4e needs configuring
+** DONE mu4e needs configuring
 *** DONE offlineimap and mu, or alternatives.
 offlineimap has offlineimap git in the AUR repository. Have  alook!
 *** TODO better communication with server, so that sent mail will be saved on server too. 
