@@ -7,6 +7,11 @@
 (require 'package)
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -35,7 +40,20 @@
     elpy ;; add the elpy package
     flycheck ;; add the flycheck package
     conda
-    py-autopep8))
+    py-autopep8
+    paredit ;; makes handling lisp expressions much, much easier
+    clojure-mode ;; key bindings and code colorization for Clojure
+    clojure-mode-extra-font-locking  ;; extra syntax highlighting for clojure
+    cider  ;; integration with a Clojure REPL
+    ;;ido-ubiquitous ;;allow ido usage in as many contexts as possible
+    projectile 
+    rainbow-delimiters  ;; colorful parenthesis matching
+    tagedit   ;; edit html tags like sexps
+))
+
+(dolist (p myPackages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 ;; (add-to-list 'load-path "~/.emacs.d")
 ;; (require 'scimax-org-babel-ipython)
@@ -69,6 +87,14 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'zenburn t)
+
+;; Define he following variables to remove the compile-log warnings
+;; when defining ido-ubiquitous
+;; (defvar ido-cur-item nil)
+;; (defvar ido-default-item nil)
+;; (defvar ido-cur-list nil)
+;; (defvar predicate nil)
+;; (defvar inherit-input-method nil)
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
@@ -170,10 +196,32 @@
 
 (require 'ledger-mode)
 
+(require 'ob-latex)
+
+(add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (lispy-mode 1)))
+
+(defun conditionally-enable-lispy ()
+  (when (eq this-command 'eval-expression)
+    (lispy-mode 1)))
+(add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
+
+(setq evil-default-state 'emacs)
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
+(projectile-global-mode)
+
 (load-library "paren")
 (show-paren-mode 1)
 (transient-mark-mode t)
 (require 'paren)
+
+(add-hook 'emacs-lisp-mode-hook (lambda () (rainbow-delimiters-mode 1)))
+(add-hook 'lisp-interaction-mode (lambda() (rainbow-delimiters-mode 1)))
+(add-hook 'clojure-mode (lambda() (rainbow-delimiters-mode 1)))
+;;(global-rainbow-delimiters-mode t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -203,6 +251,23 @@
         '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
   :bind
     ([remap other-window] . switch-window))
+
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+;;(setq aw-background nil) ;to disable the dimming of window for visibility of key char.
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+	(?m aw-swap-window "Swap Windows")
+	(?M aw-move-window "Move Window")
+	(?j aw-switch-buffer-in-window "Select Buffer")
+	(?n aw-flip-window)
+	(?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+	(?c aw-split-window-fair "Split Fair Window")
+	(?v aw-split-window-vert "Split Vert Window")
+	(?b aw-split-window-horz "Split Horz Window")
+	(?o delete-other-windows "Delete Other Windows")
+	(?? aw-show-dispatch-help))
+  "List of actions for `aw-dispatch-default'.")
 
 (defun split-and-follow-horizontally ()
   (interactive)
@@ -287,6 +352,77 @@
 
 (add-to-list 'load-path "~/.emacs.d/lpy/")
 (require 'lpy)
+
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+(add-hook 'clojure-mode-hook 'subword-mode)
+
+(require 'clojure-mode-extra-font-locking)
+
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (setq inferior-lisp-program "lein repl")
+            (font-lock-add-keywords
+             nil
+             '(("(\\(facts?\\)"
+                (1 font-lock-keyword-face))
+               ("(\\(background?\\)"
+                (1 font-lock-keyword-face))))
+            (define-clojure-indent (fact 1))
+            (define-clojure-indent (facts 1))))
+
+;; provides minibuffer documentation for the code you're typing into the repl
+;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
+;; go right to the REPL buffer when it's finished connecting
+(setq cider-repl-pop-to-buffer-on-connect t)
+
+;; When there's a cider error, show its buffer and switch to it
+(setq cider-show-error-buffer t)
+(setq cider-auto-select-error-buffer t)
+
+;; Where to store the cider history.
+(setq cider-repl-history-file "~/.emacs.d/cider-history")
+
+;; Wrap when navigating history.
+(setq cider-repl-wrap-history t)
+
+;; enable paredit in your REPL
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+
+;; Use clojure mode for other extensions
+(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
+
+;; these help me out with the way I usually develop web apps
+(defun cider-start-http-server ()
+  (interactive)
+  (cider-load-current-buffer)
+  (let ((ns (cider-current-ns)))
+    (cider-repl-set-ns ns)
+    (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
+    (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
+
+
+(defun cider-refresh ()
+  (interactive)
+  (cider-interactive-eval (format "(user/reset)")))
+
+(defun cider-user-ns ()
+  (interactive)
+  (cider-repl-set-ns "user"))
+
+(eval-after-load 'cider
+  '(progn
+     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
+     (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
+     (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
+     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+
+(require 'ob-clojure)
+(setq org-babel-clojure-backend 'cider)
 
 (global-set-key (kbd "C-x b") 'ibuffer)
 (setq ibuffer-expert t)
@@ -495,6 +631,7 @@ T - tag prefix
   ("s" ibuffer-do-sort-by-size "size")
   ("f" ibuffer-do-sort-by-filename/process "filename")
   ("m" ibuffer-do-sort-by-major-mode "mode")
+  ("M" ibuffer-set-filter-groups-by-mode "groups-by-mode")
   ("b" hydra-ibuffer-main/body "back" :color blue))
 
 (defhydra hydra-ibuffer-filter (:color amaranth :columns 4)
@@ -605,6 +742,158 @@ _vr_ reset      ^^                       ^^                 ^^
    ("p" origami-previous-fold)
    ("f" origami-forward-toggle-node)
    ("a" origami-toggle-all-nodes)))
+
+;;; Code:
+
+(require 'cider-apropos)
+(require 'cider-client)
+(require 'cider-doc)
+(require 'cider-grimoire)
+(require 'cider-interaction)
+(require 'cider-macroexpansion)
+(require 'cider-mode)
+(require 'cider-repl)
+(require 'cider-test)
+(require 'cider-inspector)
+(require 'hydra)
+
+;;;; Customize
+
+(defgroup cider-hydra nil
+  "Hydras for CIDER."
+  :prefix "cider-hydra-"
+  :group 'cider)
+
+;;;; Documentation
+
+(defhydra cider-hydra-doc (:color blue)
+  "
+CIDER Documentation
+---------------------------------------------------------------------------
+_d_: CiderDoc                           _j_: JavaDoc in browser
+_a_: Search symbols                     _s_: Search symbols & select
+_A_: Search documentation               _e_: Search documentation & select
+_r_: Grimoire                           _h_: Grimoire in browser
+"
+  ;; CiderDoc
+  ("d" cider-doc nil)
+  ;; JavaDoc
+  ("j" cider-javadoc nil)
+  ;; Apropos
+  ("a" cider-apropos nil)
+  ("s" cider-apropos-select nil)
+  ("A" cider-apropos-documentation nil)
+  ("e" cider-apropos-documentation-select nil)
+  ;; Grimoire
+  ("r" cider-grimoire nil)
+  ("h" cider-grimoire-web nil))
+
+
+;;;; Loading and evaluation
+
+(defhydra cider-hydra-eval (:color blue)
+  "
+CIDER Evaluation
+---------------------------------------------------------------------------
+_k_: Load (eval) buffer                 _l_: Load (eval) file
+_p_: Load all project namespaces
+_r_: Eval region                        _n_: Eval ns form
+_e_: Eval last sexp                     _p_: Eval last sexp and pprint
+_w_: Eval last sexp and replace         _E_: Eval last sexp to REPL
+_d_: Eval defun at point                _f_: Eval defun at point and pprint
+_:_: Read and eval                      _i_: Inspect
+_m_: Macroexpand-1                      _M_: Macroexpand all
+"
+  ;; Load
+  ("k" cider-load-buffer nil)
+  ("l" cider-load-file nil)
+  ("p" cider-load-all-project-ns nil)
+  ;; Eval
+  ("r" cider-eval-region nil)
+  ("n" cider-eval-ns-form nil)
+  ("e" cider-eval-last-sexp nil)
+  ("p" cider-pprint-eval-last-sexp nil)
+  ("w" cider-eval-last-sexp-and-replace nil)
+  ("E" cider-eval-last-sexp-to-repl nil)
+  ("d" cider-eval-defun-at-point nil)
+  ("f" cider-pprint-eval-defun-at-point nil)
+  (":" cider-read-and-eval nil)
+  ;; Inspect
+  ("i" cider-inspect nil)
+  ;; Macroexpand
+  ("m" cider-macroexpand-1 nil)
+  ("M" cider-macroexpand-all nil))
+
+;;;; Testing and debugging
+
+(defhydra cider-hydra-test (:color blue)
+  "
+CIDER Debug and Test
+---------------------------------------------------------------------------
+_x_: Eval defun at point
+_v_: Toggle var tracing                 _n_: Toggle ns tracing
+_t_: Run test                           _l_: Run loaded tests
+_p_: Run project tests                  _r_: Rerun tests
+_s_: Show test report
+"
+  ;; Debugging
+  ("x" (lambda () (interactive) (cider-eval-defun-at-point t)) nil)
+  ("v" cider-toggle-trace-var nil)
+  ("n" cider-toggle-trace-ns nil)
+  ;; Testing
+  ("t" cider-test-run-test nil)
+  ("l" cider-test-run-loaded-tests nil)
+  ("r" cider-test-rerun-failed-tests nil)
+  ("p" cider-test-run-project-tests nil)
+  ("s" cider-test-show-report nil))
+
+;;;; REPL
+
+(defhydra cider-hydra-repl (:color blue)
+  "
+CIDER REPL
+---------------------------------------------------------------------------
+_d_: Display connection info            _r_: Rotate default connection
+_z_: Switch to REPL                     _n_: Set REPL ns
+_p_: Insert last sexp in REPL           _x_: Reload namespaces
+_o_: Clear REPL output                  _O_: Clear entire REPL
+_b_: Interrupt pending evaluations      _Q_: Quit CIDER
+"
+  ;; Connection
+  ("d" cider-display-connection-info nil)
+  ("r" cider-rotate-default-connection nil)
+  ;; Input
+  ("z" cider-switch-to-repl-buffer nil)
+  ("n" cider-repl-set-ns nil)
+  ("p" cider-insert-last-sexp-in-repl nil)
+  ("x" cider-refresh nil)
+  ;; Output
+  ("o" cider-find-and-clear-repl-output nil)
+  ("O" (lambda () (interactive) (cider-find-and-clear-repl-output t)) nil)
+  ;; Interrupt/quit
+  ("b" cider-interrupt nil)
+  ("Q" cider-quit nil))
+
+;;;; Key bindings and minor mode
+
+(defvar cider-hydra-map
+  (let ((map (make-sparse-keymap)))
+    (set-keymap-parent map cider-mode-map)
+    (define-key map (kbd "C-c C-d") #'cider-hydra-doc/body)
+    (define-key map (kbd "C-c C-t") #'cider-hydra-test/body)
+    (define-key map (kbd "C-c M-t") #'cider-hydra-test/body)
+    (define-key map (kbd "C-c M-r") #'cider-hydra-repl/body)
+    map)
+  "Keymap for CIDER hydras.")
+
+;;;###autoload
+(define-minor-mode cider-hydra-mode
+  "Hydras for CIDER."
+  :keymap cider-hydra-map
+  :require 'cider)
+
+(provide 'cider-hydra)
+;;; cider-hydra.el ends here
 
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/") ;;mu4e mail
 (require 'mu4e)
@@ -965,6 +1254,8 @@ _vr_ reset      ^^                       ^^                 ^^
  '((python . t)
    (ipython . t)
    (ledger . t)
+   (latex . t)
+   (clojure .t)
     ))
 
 (setq org-src-fontify-natively t
@@ -1007,6 +1298,10 @@ ad-do-it
 (setq org-confirm-babel-evaluate nil)
 
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
+;; Useful keybindings when using Clojure from Org
+(org-defkey org-mode-map "\C-x\C-e" 'cider-eval-last-sexp)
+(org-defkey org-mode-map "\C-c\C-d" 'cider-doc)
 
 ;; add <p for python expansion
 (add-to-list 'org-structure-template-alist
@@ -1087,3 +1382,5 @@ ad-do-it
 (if window-system
     (tool-bar-mode -1)
 )
+
+(setq visible-bell t); Flashes on error
