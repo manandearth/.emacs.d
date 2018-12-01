@@ -1,0 +1,308 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/adam/clojure-projects/web_development_with_clojure/ring-app/" . "resources/")
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/clj/guestbook/" . "db/")
+ ("/home/adam/clojure-projects/web_development_with_clojure/" . "ring-app/")
+ ("/home/adam/clojure-projects/jdbc-tutorials/src/" . "jdbc_tutorials/")
+ ("/home/adam/clojure-projects/jdbc-tutorials/" . "src/")
+ ("/home/adam/clojure-projects/kids-bank/src/" . "kids_bank/")
+ ("/home/adam/clojure-projects/kids-bank/" . "src/")
+ ("/home/adam/clojure-projects/alex_miller/src/" . "alex_miller/")
+ ("/home/adam/clojure-projects/alex_miller/" . "src/")
+ ("/home/adam/clojure-projects/programming_clojure/src/" . "examples/")
+ ("/home/adam/clojure-projects/programming_clojure/" . "src/")
+ ("/home/adam/akvo-lumen/client/src/" . "domain/")
+ ("/home/adam/akvo-lumen/client/" . "src/")
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/transformation/" . "derive/")
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/" . "lib/")
+ ("/home/adam/akvo-lumen/backend/src/akvo/" . "lumen/")
+ ("/home/adam/akvo-lumen/backend/src/" . "akvo/")
+ ("/home/adam/akvo-lumen/backend/" . "src/")
+ ("/home/adam/akvo-lumen/" . "docs/")
+ ("/home/adam/clojure-projects/pegthing-master/src/" . "pegthing/")
+ ("/home/adam/clojure-projects/pegthing-master/" . "src/")
+ ("/home/adam/clojure-projects/clojure_koans/src/" . "clojure_koans/")
+ ("/home/adam/clojure-projects/clojure_koans/" . "src/")
+ ("/home/adam/clojure-projects/clojure-test/src/" . "clojure_test/")
+ ("/home/adam/clojure-projects/clojure-test/" . "src/")
+ ("/home/adam/clojure-projects/" . "web_development_with_clojure/")
+ ("/home/adam/anaconda3/share/jupyter/" . "lab/")
+ ("/home/adam/anaconda3/share/" . "jupyter/")
+ ("/home/adam/anaconda3/pkgs/notebook-5.4.0-py36_0/" . "bin/")
+ ("/home/adam/anaconda3/pkgs/" . "notebook-5.4.0-py36_0/")
+ ("/home/adam/Python_Projects/" . "Python_tricks/")
+ ("/home/adam/anaconda3/" . "bin/")
+ ("/home/adam/Downloads/" . "alvarez/")
+ ("/home/adam/notes/ref/" . "lib/")
+ ("/home/adam/Introduction_To_Computation_And_Programming_Using_Python/" . "on_edX/")
+ ("/home/adam/Introduction_To_Computation_And_Programming_Using_Python/on_edX/" . "ps6/")
+ ("/home/adam/fluent_python/" . "Part_1/")
+ ("/home/adam/notes/" . "ref/")
+ ("/home/adam/Documents/Alvarez/Cadiz_series/" . "spec_sheets/")
+ ("/home/adam/Documents/Alvarez/" . "invoices/")
+ ("/home/adam/Documents/" . "Alvarez/")
+ ("/usr/share/emacs/site-lisp/" . "mu4e/")
+ ("/usr/share/emacs/" . "site-lisp/")
+ ("/usr/share/" . "emacs/")
+ ("/usr/" . "share/")
+ ("/" . "home/")
+ ("/home/adam/.offlineimap/Account-Posteo/" . "LocalStatus/")
+ ("/home/adam/.offlineimap/" . "Account-Posteo/")
+ ("/home/adam/Python_for_data_analysis/" . "4_Numpy_basics/")
+ ("/home/adam/Foundations_For_Analytics_With_Python/" . "chapter_4_data_bases/")
+ ("/home/adam/.emacs.d/elpa/" . "ein-20171107.1314/")
+ ("/home/adam/.emacs.d/" . "gauche-mode-master/")
+ ("/home/" . "adam/")
+ ("/home/adam/" . "Python_Projects/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/adam/clojure-projects/insane-noises/"
+ "/home/adam/clojure-projects/web_development_with_clojure/guestbook/resources/"
+ "/home/adam/notes/"
+ "/home/adam/.emacs.d/"
+ "/home/adam/scimax/"
+ "/home/adam/.emacs.d/elpa/ob-ipython-20180113.929/"
+ "/home/adam/.emacs.d/elpa/"
+ "/home/adam/.emacs.d/elpa/dash-20171028.854/"
+ "/home/adam/notes/images/"
+ "/home/adam/Introduction_To_Computation_And_Programming_Using_Python/on_edX/ps6/"
+ "/home/adam/"
+ "/home/adam/fluent_python/Part_1/"
+ "/home/adam/Introduction_To_Computation_And_Programming_Using_Python/on_edX/"
+ "/home/adam/notes/study/"
+ "/home/adam/Documents/Alvarez/Cadiz_series/"
+ "/home/adam/Stack_overflow_tmp/"
+ "/home/adam/Foundations_For_Analytics_With_Python/"
+ "/home/adam/Python_for_data_analysis/4_Numpy_basics/"
+ "/home/adam/Python_for_data_analysis/3_Data_structures_functions_and_files/"
+ "/usr/share/emacs/site-lisp/mu4e/"
+ "/home/adam/.offlineimap/Account-Posteo/LocalStatus/"
+ "/home/adam/Introduction_To_Computation_And_Programming_Using_Python/"
+ "/home/adam/Python_for_data_analysis/2_basics/"
+ "/home/adam/.emacs.d/elpa/material-theme-20160908.1538/"
+ "/home/adam/.emacs.d/highlight-current-line-0.57/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "register.html"
+ "home.org"
+ "init.org"
+ "packages.el"
+ "pianobar.el"
+ "org-editmarks.el"
+ "org-db.el"
+ "org-mime.el"
+ "bootstrap.el"
+ "scimax-org-babel-ipython.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/adam/clojure-projects/insane-noises/" (23457 59832 630397 542000) "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/Python_Projects/Python_tricks/" (23399 29122 608466 136000) "../" "trick02.py~" ".#trick02.py" "trick01.py" "trick02.py" "./")
+
+ ("/home/adam/Python_Projects/" (23259 24999 370962 113000) "../" "requests/" "Stack_Overflow/" "ML/" "Python_tricks/" "python_for_data_analysis/" "kids_bank/" "visualisation/" "Fluent_Python/" "./")
+
+ ("/home/adam/notes/" (23456 54410 122003 739000) "20180903-18:00:57.png" "how_to_become_a_data_scientist.org~" "jobs_woodwork.org_archive" "../" "alvarez_cadiz_series_2nd_rev.docx" "guitar_making.org" "alvarez_cadiz_series_2nd_rev.odt" "notes.org~" "home.org" "todo.org~" "init_imag_fr.org" "20180903-18:06:10.png" "init_imag_fr.org~" "refile.org" "ledger.org" "ledger.ledger" "babel_test.org~" "20180903-18:04:48.png" "study/" "test.eps" "project_planning.org" "analytics_course.org~" "study.org" "purely_finance.org_archive" "images/" "org-check.org~" "jobs_woodwork.org~" "jobs_woodwork.org" "papers.org" ".gitignore" "home.org_archive" "home.org~" "alvarez_cadiz_series.org" "refile.org~" "study.org~" "home.org_archive~" "diary.org" "guitar_making.org~" ".git/" "journal.org" "20180903-18:05:24.png" "garden.org" "work_alvarez.org" "work_related.org~" "scimax.org~" "purely_finance.org~" "test.png" "ledger.org_archive" "work_alvarez.org~" "org-check.org" "./" "purely_finance.org" "papers.org~" "babel_test.org" "scimax.org" "notes.org" "obipy-resources/" "how_to_become_a_data_scientist.org" "alvarez_cadiz_series.org~" "ref/" "diary.org~" "your_friend_in.org")
+
+ ("/home/adam/" (23454 50505 670441 969000) ".babel.json" ".icons/" ".viminfo" "the_ultimate_dev_setup/" ".lein/" ".bash_logout" "Music/" ".xsession" ".Xclients" "../" ".bashrc-anaconda3.bak" "Emacs_Lisp/" ".authinfo" ".viminfo.tmp" "Data_Visualisation_with_Python_and_JavaScript/" "temp/" "Statistics_Study/" ".offlineimaprc" "accounting.ledger" "+/" ".xsession-errors" "Dropbox/" ".condarc" "foo/" ".xprofile" "Pictures/" ".Xauthority" ".gnupg/" "akvo-lumen/" "leini" ".jupyter/" ".bash_history" "jdk8/" "dockstation/" ".inxi_info" "anaconda/" "test-move-pointer.el" ".urxvt/" ".gitconfig" ".lesshst" ".python_history" "Templates/" ".extend.bashrc" "drewr3.dat" ".mozilla/" ".m2/" "nutshell/" ".offlineimap/" "Public/" "anaconda3/" ".gimp-2.8/" ".anaconda/" "docker_test/" ".viminfz.tmp" ".dropbox-dist/" ".xsession-errors.old" "in/" ".swp" ".dropbox/" ".ed_history" "latex-wrapfig/" ".npmrce" "temp_mem_com.txt" ".thumbnails/" "touchpad/" "Spoon-Knife/" "Downloads/" "yaourt/" ".offlineimaprc~" ".gtkrc-2.0" "Documents/" ".dmenurc" ".emacs.d/" "notebooks/" ".gftp/" "Maildir/" ".env" "lein-gorilla/" ".bashrc" ".v8flags.6.2.414.46-node.23.1d7c2923c1684726dc23d2901c4d8157.json" ".mu/" "Videos/" ".pki/" ".local/" "dropbox/" ".v8flags.6.7.288.46-node.8.1d7c2923c1684726dc23d2901c4d8157.json" ".npmrc" "leiningen/" ".cache/" ".moc/" ".profile" "statistics_in_a_nutshell.org" "linux_akvo_lumen.org" ".ipython/" "clojure-projects/" ".moonchild productions/" "skypeforlinux-stable-bin/" "notes/" ".extend.Xresources" ".running_kernel" ".Xresources" ".wget-hsts" "Desktop/" "./" ".conda/" ".node-gyp/" ".ff-theme-util_1strun" ".esd_auth" ".xinitrc" ".vim/" "postgresql/" "tmp/" ".i3/" ".dir_colors" "Python_Projects/" ".bash_profile" ".config/" ".npm/" ".extend.xinitrc" ".node_repl_history")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/resources/" (23454 40720 818442 909000) "docs/" "public/" "../" "sql/" "migrations/" "./" "templates/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/" (23454 50614 983377 610000) ".lein-repl-history" ".nrepl-port" "target/" ".lein-failures" "../" "luminus_architecture.org" "guestbook_test.db.mv.db" "Procfile" "guestbook_dev.db.mv.db" "profiles.clj" "test/" ".gitignore" "env/" "guestbook_dev.db.trace.db" ".#luminus_architecture.org" "README.org" "project.clj" "document.org" "src/" "./" "resources/" "log/" ".lein-env")
+
+ ("/home/adam/.emacs.d/" (23454 50448 693966 797000) "elpa/" "projectile-bookmarks.eld" "highlight-current-line-0.57/" "autosaves/" "../" "bookmarks" "snippets/" "ido.last" "auto-save-list/" "network-security.data" "company-mode/" "init.org" "gauche-mode-master/" "scimax-org-babel-ipython.el" "o.py" "init.org~" ".gitignore" ".org-id-locations" "themes/" "url/" "smex-items" "init.el" ".git/" ".sx/" "request/" "recentf" "transpose-frame.el" "anaconda-mode/" "src/" "init.el~" "eww-bookmarks" "ac-comphist.dat" "lpy/" "./" "cider-history" "ido.last~" "backups/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/resources/templates/" (23454 40691 848473 841000) "../" "register.html" "error.html" "home.html" "./" "about.html" ".#home.html" "base.html")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/html-templating/" (23453 16852 550726 981000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/html-templating/resources/" (23454 35862 25941 777000) "../" "register.html" "error.html" "hello.html" "./" "base.html")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/ring-app/" (23453 17847 177758 9000) ".lein-repl-history" ".nrepl-port" "target/" "../" "dev-resources/" "LICENSE" "test/" ".gitignore" "documentation.org" ".hgignore" ".#documentation.org" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/html-templating/src/html_templating/" (23453 16144 39473 497000) "../" ".#core.clj" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/ring-app/resources/" (23453 15624 257416 455000) "../" "register.html" "error.html" "hello.html" "./" "base.html")
+
+ ("/home/adam/.emacs.d/highlight-current-line-0.57/" (23242 22375 196138 662000) "../" "highlight-current-line.el" "./")
+
+ ("/home/adam/.emacs.d/elpa/material-theme-20160908.1538/" (23242 22375 159472 205000) "../" "material-light-theme.el" "material-theme.elc" "material-theme-autoloads.el" "./" "material-light-theme.elc" "material-theme.el" "material-theme-pkg.el")
+
+ ("/home/adam/notes/study/" (23242 23765 698260 883000) "../" "presidents_height.csv" "./" "formula.csv")
+
+ ("/home/adam/notes/images/" (23242 23765 604928 56000) "../" "figure_1-1.png" "test.svg" "Wiki_slope_in_2d.svg.png" "test.svg~" "test.png" "./")
+
+ ("/home/adam/.emacs.d/elpa/dash-20171028.854/" (23242 22375 116139 120000) "../" "dash-pkg.el" "dash.el" "dash.elc" "./" "dash-autoloads.el")
+
+ ("/home/adam/.emacs.d/elpa/" (23449 7771 561665 373000) "f-20171107.1248/" "exec-path-from-shell-20170508.4/" "find-file-in-project-20171115.316/" "frameshot-20180723.2128/" "magit-20180410.651/" "flycheck-20171109.216/" "counsel-20180113.711/" "anaconda-mode-20170924.704/" "gntp-20141024.1950/" "hydra-20180226.1116/" "xref-js2-20170530.126/" "multiple-cursors-20180406.1350/" "yasnippet-20170923.1646/" "monokai-theme-20171013.236/" "key-chord-20160227.438/" "pyvenv-20171005.1106/" "4clojure-20131014.1507/" "0blayout-readme.txt" "request-20170131.1747/" "heap-readme.txt" "autopair-20160304.437/" "let-alist-1.0.5/" "goto-chg-20180105.1033/" "beacon-20171017.1540/" "conda-20171109.903/" "log4e-20170401.604/" "forecast-20180106.920/" "spinner-1.7.3/" "epl-20150517.433/" "origami-readme.txt" "define-word-20180327.1935/" "counsel-readme.txt" "org-9.1.9.signed" "4clojure-readme.txt" "zenburn-theme.el" "seq-2.20/" "ein-20171107.1314/" "exec-path-from-shell-readme.txt" "spinner-1.7.3.signed" "transpose-frame-20151126.626/" "use-package-20171121.1430/" "gnupg/" "py-autopep8-20160925.352/" "zenburn-theme-readme.txt" "with-editor-20180318.1253/" "function-args-20171031.1004/" "define-word-readme.txt" "undo-tree-0.6.5/" "ivy-20180112.958/" "ghub-20180409.1314/" "move-text-readme.txt" "js2-refactor-20180410.201/" "simple-httpd-20171004.938/" "js2-mode-20171107.333/" "tern-20170925.1333/" "function-args-readme.txt" "cider-readme.txt" "ob-ipython-20180113.929/" "ivy-readme.txt" "async-20180103.2312/" "evil-20180517.1300/" "sesman-20180903.1826/" "deferred-20170901.630/" "company-anaconda-20160809.705/" "pdf-tools-readme.txt" "forecast-readme.txt" "smex-20151212.1409/" "tablist-20170219.1935/" "skewer-mode-20170730.1241/" "queue-0.2.signed" "org-ref-readme.txt" "elpy-20171110.657/" "company-tern-20161004.1147/" "powerline-20180321.1948/" "zenburn-theme-20180911.1244/" "dash-20171028.854/" "smooth-scrolling-20161002.1249/" "helm-bibtex-readme.txt" "ace-window-20180123.1111/" "auto-complete-20170124.1845/" "lispy-20180405.1200/" "sx-readme.txt" "tagedit-20161121.55/" "pdf-tools-20180428.827/" "openwith-readme.txt" "sx-20180606.736/" "cider-20180903.2111/" "rainbow-delimiters-20170929.432/" "pdf-tools-20180109.1234/" "mu4e-alert-20170901.1027/" "golden-ratio-20150819.420/" "seq-2.20.signed" "better-defaults-20170613.2104/" "swiper-20180112.1001/" "solarized-theme-20171114.1506/" "helm-20180114.2330/" "markdown-mode-readme.txt" "org-9.1.9/" "emacsql-psql-readme.txt" "popup-20160709.729/" "request-deferred-20160419.1605/" "biblio-20161014.1604/" "ht-20171112.1405/" "avy-20180322.1333/" "ivy-bibtex-readme.txt" "evil-readme.txt" "solarized-theme-20180808.539/" "ivy-20171113.1024/" "s-20171102.227/" "dash-functional-20180107.818/" "bind-key-20161218.1520/" "pythonic-20160221.1123/" "helm-bibtex-20180110.1209/" "parsebib-20180111.20/" "switch-window-20180222.1731/" "diminish-20170419.1036/" "material-theme-20160908.1538/" "ivy-hydra-readme.txt" "lispy-readme.txt" "hydra-20171120.1042/" "which-key-20180321.331/" "move-text-20170908.2030/" "queue-0.2/" "websocket-20171113.2045/" "leuven-theme-20170919.252/" "openwith-20120531.1436/" "spaceline-20180330.1332/" "company-20171017.1638/" "biblio-core-20160901.1115/" "frameshot-readme.txt" "projectile-20180324.2226/" "cider-20180430.444/" "ivy-bibtex-20180110.1209/" "archives/" "ivy-hydra-20180208.912/" "indium-20180410.457/" "undo-tree-0.6.5.signed" "alert-20171024.1907/" "hydra-readme.txt" "iedit-20180207.219/" "markdown-mode-20180619.1015/" "beacon-readme.txt" "magit-readme.txt" "ob-ipython-readme.txt" "origami-20180101.753/" "let-alist-1.0.5.signed" "paredit-20171126.1805/" "clojure-mode-readme.txt" "clojure-mode-extra-font-locking-20180114.911/" "interleave-20171003.2324/" "clojure-mode-20180429.540/" "leuven-theme-readme.txt" "pkg-info-20150517.443/" "ledger-mode-readme.txt" "highlight-indentation-20170502.43/" "ledger-mode-20180414.802/" "git-commit-20180405.1137/" "zoutline-20180314.1059/" "magit-popup-20180329.1302/" "helm-core-20180113.40/" "erc-5.3/" "swiper-readme.txt" "../" "./")
+
+ ("/home/adam/.emacs.d/elpa/ob-ipython-20180113.929/" (23242 22375 159472 205000) "../" "ob-ipython-pkg.el" "ob-ipython-autoloads.el" "ob-ipython.elc" "ob-ipython.el" "ob-ipython.el~" "./" "client.py")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/ring-app/src/ring_app/" (23453 15679 600620 464000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/" (23449 30883 434762 613000) "temp.clj" "picture-gallery-war/" "../" "swagger-service/" "picture-gallery-b/" "guestbook/" "picture-gallery-tests/" "picture-gallery-f/" "picture-gallery-e/" "guestbook-sente/" "reporting-example/" "oauth-example/" "picture-gallery-colors/" "liberator-service/" "ring-app/" "guestbook-cljs/" "picture-gallery-a/" "guestbook-websockets/" "./" "compojure-template/" "db-examples/" "html-templating/" "liberator-snippets/" "picture-gallery-d/" "my-template/" "guestbook-validation/" "picture-gallery-c/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/ring-app/src/" (23447 33037 700079 434000) "../" "./" "ring_app/")
+
+ ("/home/adam/.i3/" (23449 20198 270263 211000) "../" "config" "./")
+
+ ("/home/adam/.m2/repository/compojure/compojure/1.5.0/" (23442 60076 893630 914000) "../" "_remote.repositories" "compojure-1.5.0.pom" "compojure-1.5.0.jar" "./" "compojure-1.5.0.jar.sha1" "compojure-1.5.0.pom.sha1")
+
+ ("/home/adam/clojure-projects/" (23447 33100 936602 899000) "fwpd/" "clojure-study/" "duct_test/" "../" "serpent-talk/" "jdbc-tutorials/" "hello/" "pegthing-master/" "my-blog/" "alex_miller/" "cljapplied/" "hello-world/" "the-divine-cheese-code/" "cheshire-cat/" "clojure_applied/" "polymorphism/" "kids-bank/" "clojure_koans/" "web_development_with_clojure/" "./" "async-tea-party/" "clojure-test/" "programming_clojure/" "wonderland/" "clojure-noob/" "gorilla_test/" "ring-tutorial/")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/" (23447 33037 730079 366000) "../" "clj/" "./")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/clj/" (22414 9348 0 0) "../" "guestbook/" "./")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/clj/guestbook/routes/" (23448 8006 405874 694000) "../" ".#home.clj" "./" "home.clj")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/clj/guestbook/db/" (23447 33037 730079 366000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/web_development_with_clojure/guestbook/src/clj/guestbook/" (23447 51492 370134 543000) "../" ".#core.clj" "config.clj" "db/" "handler.clj" "core.clj" "./" "routes/" "layout.clj" "middleware.clj")
+
+ ("/home/adam/clojure-projects/clojure_applied/" (21990 63 0 0) "cards/" "../" "transforming-entities/" "shopping-family.clj" "cljapplied/" "social/" "shopping-single-person.clj" "shopping/" "./" "shipping/" "catalog-import/")
+
+ ("/home/adam/clojure-projects/clojure_applied/cljapplied/" (23444 17780 787263 843000) ".nrepl-port" "target/" "../" "LICENSE" ".gitignore" "project.clj" "src/" "./")
+
+ ("/home/adam/clojure-projects/clojure_applied/cljapplied/src/" (21990 63 0 0) "../" "ch3/" "ch6/" "preface.clj" "ch9/" "ch8/" "ch1/" "ch2/" "date_fmt/" "./" "ch5/")
+
+ ("/home/adam/clojure-projects/clojure_applied/cljapplied/src/ch1/" (23444 49671 18002 611000) "image.clj" "modeling.clj" "validate.clj" "../" "convert.clj" "protocols.clj" "apollo.clj" "money.clj" "recipe.clj" "./" "multimethods.clj" ".#modeling.clj")
+
+ ("/home/adam/akvo-lumen/docs/" (23361 48885 531556 92000) "org.akvo.lumen.lib.job-execution-impl.html" "org.akvo.lumen.lib.flow-impl.html" "dev.html" "org.akvo.lumen.endpoint.transformation.html" "org.akvo.lumen.import.common.html" "../" "org.akvo.lumen.lib.public-impl.html" "org.akvo.lumen.transformation.html" "org.akvo.lumen.lib.public.html" "index.html" "intro.html" "user.html" "org.akvo.lumen.util.html" "org.akvo.lumen.endpoint.share.html" "org.akvo.lumen.endpoint.visualisation.html" "org.akvo.lumen.transformation.engine.html" "org.akvo.lumen.endpoint.library.html" "org.akvo.lumen.lib.visualisation-impl.html" "org.akvo.lumen.endpoint.dashboard.html" "org.akvo.lumen.lib.job-execution.html" "org.akvo.lumen.lib.visualisation.html" "org.akvo.lumen.lib.flow.html" "org.akvo.lumen.lib.dashboard-impl.html" "org.akvo.lumen.main.html" "org.akvo.lumen.component.http.html" "org.akvo.lumen.lib.dataset-impl.html" "org.akvo.lumen.lib.dataset.html" "org.akvo.lumen.lib.share-impl.html" "org.akvo.lumen.endpoint.public.html" "org.akvo.lumen.import.flow.html" "org.akvo.lumen.endpoint.dataset.html" "org.akvo.lumen.config.html" "org.akvo.lumen.component.tenant-manager.html" "org.akvo.lumen.endpoint.files.html" "org.akvo.lumen.lib.share.html" "org.akvo.lumen.migrate.html" "org.akvo.lumen.lib.dashboard.html" "org.akvo.lumen.endpoint.job-execution.html" "org.akvo.lumen.import.html" "./" "org.akvo.lumen.import.csv.html" "org.akvo.lumen.endpoint.flow.html" "js/" "org.akvo.lumen.auth.html" "css/" "org.akvo.lumen.endpoint.root.html")
+
+ ("/home/adam/skypeforlinux-stable-bin/" (23271 25327 568912 893000) "../" ".SRCINFO" "Makefile" ".gitignore" ".git/" "PKGBUILD" "./" "skypeforlinux-stable-bin-8.20.0.9-1-x86_64.pkg.tar.xz" "skypeforlinux_8.20.0.9_amd64.deb")
+
+ ("/home/adam/akvo-lumen/doc/" (23355 32287 851326 120000) "../" "arch/" "spec/" "./" "integration/" "mockups/")
+
+ ("/home/adam/akvo-lumen/" (23395 30099 786240 958000) "docs/" "README.dev.md" "../" "windshaft/" ".travis.yml" "backend/" "LICENSE" "client/" ".gitignore" ".env" ".git/" "setup-env.sh" "docker-compose.yml" "doc/" "RELEASE_NOTES.md" "postgres/" "linux_akvo_lumen.org" "ci/" ".github/" "./" "keycloak/" "docker-compose.ci.yml" "docker-compose.override.yml" "README.md")
+
+ ("/home/adam/clojure-projects/alex_miller/src/alex_miller/" (23434 49688 740035 279000) "../" ".#protocols.clj" "protocols.clj" "core.clj" "./" "introduction.clj")
+
+ ("/home/adam/akvo-lumen/backend/dev/resources/" (23355 32287 677993 31000) "../" "dev.edn" "./" "seed.edn")
+
+ ("/home/adam/clojure-projects/jdbc-tutorials/src/jdbc_tutorials/" (23378 25134 596211 761000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/jdbc-tutorials/src/" (23376 56431 665245 585000) "../" "jdbc_tutorials/" "./")
+
+ ("/home/adam/clojure-projects/jdbc-tutorials/" (23378 4432 492575 904000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/jdbc_test/" (23376 54120 633792 129000) "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/kids-bank/src/kids_bank/" (23368 61858 871923 933000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/kids-bank/src/" (23297 44969 565802 808000) "../" "kids_bank/" "./")
+
+ ("/home/adam/clojure-projects/kids-bank/" (23367 22824 459830 948000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/alex_miller/src/" (23369 4314 46515 19000) "../" "alex_miller/" "./")
+
+ ("/home/adam/clojure-projects/alex_miller/" (23369 4142 346979 818000) "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/programming_clojure/src/examples/" (23368 64510 559937 573000) "cryptovault.clj" "test.clj" "index_of_any.clj" "cryptovault_complete.clj" "macros/" "../" "utils.clj" "preface.clj" "tasklist.clj" "lazy_index_of_any.clj" "sequences.clj" "import_static.clj" "pi.clj" "wallingford.clj" "memoized_male_female.clj" "concurrency.clj" "macros.clj" "error_kit.clj" "multimethods/" "life_without_multi.clj" "protocols.clj" "snake.clj" "trampoline.clj" "eager.clj" "io.clj" "male_female_seq.clj" "exploring.clj" "generator.clj" "male_female.clj" "primes.clj" "chat.clj" "gulp.clj" "interop.clj" "replace_symbol.clj" "./" "expectorate.clj" "spec.clj" "atom_snake.clj" "functional.clj" "midi.clj" "multimethods.clj" "introduction.clj")
+
+ ("/home/adam/clojure-projects/programming_clojure/src/" (23180 42583 0 0) "../" "./" "reader/" "examples/")
+
+ ("/home/adam/clojure-projects/programming_clojure/" (23180 42583 0 0) "hangman/" "public/" "../" "test/" "output/" "data/" "src/" "deps.edn" "./")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/lib/" (23355 32287 681326 360000) "public.sql" "dataset.clj" "resource.sql" "user.clj" "user_impl.clj" "../" "raster_impl.clj" "tier_impl.clj" "public_impl.clj" "aggregation.clj" "raster.clj" "raster.sql" "job_execution_impl.clj" "public.clj" "aes.clj" "collection_impl.clj" "visualisation.sql" "visualisation.clj" "visualisation_impl.clj" "tier.clj" "job_execution.clj" "dataset_impl.clj" "resource_impl.clj" "user.sql" "visualisation/" "dashboard_impl.clj" "share_impl.clj" "dashboard.clj" "aggregation/" "resource.clj" "dashboard.sql" "./" "share.sql" "share.clj" "dataset.sql" "collection.sql" "collection.clj")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/admin/" (23355 32287 677993 31000) "stats/" "../" "new_plan.clj" "remove_tenant.clj" "tear_down.clj" "bootstrap.clj" "util.clj" "./" "add_tenant.clj")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/" (23363 46429 360366 656000) "auth.clj" "component/" "main.clj" "variant.clj" "../" "script/" "import/" "endpoint/" "import.clj" "config.clj" "endpoint.clj" "job-execution.sql" "admin/" "transformation/" "migrate.sql" "transformation.clj" "migrate.clj" "lib/" "lib.clj" "util.clj" "postgres/" "postgres.clj" "./" "boundary/" "transformation.sql" "http.clj" "update.clj")
+
+ ("/home/adam/akvo-lumen/ci/" (23355 32287 837992 805000) "gcloud-service-account.json.enc" "../" "live-color.sh" "k8s/" "deploy.sh" "helpers/" "e2e-test.sh" "flip-blue-green-deployment.sh" "build.sh" "set-live-deployment.sh" "./")
+
+ ("/home/adam/akvo-lumen/client/src/domain/" (23355 32287 847992 790000) "../" "entity.js" "./" "dataset.js")
+
+ ("/home/adam/akvo-lumen/client/src/" (23355 32287 851326 120000) "store/" "reducers/" "../" "actions/" "index-pub.ejs" "styles/" "api.js" "containers/" "index-pub.jsx" "components/" "translations/" "vendor/" "index.ejs" "index.jsx" "utilities/" "polyfill/" "webpack-public-path.js" "constants/" "./" "domain/" "auth.js")
+
+ ("/home/adam/akvo-lumen/client/" (23359 57705 90959 653000) "default.conf" "install-and-start.sh" "ci-build.sh" "../" "webpack.config.dev.js" ".eslintignore" "Dockerfile" "postcss.config.js" "package-lock.json" ".babelrc" ".eslintrc" "test/" ".gitignore" "e2e-test/" "webpack.config.prod.js" "vendor/" "run-as-user.sh" "node_modules/" "package.json" "favicon.ico" "src/" "./" ".dockerignore" "tools/" ".storybook/" "Dockerfile-dev" "README.md")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/postgres/" (23355 32287 681326 360000) "../" "filter.clj" "./")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/component/" (23355 32287 677993 31000) "../" "keycloak.clj" "tenant_manager.sql" "tenant_manager.clj" "emailer.clj" "keycloak.sql" "error_tracker.clj" "./" "http.clj")
+
+ ("/home/adam/akvo-lumen/backend/" (23362 33468 420028 656000) ".nrepl-port" "profiles.clj.template" "target/" "maybe-import-and-java-jar.sh" "wait-for-dependencies.sh" "../" "Dockerfile" "eastwood_cfg.clj" ".dir-locals.el" "import-and-run.sh" "test/" ".gitignore" "dev/" "run-as-user.sh" "project.clj" "src/" "./" "dev_helpers/" ".dockerignore" "resources/" "Dockerfile-dev" "README.md" ".lein-env")
+
+ ("/home/adam/Downloads/" (23361 57747 266864 57000) "manjaro-gnome-17.1.10-stable-x86_64.iso.sha1" "VID-20180621-WA0007.mp4" "Caching-searches-using-biblio-and-only-seeing-new-results.org" "../" "index.html" "my_face.jpeg" "akvo-lumen-develop.zip" "manjaro-gnome-17.1.10-stable-x86_64.iso" "emacs-for-clojure-book1/" "index (1).htm" "glass-hit.ogg" "cider-refcard.pdf" ".ipynb_checkpoints/" "gauche-mode-master.zip" "manjaro-gnome-17.1.10-stable-x86_64.iso.sig" "pegthing-master.zip" "emacs-for-clojure-book1.zip" "bookmarks.html" "elementsofclojure-sample.pdf" "evil.pdf" "justificante_alquiler_Julio.pdf" "WorldCupMatches.csv" "decoration.html" "web.config.txt" "ecoVeritas-Application-Form-Data-Analyst-or-Consultant-2017-1.docx" "./" "Untitled.ipynb" "index.htm" "Guest Cabin worksheet.xlsx" "ufo-air-quality.zip")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/import/" (23360 55933 926273 620000) "../" "common.clj" "flow_v3.clj" "flow_common.clj" "./" "flow.clj" "flow_v2.clj" "csv.clj")
+
+ ("/usr/share/emacs/site-lisp/mu4e/" (23359 55245 126229 505000) "org-old-mu4e.el" "mu4e-contrib.el" "mu4e-utils.elc" "../" "mu4e-actions.el" "mu4e-view.el" "mu4e-actions.elc" "mu4e-proc.el" "mu4e-draft.el" "mu4e-contrib.elc" "mu4e-compose.elc" "mu4e-mark.el" "mu4e-speedbar.el" "mu4e-vars.elc" "mu4e-main.elc" "mu4e-meta.elc" "mu4e.elc" "mu4e-lists.el" "mu4e-view.elc" "mu4e-main.el" "mu4e-lists.elc" "org-mu4e.elc" "mu4e-vars.el" "org-old-mu4e.elc" "mu4e-proc.elc" "mu4e-speedbar.elc" "mu4e-context.elc" "mu4e-message.el" "mu4e.el" "org-mu4e.el" "mu4e-compose.el" "mu4e-context.el" "./" "mu4e-draft.elc" "mu4e-meta.el" "mu4e-utils.el" "mu4e-headers.elc" "mu4e-headers.el" "mu4e-message.elc" "mu4e-mark.elc")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/" (23355 32287 677993 31000) "lumen/" "../" "./")
+
+ ("/home/adam/akvo-lumen/backend/src/" (23355 32287 677993 31000) "akvo/" "../" "./")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/boundary/" (23351 51889 548207 785000) "../" "error_tracker.clj" "./")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/transformation/derive/" (23351 51889 548207 785000) "../" "./" "js_engine.clj")
+
+ ("/home/adam/akvo-lumen/backend/src/akvo/lumen/transformation/" (23351 51889 548207 785000) "geo.sql" "../" "derive.sql" "filter_column.sql" "sort_column.clj" "reverse_geocode.sql" "combine.sql" "combine.clj" "sort_column.sql" "rename_column.clj" "change_datatype.clj" "geo.clj" "derive/" "engine.clj" "reverse_geocode.clj" "text.clj" "merge_datasets.clj" "./" "derive.clj" "change_datatype.sql" "filter_column.clj" "engine.sql" "text.sql" "delete_column.clj")
+
+ ("/home/adam/clojure-projects/pegthing-master/src/pegthing/" (22112 30407 0 0) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/pegthing-master/src/" (22112 30407 0 0) "../" "pegthing/" "./")
+
+ ("/home/adam/clojure-projects/pegthing-master/" (23350 16287 632799 436000) "target/" "../" "LICENSE" "test/" ".gitignore" "doc/" "project.clj" "src/" "./" "README.md")
+
+ ("/home/adam/clojure-projects/fwpd/" (23347 11009 909533 320000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "more_suspects.csv" "doc/" "suspects.csv" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/fwpd/src/" (23346 29498 345083 641000) "fwpd/" "../" "./")
+
+ ("/home/adam/clojure-projects/fwpd/src/fwpd/" (23350 17998 669142 966000) "../" "core.clj" "./")
+
+ ("/home/adam/the_ultimate_dev_setup/" (23336 9019 674358 814000) "../" "my_code.clj" "words.txt" "deps.edn" "./")
+
+ ("/home/adam/.emacs.d/gauche-mode-master/" (23328 57598 26703 362000) "../" ".travis.yml" "gauche-mode.el" "gauche-keywords.el" "example.scm" "Makefile" "test/" ".gitignore" "gauche-paredit.el" "ac-gauche.el" "./" "tools/" "Cask" "README.md")
+
+ ("/home/adam/tmp/" (23325 16584 553797 646000) "../" "zenburn-theme.el" ".#scratch.el" ".emacs.d/" "./")
+
+ ("/home/adam/notes/ref/lib/" (23318 59710 360447 711000) "thinkstats.pdf" "../" "Clojure_for_Finance_PACKT_2016.pdf" "progit.pdf" "PP.Clojure.for.Machine.Learning.2014.4.pdf" "Programming.Clojure.2nd.edition.pdf" "functional-programming-python.pdf" "Living_Clojure.pdf" "Manning.Clojure.in.Action.2nd.Edition.1617291528.pdf" "Paradigms-of-Artificial-Intelligence-Programming.pdf" "thinkpython2.pdf" "The_Little_Schemer_4th_2.pdf" "Land.of.Lisp.pdf" "PP.Mastering.Clojure.Data.Analysis.2014.5.pdf" "Pragmatic.Clojure.Applied.From.Practice.to.Practitioner.1680500740.pdf" "thinkbayes.pdf" "Mastering_Clojure_PACKT.pdf" "Clojure_Data_Structure_and_Alogrithms_Cookbook_PACKT.pdf" "Clojure_for_the_Brave_and_True.pdf" "The_Joy_Of_Clojure_2nd_Edition.pdf" "practical_clojure.pdf" "Clojure_Reactive_Programming_PACKT_2015.pdf" "./" "Clojure_High_Performence_Programming_PACKT_2015.pdf" "Learning_ClojureScript.pdf" "Clojure_for_Data_Science_PACKT_2015.pdf" "Professional_Clojure.pdf" "TLCL-17.10.pdf")
+
+ ("/home/adam/clojure-projects/polymorphism/src/polymorphism/" (23315 33155 22831 477000) "../" ".#core.clj" "core.clj" "./")
+
+ ("/home/adam/notebooks/" (23248 47144 917560 316000) "Python_tricks.ipynb" "../" "doc_features.ipynb" "Untitled1.ipynb" ".ipynb_checkpoints/" ".git/" "REDME.md" "./" "Untitled.ipynb")
+
+ ("/home/adam/clojure-projects/clojure_koans/src/clojure_koans/" (23306 54276 525446 837000) "../" ".#core.clj" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/clojure_koans/src/" (23294 25949 282049 61000) "../" "clojure_koans/" "./")
+
+ ("/home/adam/clojure-projects/clojure_koans/" (23294 26067 11790 431000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/clojure-test/src/clojure_test/" (23282 2241 150485 779000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/clojure-test/src/" (23281 27379 72977 961000) "../" "clojure_test/" "./")
+
+ ("/home/adam/clojure-projects/clojure-test/" (23281 27579 617036 557000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/clojure-study/" (23303 64505 330830 55000) "../" "./" "clojure_01.org")
+
+ ("/home/adam/clojure-projects/kids-bank/resources/" (23298 18170 976417 853000) "../" "noah-account.csv" "./")
+
+ ("/dev/" (23272 1126 659556 629000) "vga_arbiter" "mem" "null" "port" "zero" "full" "random" "urandom" "kmsg" "tty" "console" "tty0" "vcs" "vcsa" "vcs1" "vcsa1" "tty1" "tty2" "tty3" "tty4" "tty5" "tty6" "tty7" "tty8" "tty9" "tty10" "tty11" "tty12" "tty13" "tty14" "tty15" "tty16" "tty17" "tty18" "tty19" "tty20" "tty21" "tty22" "tty23" "tty24" "tty25" "tty26" "tty27" "tty28" "tty29" "tty30" "tty31" "tty32" "tty33" "tty34" "tty35" "tty36" "tty37" "tty38" "tty39" "tty40" "tty41" "tty42" "tty43" "tty44" "tty45" "tty46" "tty47" "tty48" "tty49" "tty50" "tty51" "tty52" "tty53" "tty54" "tty55" "tty56" "tty57" "tty58" "tty59" "tty60" "tty61" "tty62" "tty63" "snapshot" "autofs" "ptmx" "ttyS0" "ttyS1" "ttyS2" "ttyS3" "hpet" "rtc0" "mcelog" "cpu/" "cpu_dma_latency" "network_latency" "network_throughput" "memory_bandwidth" "core" "fd/" "stdin" "stdout" "stderr" "char/" "rtc" "bus/" "bsg/" "sda" "sda1" "sda2" "block/" "disk/" "shm/" "pts/" "log" "mqueue/" "hugepages/" "initctl" "fuse" "cuse" "btrfs-control" "loop-control" "net/" "ppp" "uinput" "mapper/" "vfio/" "vhci" "uhid" "vhost-net" "snd/" "rfkill" "nvram" "tpm0" "input/" "ptp0" "video0" "media0" "mei0" "v4l/" "vcs2" "vcsa2" "vcs3" "vcsa3" "vcs4" "vcsa4" "vcs5" "vcsa5" "vcs6" "vcsa6" "dri/" "drm_dp_aux0" "drm_dp_aux1" "drm_dp_aux2" "watchdog" "watchdog0" "fb0" "psaux" "vcs7" "vcsa7" "ttyACM0" "ttyACM1" "cdc-wdm0" "cdc-wdm1" "cdc-wdm2" "ttyACM2" "serial/" "../" "./")
+
+ ("/usr/" (23272 32791 242605 337000) "../" "local/" "lib64/" "lib/" "lib32/" "bin/" "src/" "etc/" "sbin/" "./" "include/" "share/")
+
+ ("/usr/share/" (23271 25327 618912 614000) "dnsmasq/" "zenity/" "guile/" "omf/" "lightdm-gtk-greeter-settings/" "gettext/" "ffmpeg/" "pcmanfm/" "gstreamer-1.0/" "git/" "fzf/" "dhcpcd/" "git-gui/" "pygobject/" "GConf/" "ImageMagick-7/" "aclocal-1.15/" "../" "gapi-2.0/" "xapian-core/" "xfburn/" "kbd/" "sounds/" "texmf-dist/" "gtksourceview-2.0/" "avahi/" "polkit-1/" "gnome-vpn-properties/" "conky/" "libfm/" "appdata/" "color/" "glade/" "classes/" "xcb/" "tlpkg/" "gksu/" "thumbnailers/" "help/" "gnupg/" "gcc-7.3.1/" "pacman-mirrors/" "hwinfo/" "mime/" "libthai/" "lshw/" "os-prober/" "awk/" "qt5ct/" "gtk-2.0/" "application-registry/" "redland/" "sip/" "texinfo/" "systemtap/" "keyutils/" "libdrm/" "gutenprint/" "i18n/" "installed-tests/" "libgpg-error/" "grub/" "pkgconfig/" "gtksourceview-3.0/" "java/" "factory/" "snmp/" "app-info/" "iana-etc/" "xgreeters/" "autoconf/" "iso-codes/" "dbus-1/" "hspell/" "sbxkb/" "mesa-demos/" "gir-1.0/" "makepkg/" "desktop-directories/" "poppler/" "openvpn/" "liblangtag/" "icons/" "ecryptfs-utils/" "libalpm/" "bash-completion/" "pacman/" "tlp/" "foomatic/" "git-core/" "offlineimap/" "themes/" "X11/" "info/" "ufw/" "ImageMagick-6/" "volumeicon/" "colord/" "ibus/" "groff/" "system-config-printer/" "dict/" "vala/" "bison/" "lxinput/" "fonts/" "glib-2.0/" "applications/" "wayland/" "mobile-broadband-provider-info/" "ntp/" "plank/" "cracklib/" "gtk-3.0/" "perl5/" "libgksu/" "hwdata/" "viewnior/" "automake-1.15/" "t1lib/" "openal/" "graphite2/" "glvnd/" "gitk/" "gnome/" "xfce4/" "ca-certificates/" "vulkan/" "slsh/" "m17n/" "gst-plugins-bad/" "hplip/" "emacs/" "icu/" "dhclient/" "gitweb/" "ghostscript/" "nano/" "doc/" "idl/" "mkinitcpio/" "w3m/" "pygtk/" "licenses/" "readline/" "Thunar/" "defaults/" "fish/" "cmake/" "xsessions/" "misc/" "et/" "aclocal/" "syslog-ng/" "gdb/" "gst-plugins-base/" "libwacom/" "zoneinfo/" "libexttextcat/" "man/" "gvfs/" "file/" "libgphoto2_port/" "gimp/" "tabset/" "wayland-protocols/" "backgrounds/" "gtk-doc/" "morc_menu/" "lxappearance/" "common-lisp/" "dmenu/" "epdfview/" "./" "libreoffice/" "libgphoto2/" "vlc/" "locale/" "manjaro-hello/" "makepkg-template/" "libcaca/" "xml/" "cups/" "zsh/" "moc/" "sgml/" "vim/" "libtool/" "boostbook/" "accountsservice/" "jack-audio-connection-kit/" "blueman/" "dunst/" "metainfo/" "skypeforlinux/" "mime-info/" "liblouis/" "ss/" "terminfo/" "qt/" "gettext-0.19.8/" "kf5/" "gtk-engines/" "p11-kit/" "kde4/" "gconf/" "ppd/" "systemd/" "gufw/" "texmf/" "tc/" "imlib2/" "alsa/" "pixmaps/" "enchant/")
+
+ ("/usr/share/info/" (23261 855 399753 110000) "gmp.info-2.gz" "pkcs11-vision.png" "gnutls-handshake-state.png" "gawkinet.info.gz" "fftw3.info-2.gz" "diffutils.info.gz" "libc.info-5.gz" "reftex.info.gz" "libc.info-8.gz" "parted.info.gz" "gnutls-handshake-sequence.png" "gnutls-logo.png" "newsticker.info.gz" "gccint.info.gz" "gnupg.info-1.gz" "eieio.info.gz" "aspell-dev.info.gz" "m4.info.gz" "r5rs.info.gz" "sc.info.gz" "find.info-2.gz" "gnutls.info-2.gz" "libidn.info.gz" "libc.info-13.gz" "find.info.gz" "aalib.info-2.gz" "auctex.info-2.gz" "bfd.info.gz" "gettext.info.gz" "nano.info.gz" "idlwave.info.gz" "erc.info.gz" "guile.info-3.gz" "gnutls.info-6.gz" "automake-history.info.gz" "readline.info.gz" "gpgme.info-1.gz" "tar.info-1.gz" "libc.info-11.gz" "kpathsea.info.gz" "viper.info.gz" "inetutils.info.gz" "liblouis.info.gz" "libc.info-16.gz" "gmp.info.gz" "fftw3.info-1.gz" "libc.info.gz" "gmp.info-1.gz" "remember.info.gz" "gawk.info.gz" "calc.info.gz" "libc.info-14.gz" "libgtop2.info.gz" "pgg.info.gz" "gpgme.info.gz" "eintr.info.gz" "sieve.info.gz" "flex.info.gz" "libc.info-10.gz" "gzip.info.gz" "coreutils.info.gz" "gnutls-modauth.png" "woman.info.gz" "gcc.info.gz" "groff.info.gz" "ede.info.gz" "guile.info-9.gz" "fftw3.info.gz" "vip.info.gz" "gprof.info.gz" "libtool.info-1.gz" "m4.info-1.gz" "pinentry.info.gz" "org.info.gz" "gnutls.info-3.gz" "dvipng.info.gz" "rcirc.info.gz" "ccmode.info.gz" "guile.info-4.gz" "libc.info-3.gz" "gcrypt.info.gz" "speedbar.info.gz" "bash.info.gz" "find.info-1.gz" "mpfr.info.gz" "flex.info-1.gz" "nettle.info.gz" "libmpc.info.gz" "htmlfontify.info.gz" "gnus.info.gz" "forms.info.gz" "make.info.gz" "libffi.info.gz" "ebrowse.info.gz" "make.info-2.gz" "dvips.info.gz" "auth.info.gz" "efaq.info.gz" "grub-dev.info.gz" "autoconf.info.gz" "libgomp.info.gz" "mjpeg-howto.info.gz" "message.info.gz" "url.info.gz" "gpgme.info-2.gz" "groff.info-1.gz" "gccinstall.info.gz" "aalib.info.gz" "sasl.info.gz" "gnutls-layers.png" "ksba.info.gz" "libidn2.info.gz" "guile.info-6.gz" "texinfo.info.gz" "gnupg.info.gz" "libcdio.info.gz" "gnutls-x509.png" "which.info.gz" "gawkworkflow.info.gz" "widget.info.gz" "epa.info.gz" "libc.info-6.gz" "rluserman.info.gz" "gnutls-client-server-use-case.png" "libc.info-2.gz" "groff.info-2.gz" "gnutls-guile.info.gz" "elisp.info.gz" "guile.info-10.gz" "libtool.info-2.gz" "aalib.info-1.gz" "grub.info.gz" "assuan.info.gz" "libitm.info.gz" "make.info-1.gz" "ld.info.gz" "autotype.info.gz" "libidn-components.png.gz" "libconfig.info.gz" "dbus.info.gz" "libtasn1.info.gz" "web2c.info.gz" "bison.info.gz" "ada-mode.info.gz" "history.info.gz" "sed.info.gz" "todo-mode.info.gz" "m4.info-2.gz" "emacs-mime.info.gz" "gnupg.info-2.gz" "cl.info.gz" "guile.info-1.gz" "automake.info-1.gz" "automake.info.gz" "eshell.info.gz" "libc.info-7.gz" "eww.info.gz" "mairix-el.info.gz" "libext2fs.info.gz" "libtool.info.gz" "pcl-cvs.info.gz" "guile.info-2.gz" "libc.info-9.gz" "info.info.gz" "info-stnd.info.gz" "guile.info-8.gz" "gnutls.info-4.gz" "auctex.info.gz" "dired-x.info.gz" "gnutls.info.gz" "texinfo.info-1.gz" "semantic.info.gz" "tar.info-2.gz" "ert.info.gz" "gnutls.info-5.gz" "mu4e.info.gz" "guile.info-5.gz" "preview-latex.info.gz" "aspell.info.gz" "guile.info.gz" "tar.info.gz" "nxml-mode.info.gz" "cpp.info.gz" "flex.info-2.gz" "emacs.info.gz" "libc.info-4.gz" "libunistring.info.gz" "edt.info.gz" "tlbuild.info.gz" "grep.info.gz" "wisent.info.gz" "eudc.info.gz" "ses.info.gz" "wget.info.gz" "mh-e.info.gz" "guile.info-7.gz" "aalib.info-3.gz" "dir" "bc.info.gz" "binutils.info.gz" "gpm.info.gz" "vhdl-mode.info.gz" "ido.info.gz" "gnutls-internals.png" "tramp.info.gz" "ediff.info.gz" "libc.info-1.gz" "automake.info-2.gz" "libquadmath.info.gz" "auctex.info-1.gz" "as.info.gz" "texinfo.info-3.gz" "bovine.info.gz" "srecode.info.gz" "dc.info.gz" "autosprintf.info.gz" "libc.info-12.gz" "gdbm.info.gz" "libc.info-15.gz" "gnutls.info-1.gz" "gpgrt.info.gz" "flymake.info.gz" "emacs-gnutls.info.gz" "smtpmail.info.gz" "cppinternals.info.gz" "octave-mode.info.gz" "texinfo.info-2.gz" "find-maint.info.gz" "../" "./")
+
+ ("/home/adam/Emacs_Lisp/" (23272 14818 677251 875000) "Intro.org" "../" "Intro.el" ".#Intro.org" "./")
+
+ ("/home/adam/Statistics_Study/" (23269 28648 272567 454000) "../" "ltximg/" "statistics_in_a_nutshell_latex.tex" ".#statistics_in_a_nutshell.org" "statistics_in_a_nutshell.tex" "statistics_in_a_nutshell.org" "./" "statistics_in_a_nutshell.pdf" "statistics_in_a_nutshell_latex.pdf")
+
+ ("/home/adam/.emacs.d/elpa/ledger-mode-20180414.802/" (23251 21311 369201 209000) "ledger-check.elc" "ledger-occur.el" "ledger-fonts.el" "ledger-report.elc" "../" "ledger-mode-pkg.el" "ledger-schedule.el" "ledger-fontify.elc" "ledger-mode.elc" "ledger-post.el" "ledger-state.el" "ledger-schedule.elc" "ledger-mode-autoloads.el" "ledger-test.el" "ledger-fontify.el" "ledger-regex.el" "ledger-exec.el" "ledger-init.el" "ledger-navigate.elc" "ledger-report.el" "ledger-regex.elc" "ledger-state.elc" "ledger-xact.elc" "ledger-complete.elc" "ledger-complete.el" "ledger-exec.elc" "ledger-check.el" "ledger-navigate.el" "ledger-mode.el" "ledger-sort.el" "ledger-flymake.elc" "ledger-init.elc" "ledger-fonts.elc" "ledger-commodities.el" "ledger-reconcile.el" "ledger-reconcile.elc" "ledger-texi.el" "ledger-test.elc" "ledger-context.el" "ledger-commodities.elc" "./" "ledger-flymake.el" "ledger-post.elc" "ledger-xact.el" "ledger-texi.elc" "ledger-occur.elc" "dir" "ledger-sort.elc" "ledger-context.elc" "ledger-mode.info")
+
+ ("/home/adam/anaconda3/lib/python3.6/" (23242 21328 722127 805000) "antigravity.py" "modulefinder.py" "_sysconfigdata_powerpc64le_conda_cos7_linux_gnu.py" "datetime.py" "imp.py" "abc.py" "asynchat.py" "sqlite3/" "rlcompleter.py" "tempfile.py" "typing.py" "ntpath.py" "_pyio.py" "json/" "_weakrefset.py" "cmd.py" "hashlib.py" "difflib.py" "locale.py" "_sysconfigdata_m_linux_x86_64-linux-gnu.py" "_compat_pickle.py" "_compression.py" "profile.py" "sre_constants.py" "pkgutil.py" "ftplib.py" "doctest.py" "pty.py" "__pycache__/" "heapq.py" "plistlib.py" "tarfile.py" "linecache.py" "functools.py" "pydoc_data/" "weakref.py" "_sysconfigdata_x86_64_apple_darwin13_4_0.py" "fractions.py" "__phello__.foo.py" "colorsys.py" "selectors.py" "contextlib.py" "getopt.py" "telnetlib.py" "symbol.py" "trace.py" "multiprocessing/" "io.py" "ast.py" "filecmp.py" "sched.py" "dummy_threading.py" "compileall.py" "types.py" "token.py" "shutil.py" "ipaddress.py" "fnmatch.py" "optparse.py" "shlex.py" "pipes.py" "uu.py" "mailbox.py" "runpy.py" "traceback.py" "platform.py" "asyncio/" "warnings.py" "calendar.py" "chunk.py" "pprint.py" "copy.py" "posixpath.py" "signal.py" "_sysconfigdata_x86_64_conda_cos6_linux_gnu.py" "lzma.py" "pydoc.py" "dbm/" "configparser.py" "imaplib.py" "pickletools.py" "glob.py" "cgitb.py" "fileinput.py" "turtledemo/" "secrets.py" "mimetypes.py" "tracemalloc.py" "idlelib/" "_osx_support.py" "test/" "timeit.py" "site.py" "stat.py" "macpath.py" "encodings/" "aifc.py" "collections/" "symtable.py" "string.py" "LICENSE.txt" "webbrowser.py" "reprlib.py" "enum.py" "logging/" "smtplib.py" "binhex.py" "mailcap.py" "re.py" "_pydecimal.py" "lib-dynload/" "dis.py" "_sysconfigdata_i686_conda_cos6_linux_gnu.py" "copyreg.py" "inspect.py" "queue.py" "_dummy_thread.py" "email/" "cProfile.py" "config-3.6m-x86_64-linux-gnu/" "tabnanny.py" "py_compile.py" "tty.py" "shelve.py" "sunau.py" "uuid.py" "subprocess.py" "html/" "http/" "imghdr.py" "gettext.py" "numbers.py" "csv.py" "socketserver.py" "codecs.py" "cgi.py" "argparse.py" "decimal.py" "distutils/" "bz2.py" "pdb.py" "urllib/" "threading.py" "_strptime.py" "sre_parse.py" "formatter.py" "turtle.py" "pickle.py" "wsgiref/" "gzip.py" "_collections_abc.py" "os.py" "smtpd.py" "__future__.py" "asyncore.py" "textwrap.py" "operator.py" "zipfile.py" "codeop.py" "xmlrpc/" "ssl.py" "_sitebuiltins.py" "bisect.py" "zipapp.py" "lib2to3/" "crypt.py" "macurl2path.py" "ctypes/" "unittest/" "keyword.py" "concurrent/" "socket.py" "base64.py" "genericpath.py" "opcode.py" "statistics.py" "random.py" "wave.py" "quopri.py" "stringprep.py" "xml/" "nntplib.py" "tokenize.py" "site-packages/" "pstats.py" "ensurepip/" "netrc.py" "importlib/" "nturl2path.py" "tkinter/" "pyclbr.py" "this.py" "sre_compile.py" "struct.py" "poplib.py" "hmac.py" "venv/" "bdb.py" "_threading_local.py" "xdrlib.py" "sndhdr.py" "code.py" "_bootlocale.py" "_markupbase.py" "pathlib.py" "sysconfig.py" "curses/" "getpass.py" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

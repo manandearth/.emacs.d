@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <<div class="row">
+  <div class="col-sm-12">
+    {{docs|markdown}}
+  </div>
+</div>
+<div class="ui container">
+  <h1 class="ui header"> Yey!</h1>
+</div>
+<body>
+  <nav class="ui inverted menu">
+    <div class="ui container">
+      <a href="/" class="item">home</a>
+    </div>
+</body>
+{% endblock %}

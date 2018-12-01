@@ -1,0 +1,5 @@
+name, last_name, age, DOB, female?
+"Robin", "Gefen", 15, 2002/10/16, true
+"Noah", "Gefen", 13, 2004/11/01, false
+"Beatrix", "Twiss", 13, 2004/11/07, true
+"Martha", "Gefen", 5, 2013/3/1, true

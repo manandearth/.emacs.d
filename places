@@ -1,0 +1,21 @@
+;;; -*- coding: utf-8 -*-
+(("/home/adam/clojure-projects/component_example/src/component_example/components/endpoint.clj" . 355)
+ ("/home/adam/.emacs.d/init.org" . 9863)
+ ("/home/adam/clojure-projects/component_example/src/component_example/core.clj" . 1347)
+ ("/home/adam/.emacs.d/init.el" . 226)
+ ("/home/adam/.emacs.d/elpa/org-9.1.9/"
+  (dired-filename . "/home/adam/.emacs.d/elpa/org-9.1.9/org-table.el"))
+ ("/home/adam/.emacs.d/elpa/org-9.1.9/org-table.el" . 111462)
+ ("/home/adam/notes/ledger.org" . 1164)
+ ("/home/adam/clojure-projects/db-examples/doc/"
+  (dired-filename . "/home/adam/clojure-projects/db-examples/doc/doc.org"))
+ ("/home/adam/clojure-projects/spheres/"
+  (dired-filename . "/home/adam/clojure-projects/spheres/spheres.org"))
+ ("/home/adam/clojure-projects/spheres/spheres.org" . 5263)
+ ("/home/adam/notes/babel_test.org" . 16803)
+ ("/home/adam/notes/jobs_woodwork.org" . 2306)
+ ("/home/adam/clojure-projects/component_example/doc/intro.org" . 934)
+ ("/home/adam/clojure-projects/component_example/src/component_example/util.clj" . 30)
+ ("/home/adam/clojure-projects/component_example/src/component_example/db.clj" . 386)
+ ("/home/adam/clojure-projects/component_example/src/component_example/components/jetty.clj" . 621)
+ ("/home/adam/.emacs.d/elpa/exec-path-from-shell-20180324.204/exec-path-from-shell-autoloads.el" . 1420))

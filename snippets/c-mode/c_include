@@ -1,0 +1,9 @@
+# key: c
+# name: c_include
+# --
+#include <stdio.h>
+
+int main()
+{
+   return 0;
+}

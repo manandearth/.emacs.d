@@ -1,0 +1,184 @@
+(ns jdbc-tutorials.core
+  (:require [clojure.java.jdbc :as j]
+            [clojure.string :as str]
+            [ragtime.jdbc :as jdbc]
+            [hugsql.core :as hugsql]
+            [clojure.java.io :as io]
+            [clojure-csv.core :as csv]))
+
+
+
+;;log into postgres user:
+;;[adam@adam-pc ~]$ sudo -u posqtgres -i
+
+;;first time initislizing db:
+;;initdb -D /usr/local/pgsql/data
+
+;;some problems that raise the excetion: no lock file found something...:
+
+;;[adam@adam-pc run]$ sudo mkdir postgresql
+;;[adam@adam-pc run]$ sudo chown -R postgres:postgres /var/run/postgresql
+;;[adam@adam-pc run]$ sudo -u postgres -i
+
+;;starting server:
+
+;;[postgres@adam-pc ~]$ pg_ctl -D /var/lib/postgres/data -l logfile start
+;;waiting for server to start.... done
+;;server started
+
+
+
+(def db
+  {:dbtype "postgresql"
+   :dbname "bird_nest"
+   :host "localhost"
+   :classname "org.postgresql.Driver"
+   :user "bird_nest_user"
+   :password "helpthebirds"})
+
+
+;;creating a table:
+(def bird-sql (j/create-table-ddl :bird [[:bird_id :serial "PRIMARY KEY"]
+                                         [:species "VARCHAR(32)"]
+                                         [:abrv "VARCHAR(2)"]]))
+(println bird-sql)
+
+
+;;j/execute! to create the db (db parameters)
+(j/execute! db [bird-sql])
+;;in psql:
+;;
+;;to connect to the database:
+;;\c bird_nest
+;;
+;;bird_nest=# select * from bird;
+;;  
+;;bird_id | species | abrv 
+;;---------+---------+------
+;;(0 rows)
+
+
+
+
+;;j/insert to fill the table
+(j/insert! db :bird {:species "Swollow" :abrv "SW"})
+;;j/insert-multi to fill the table
+(j/insert-multi! db :bird [{:species "Swift" :abrv "SF"}
+                           {:species "Kestrel" :abrv "KE"}
+                           {:species "Sparrow" :abrv "SP"}])
+;;query
+(j/query db ["SELECT * FROM bird WHERE species = ?" "Kestrel"])
+;;({:bird_id 3, :species "Kestrel", :abrv "KE"})
+
+;;another way to insert using db-do-prepared:
+(j/db-do-prepared db ["INSERT INTO bird (species, abrv) VALUES (?, ?)"
+                      ["Storkes" "ST"]
+                      ["Ibis" "IB"]] {:multi? true})
+
+;;alter or fix:
+(j/update! db :bird {:species "Stork"} ["species = ?" "Storkes"])
+
+(j/update! db :bird {:species "Swallow"} ["species = ?" "Swollow"])
+;;query to see it's corrected
+(j/query db ["SELECT * FROM bird WHERE abrv = ?" "ST"])
+;;({:bird_id 5, :species "Stork", :abrv "ST"})
+
+;;count with :result-set-fn
+(j/query db ["SELECT * FROM bird"] {:result-set-fn count})  ; => 6
+
+;;get a column using :raw-fn
+(j/query db ["SELECT * FROM bird"] {:row-fn :abrv})  ; => ("SW" "SF" "KE" "SP" "IB" "ST")
+
+;;a function to get id:
+(defn id-for-bird
+  [s]
+  (if (= 2 (count s))
+    (j/query db ["SELECT bird_id FROM bird where abrv = ?" s] {:row-fn :bird_id :result-set-fn first })
+    (j/query db ["SELECT bird_id FROM bird where species = ?" s] {:row-fn :bird_id :result-set-fn first})))
+;;the :result-set-fn first attribute extracts the scalar value instead of a list: (5) => 5
+
+(id-for-bird "ST") ; => 5
+(id-for-bird "Kestrel") ; => 3
+
+;;create a table in one swoosh
+;;the :bird_id is referenced to the bird table and cascade is on.
+(j/execute! db [(j/create-table-ddl :bird_nest [[:bird_id :int "REFERENCES bird ON UPDATE CASCADE ON DELETE CASCADE"]
+                                                [:bird_nest_id :serial "PRIMARY KEY"]
+                                                [:address "VARCHAR(256)"]
+                                                [:height :int]
+                                                [:condition "VARCHAR(64)"]
+                                                [:facing "VARCHAR(2)"]
+                                                [:construction "VARCHAR(64)"]])])
+
+;;function to load a batch of same bird_id:
+(defn load-bird-batch!
+  [bird-vec s]
+  (let [bird-id (id-for-bird s)]
+    (j/insert-multi! db :bird_nest (map #(hash-map :bird_id bird-id
+                                                    :address (first %1)
+                                                    :height (java.lang.Integer/parseInt (second %1))
+                                                    :condition (nth %1 2)
+                                                    :facing (nth %1 3)
+                                                    :construction (last %1)) bird-vec))))
+
+
+(java.lang.Integer/parseInt  "3")
+
+
+;;an example batch
+(def batch-01-sw [["Altozano 7" 6 "destroyed" "NE"]
+                  ["Altozano 7" 6 "destroyed" "NE"]
+                  ["Altozano 7" 6 "occupied" "NE"]
+                  ["Altozano 7" 6 "occupied" "NE"]
+                  ["Altozano 4" 6 "destroyed" "S"]
+                  ])
+
+(load-bird-batch! batch-01-sw "SW")
+
+(j/query db ["SELECT * FROM bird WHERE species = ?" "Kestrel"])
+(j/query db ["SELECT * FROM bird_nest WHERE bird_nest_id = ?" 4])
+
+(def batch-02-sw [["Altozano 6" 5 "destroyed" "SW"]
+                  []])
+
+;;TODO apply regex to query:
+(re-find #"Alt" (map vals (j/query db ["SELECT DISTINCT address FROM bird_nest"])))
+
+
+
+
+;;to quit psql:
+;;\q
+;;to stop the server with:
+;; pg_ctl stop  -D /var/lib/postgres/data
+;;to logoput of the user:
+;;logout
+
+;;csv operations:
+
+(defn import-csv
+  [fname]
+  (rest (with-open [file (io/reader fname)]
+          (csv/parse-csv (slurp file)))))
+
+(def test_01 (import-csv "resources/SWALLOWnestDATA.csv"))
+
+test_01
+
+(load-bird-batch! test_01 "SW")
+(count  (j/query db ["SELECT * FROM bird_nest WHERE construction =?" "balcony"])) ; => 2
+
+(j/query db ["SELECT construction FROM bird_nest WHERE facing =?" "N"])
+
+;;trying hugsql
+(hugsql/def-db-fns )
+
+
+
+;;now starting ragtime:
+
+(def config
+  {:datastore  (jdbc/sql-database {:connection-uri "5432"})
+   :migrations (jdbc/load-resources "migrations")})
+
+

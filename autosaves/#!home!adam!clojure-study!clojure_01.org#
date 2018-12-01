@@ -1,0 +1,40 @@
+#+TITLE: BABEL_TEST
+#+STARTUP: indent showall
+* first tests on babel
+
+#+BEGIN_SRC clojure :results output
+(defn dec-maker
+  [num]
+  #(- % num))
+     
+(def dec9 (dec-maker 9))
+
+
+(println (dec9 10))
+(dec9 10)
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+
+** java Interops 
+
+
+| Task            | Java              | Clojure          |
+|-----------------+-------------------+------------------|
+| Instantiation   | new Widget("foo") | (Widget. "foo")  |
+| Instance method | rnd.nextInt()     | (.nextInt rnd)   |
+| Instance field  | object.field      | (.-field object) |
+| Static method   | Math.sqrt(25)     | (Math/sqrt 25)   |
+| Static field    | Math.PI           | Math/PI          |
+|-----------------+-------------------+------------------|
+
+#+BEGIN_SRC clojure :results values
+
+(java.lang.Math/PI)
+
+#+END_SRC
+
+#+RESULTS:
+: 3.141592653589793

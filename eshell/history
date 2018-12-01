@@ -1,0 +1,128 @@
+cd default+test+test/
+cd ../default/
+ls
+cd ..
+ls
+cd ..
+ls
+cd../../
+ls
+lein cljsbuildonce
+lein cljsbuild once
+cd clojure-projects/web_development_with_clojure/guestbook-spa/
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+cd ..
+rm -r guestbook-spa/
+ls
+cp guestbook/ guestbook-spa
+cp -r guestbook/ guestbook-spa
+ls cd guestbook-sente/
+cd guestbook-spa/
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein cljsbuild once
+lein run
+lein run
+lein cljsbuild once
+lein run
+lein cljsbuild once
+lein run
+lein cljsbuild once
+lein run
+cd 
+cd clojure-projects/
+ls
+mkdir tat
+cd
+cd clojure-projects/
+ls
+clear
+ls
+mv spheres/ tat/
+ls
+cd tat/
+ls
+cd..
+cd ..
+mv spheres-cljs/ tat
+cd tat/
+ls
+cd ..
+mv tat spheres
+ls
+cd spheres/
+ls
+rm -r spheres-cljs/
+l
+ls
+lein new luminus spheres-reagent +reagent +postgres
+ls
+cd spheres-reagent/
+tree -d
+ls│   │       ├── middleware
+cd ..
+rm -r spheres-reagent/
+lein new luminus spheres-re
+rm -r spheres-re
+lein new luminus spheres-re +reagent +postgres
+cd spheres-re/
+ls
+ls
+lein cljsbuild once
+lein run
+ls
+cd resources/migrations/
+ls
+cat 20181006121637-add-users-table.up.sql
+lein figwheel
+lein figwheel
+lein deps
+lein cljsbuils once
+lein cljsbuild once
+lein run
+cd ../../
+ls
+lein run
+lein cljsbuild once
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+lein run
+ls
+cd ../../../cotrex-tutorial/
+ls
+mv src/cotrex_tutorial/core.clj src/
+cd src/
+ls
+mv core.clj tutorial.clj
+ls
+cd src
+lein run
+ls
+BeedooKan1
+clear
+lein run
+lein run
+lein run
+lein run

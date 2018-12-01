@@ -16,9 +16,47 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/")
+;;(load-theme 'zenburn t)
+(use-package color-theme-sanityinc-solarized :ensure t)
+(use-package color-theme-sanityinc-tomorrow :ensure t)
+
+(require 'color-theme-sanityinc-tomorrow)
+(require 'sanityinc-tomorrow-night-theme)
+;;(load-theme 'color-theme-sanityinc-tomorrow)
+
+
+;; switching themes with keys asigned
+(defun theme-clojure ()
+  (interactive)
+   (load-theme 'sanityinc-tomorrow-eighties t))
+
+;;(set-face-attribute 'default t :font "dejavu sans mono-15")
+
+(defun theme-org ()
+  (interactive)
+   ;;theme recommended by toxi for LP
+  (load-theme 'sanityinc-solarized-light t))
+
+;;global font size
+;;(set-face-attribute 'default t :font "dejavu sans mono-15")
+(set-face-font 'default "dejavu sans mono-15")
+;;emojies
+(set-fontset-font t 'unicode "Emoji One Color" nil 'prepend)
+ 
+
+;;this is re-stated for emacs client further down.
+;;start light
+(theme-clojure)
+
+(global-set-key (kbd "C-c t c") 'theme-clojure)
+(global-set-key (kbd "C-c t o") 'theme-org)
+
 (require 'transpose-frame)
 (require 'ob-ipython)
 (require 'conda)
+(require 'ob-sql-mode)
+(require 'web-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'prog-mode-hook 'company-mode)
 (with-eval-after-load 'company
@@ -83,10 +121,7 @@
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
 (require 'ido) ;;interactively do things...
-(ido-mode t)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
+;;(ido-mode t)
 
 ;; Define he following variables to remove the compile-log warnings
 ;; when defining ido-ubiquitous
@@ -95,6 +130,15 @@
 ;; (defvar ido-cur-list nil)
 ;; (defvar predicate nil)
 ;; (defvar inherit-input-method nil)
+(require 'flx-ido)
+     (ido-mode 1)
+    (ido-everywhere 1)
+     (flx-ido-mode 1)
+;;     ;; disable ido faces to see flx highlights.
+     (setq ido-enable-flex-matching t)
+     (setq ido-use-faces nil)
+;;Ivy is easier to read..:
+(setq projectile-completion-system 'ivy)
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
@@ -206,17 +250,21 @@
     (lispy-mode 1)))
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
 
-(setq evil-default-state 'emacs)
+(setq evil-default-state 'emacs)    ;starts in emacs-state (C-z to toggle)
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
-(evil-mode 1)
+(evil-mode 1) ;positively start evil-mode when starting new buffer
 
-(projectile-global-mode)
+(projectile-mode +1)
+;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-(load-library "paren")
+(require 'paren)
+;;(load-library "paren")
 (show-paren-mode 1)
 (transient-mark-mode t)
-(require 'paren)
+
+(global-set-key (kbd "C-x ;") 'comment-line)
 
 (add-hook 'emacs-lisp-mode-hook (lambda () (rainbow-delimiters-mode 1)))
 (add-hook 'lisp-interaction-mode (lambda() (rainbow-delimiters-mode 1)))
@@ -240,6 +288,10 @@
   :config
     (which-key-mode))
 
+;;custom face to fit more..:
+(set-face-attribute 'which-key-command-description-face nil :font "dejavu sans mono-15" :inherit nil)
+(set-face-attribute 'which-key-key-face nil :font "dejavu sans mono-15" :inherit nil)
+
 (use-package switch-window
   :ensure t
   :config
@@ -251,6 +303,35 @@
         '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
   :bind
     ([remap other-window] . switch-window))
+
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+         (next-win-buffer (window-buffer (next-window)))
+         (this-win-edges (window-edges (selected-window)))
+         (next-win-edges (window-edges (next-window)))
+         (this-win-2nd (not (and (<= (car this-win-edges)
+                     (car next-win-edges))
+                     (<= (cadr this-win-edges)
+                     (cadr next-win-edges)))))
+         (splitter
+          (if (= (car this-win-edges)
+             (car (window-edges (next-window))))
+          'split-window-horizontally
+        'split-window-vertically)))
+    (delete-other-windows)
+    (let ((first-win (selected-window)))
+      (funcall splitter)
+      (if this-win-2nd (other-window 1))
+      (set-window-buffer (selected-window) this-win-buffer)
+      (set-window-buffer (next-window) next-win-buffer)
+      (select-window first-win)
+      (if this-win-2nd (other-window 1))))))
+
+(global-set-key (kbd "C-x |") 'toggle-window-split)
+;;and swap:
+(global-set-key (kbd "C-x \\") 'window-swap-states)
 
 (global-set-key (kbd "M-o") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -298,6 +379,25 @@
 
 (setq kill-whole-line t)
 
+;; delete space upto next word with `M-D` (from emacs wiki)
+(defun delete-horizontal-space-forward () ; adapted from `delete-horizontal-space'
+      "*Delete all spaces and tabs after point."
+      (interactive "*")
+      (delete-region (point) 
+		     (progn (skip-chars-forward " \t") (point))))
+(global-set-key (kbd "M-D") 'delete-horizontal-space-forward)
+
+
+;;and backwards.. bind to M-backspace [M-del]
+;;C-backspace is still backward-kill-word 
+(defun backward-delete-char-hungry (arg &optional killp)
+      "*Delete characters backward in \"hungry\" mode.\n    See the documentation of `backward-delete-char-untabify' and\n    `backward-delete-char-untabify-method' for details."
+      (interactive "*p\nP")
+      (let ((backward-delete-char-untabify-method 'hungry))
+        (backward-delete-char-untabify arg killp)))
+
+(global-set-key [M-del] 'backward-delete-char-hungry)
+
 (use-package smex
   :bind (("M-x" . smex))
   :config (smex-initialize))
@@ -307,6 +407,40 @@
   :config (set-face-background 'iedit-occurrence "Magenta"))
 
 (global-set-key (kbd "C-:") 'iedit-mode)
+
+(when (fboundp 'winner-mode)
+      (winner-mode 1))
+
+ (require 'openwith)
+(openwith-mode t)
+(setq openwith-associations '(("\\.mp4\\'" "vlc" (file))))
+
+;;(require 'golden-ratio)
+;;(golden-ratio-mode 1)
+;;(add-hook 'org-agenda-hook (lambda () (golden-ratio-mode -1)))
+
+(global-set-key (kbd "M-+") 'hs-show-block)
+(global-set-key (kbd "M-*") 'hs-show-all)
+(global-set-key (kbd "M--") 'hs-hide-block)
+(global-set-key (kbd "M-Ç") 'hs-hide-level)
+(global-set-key (kbd "M-:") 'hs-hide-all)
+
+(add-hook 'clojure-mode-hook 'hs-minor-mode)
+(add-hook 'cider-mode-hook 'hs-minor-mode)
+(add-hook 'lisp-mode-hook 'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+
+(save-place-mode 1)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+ (add-hook 'term-setup-hook
+  '(lambda ()
+     (define-key function-key-map "\e[1;5A" [C-up])
+     (define-key function-key-map "\e[1;5B" [C-down])
+     (define-key function-key-map "\e[1;5C" [C-right])
+     (define-key function-key-map "\e[1;5D" [C-left])))
 
 (defun server-shutdown ()
   "Save buffers, Quit, and Shutdown (kill) server"
@@ -321,7 +455,8 @@
   (when frame
     (with-selected-frame frame
       (when (display-graphic-p)
-    (tool-bar-mode -1)))))
+    (tool-bar-mode -1))))
+(set-face-font 'default "dejavu sans mono-15"))
 
 ;; For the case that the init file runs after the frame has been created.
 ;; Call of emacs without --daemon option.
@@ -335,11 +470,6 @@
 
 (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
 (define-key esc-map "." #'xref-find-definitions)
-
-(eval-after-load 'verilog-mode 
-  '(define-key verilog-mode-map (kbd "C-{") 'verilog-beg-of-defun))
-(eval-after-load 'verilog-mode 
-  '(define-key verilog-mode-map (kbd "C-}") 'verilog-end-of-defun))
 
 ; status globally
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -393,8 +523,48 @@
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
+
+;;comes with chestnut
+;; (setq cider-default-cljs-repl
+;;       "(do (user/go)
+;;            (user/cljs-repl))")
+
+;; (setq cider-cljs-lein-repl
+;;       "(do (require 'figwheel-sidecar.repl-api)
+;;            (figwheel-sidecar.repl-api/start-figwheel!)
+;;            (figwheel-sidecar.repl-api/cljs-repl))")
+
+;; https://github.com/stuartsierra/component/issues/55
+ ;; emacs, init.el
+
+;;  ;; find all buffers names which match `reg`, regex
+;;  (defun find-buffer-regex (reg)
+;;    (interactive)
+;;    (remove-if-not #'(lambda (x) (string-match reg x))
+;;  		   (mapcar #'buffer-name (buffer-list))))
+
+;; ;;define executing a command in an open nrepl
+;;  (defun cider-execute (command)
+;;   (interactive)
+;;   (set-buffer (car (find-buffer-regex "cider-repl.*")))
+;;   (goto-char (point-max))
+;;   (insert command)
+;;   (cider-repl-return))
+
+;; ;;nrepl reset for refreshing namespaces
+;; (defun nrepl-reset ()
+;;   (interactive)
+;;   (cider-execute "(clojure.tools.namespace.repl/refresh)"))
+
+;;   (define-key cider-mode-map (kbd "C-c r") 'nrepl-reset)
+
+;;   (define-key cider-repl-mode-map (kbd "C-c r") 'nrepl-reset)
+
+;;nrepl <ret> and <ctrl-ret>, newline and eval respectively...
+;; (define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
+;; (define-key cider-repl-mode-map (kbd "RET") #'cider-repl-return)
 
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
@@ -424,8 +594,24 @@
 (require 'ob-clojure)
 (setq org-babel-clojure-backend 'cider)
 
+(require 'clj-refactor)
+
+(defun my-clojure-mode-hook ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1) ; for adding require/use/import statements
+    ;; This choice of keybinding leaves cider-macroexpand-1 unbound
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+
+(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+
 (global-set-key (kbd "C-x b") 'ibuffer)
 (setq ibuffer-expert t)
+
+;;attempt:
+
+;;(add-hook 'ibuffer-mode-hook
+;;	  (lambda ()
+;;	      (ibuffer-switch-to-saved-filter-groups "default")))
 
 (use-package avy
   :ensure t
@@ -749,7 +935,7 @@ _vr_ reset      ^^                       ^^                 ^^
 (require 'cider-client)
 (require 'cider-doc)
 (require 'cider-grimoire)
-(require 'cider-interaction)
+;; (require 'cider-interaction) ;disappeared
 (require 'cider-macroexpansion)
 (require 'cider-mode)
 (require 'cider-repl)
@@ -967,6 +1153,50 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 
+(add-to-list 'mu4e-view-actions
+  '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+(defun mbork/message-attachment-present-p ()
+  "Return t if an attachment is found in the current message."
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-min))
+      (when (search-forward "<#part" nil t) t))))
+
+(defcustom mbork/message-attachment-intent-re
+  (regexp-opt '("I attach"
+		"I have attached"
+		"I've attached"
+		"I have included"
+		"I've included"
+		"see the attached"
+		"see the attachment"
+		"attached file"
+		"attached"))
+  "A regex which - if found in the message, and if there is no
+attachment - should launch the no-attachment warning.")
+
+(defcustom mbork/message-attachment-reminder
+  "Are you sure you want to send this message without any attachment? "
+  "The default question asked when trying to send a message
+containing `mbork/message-attachment-intent-re' without an
+actual attachment.")
+
+(defun mbork/message-warn-if-no-attachments ()
+  "Ask the user if s?he wants to send the message even though
+there are no attachments."
+  (when (and (save-excursion
+	       (save-restriction
+		 (widen)
+		 (goto-char (point-min))
+		 (re-search-forward mbork/message-attachment-intent-re nil t)))
+	     (not (mbork/message-attachment-present-p)))
+    (unless (y-or-n-p mbork/message-attachment-reminder)
+      (keyboard-quit))))
+
+(add-hook 'message-send-hook #'mbork/message-warn-if-no-attachments)
+
 ;; see http://thread.gmane.org/gmane.emacs.orgmode/42715
 (eval-after-load 'org-list
   '(add-hook 'org-checkbox-statistics-hook (function ndk/checkbox-list-complete)))
@@ -989,6 +1219,11 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
                   (org-todo 'done)
                 (org-todo 'todo)))))))
 
+;;First the fillparagraph value can be defined like so:
+;;C-u <number of char per line> C-x f
+;;followed by leuven-good-old-fill-paragraph
+;;or unfill-paragraph  (M-q or M-Q)
+
 (defun leuven-good-old-fill-paragraph ()
   (interactive)
   (let ((fill-paragraph-function nil)
@@ -996,19 +1231,34 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
     (fill-paragraph)))
 (define-key org-mode-map "\M-q" 'leuven-good-old-fill-paragraph)
 
+;;; This is the opposite of fill-paragraph    
+;;;from https://www.emacswiki.org/emacs/FillParagraph
+(defun unfill-paragraph ()
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+;; Handy key definition
+    (define-key global-map "\M-Q" 'unfill-paragraph)
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)(setq org-directory "~/notes")
 (setq org-default-notes-file "~/notes/refile.org")
 
+;;this I reseted since starting to use solarized theme
+;;previously with Leuven org-level-1 :height was 1.5
 (custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 2.0))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.5))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
+  '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
   '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
 )
+
+;; Keep org-mode timestamps in English, e.g. [2016-11-05 Sat 10:03]
+(setq system-time-locale "C")
 
 (setq org-hide-emphasis-markers t)
 
@@ -1249,6 +1499,10 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
 (global-set-key (kbd "C-c C-x C v")
                 'do-org-show-all-inline-images)
 
+(unless (package-installed-p 'ob-http)
+  (package-install 'ob-http))
+(require 'ob-http)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
@@ -1256,6 +1510,9 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
    (ledger . t)
    (latex . t)
    (clojure .t)
+   (shell .t)
+   (sql .t)
+   (http .t)
     ))
 
 (setq org-src-fontify-natively t
@@ -1302,6 +1559,9 @@ ad-do-it
 ;; Useful keybindings when using Clojure from Org
 (org-defkey org-mode-map "\C-x\C-e" 'cider-eval-last-sexp)
 (org-defkey org-mode-map "\C-c\C-d" 'cider-doc)
+
+;; No timeout when executing calls on Cider via nrepl
+(setq org-babel-clojure-sync-nrepl-timeout nil)
 
 ;; add <p for python expansion
 (add-to-list 'org-structure-template-alist
@@ -1362,6 +1622,35 @@ ad-do-it
 (add-to-list 'org-structure-template-alist
 	     '("ti" "#+title: " ""))
 
+;; This causes ERC to connect to the Freenode network upon hitting
+;; C-c e f.  Replace MYNICK with your IRC nick.
+(global-set-key "\C-cef" (lambda () (interactive)
+			   (erc :server "irc.freenode.net" :port "6667"
+				:nick "manandearth")))
+
+;; This causes ERC to connect to the IRC server on your own machine (if
+;; you have one) upon hitting C-c e b.  Replace MYNICK with your IRC
+;; nick.  Often, people like to run bitlbee (http://bitlbee.org/) as an
+;; AIM/Jabber/MSN to IRC gateway, so that they can use ERC to chat with
+;; people on those networks.
+(global-set-key "\C-ceb" (lambda () (interactive)
+			   (erc :server "localhost" :port "6667"
+				:nick "manandearth")))
+
+;; Make C-c RET (or C-c C-RET) send messages instead of RET. This has
+;; been commented out to avoid confusing new users.
+;; (define-key erc-mode-map (kbd "RET") nil)
+;; (define-key erc-mode-map (kbd "C-c RET") 'erc-send-current-line)
+;; (define-key erc-mode-map (kbd "C-c C-RET") 'erc-send-current-line)
+
+     ;;; Options
+
+;; Join the #emacs and #erc channels whenever connecting to Freenode.
+(setq erc-autojoin-channels-alist '(("freenode.net" "#emacs" "#erc" "#clojure" "#clojure-begginers" "#clojure-emacs")))
+
+;; Interpret mIRC-style color commands in IRC chats
+(setq erc-interpret-mirc-color t)
+
 (require 'forecast)
 (setq calendar-latitude 36.25
       calendar-longitude -5.966667
@@ -1380,7 +1669,7 @@ ad-do-it
 ;; C-x C-0 restores the default font size
 
 (if window-system
-    (tool-bar-mode -1)
-)
+    (progn (tool-bar-mode -1)
+	   (scroll-bar-mode 0)))
 
 (setq visible-bell t); Flashes on error

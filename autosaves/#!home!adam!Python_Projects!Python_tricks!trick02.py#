@@ -1,0 +1,44 @@
+print(2)
+
+def up_down(func):
+    def wrap(w):
+        old_word = func(w)
+        new_word = ""
+        for i in range(len(old_word)):
+            if i == 0 or i %2 == 0:
+                new_word += old_word[i].upper()
+            else:
+                new_word += old_word[i].lower()
+        return new_word
+    return wrap
+
+@up_down
+def greet(name):
+    return "my oh my, {}".format(name)
+
+greet('Jo')
+
+#trying an anonymous function
+
+def say_hi(name, title):
+    return "hi, {} {}".format(name, title)
+
+say_hi("Bob",  "the clown")
+
+def say_hi_to_queen(name):
+    return say_hi(name, "me lady")
+
+say_hi_to_queen('Anne')
+
+def say_hi_to_king(func):
+    def wrap(w):
+        return func(w)
+    return wrap
+
+@say_hi_to_king
+def say_hi(name, title):
+    return "hi, {} {}".format(name, title)
+
+
+say_hi("Bob",  "the king")
+

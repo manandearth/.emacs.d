@@ -1,15 +1,35 @@
-;;;; Emacs Bookmark Format Version 1 ;;;;
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-refile-last-stored"
+(("org-capture-last-stored-marker"
  (filename . "~/notes/home.org")
- (front-context-string . "** TODO plan the")
- (rear-context-string . " dig four holes\n")
- (position . 2608))
+ (front-context-string . "*** TODO watch f")
+ (rear-context-string . "lm\nonce a week\n\n")
+ (position . 13013))
+("1"
+ (filename . "~/clojure-projects/reporting-example/project.clj")
+ (front-context-string . "pdf \"2.2.33\"]]\n\n")
+ (rear-context-string . "           [clj-")
+ (position . 1447))
+("POST"
+ (filename . "~/.m2/repository/compojure/compojure/1.5.0/compojure-1.5.0.jar:compojure/y")
+ (front-context-string . "ST \"Generate a `")
+ (rear-context-string . "))\n\n(defmacro PO")
+ (position . 5586))
+("first bookmark"
+ (filename . "~/notes/home.org")
+ (front-context-string . "* general diary ")
+ (rear-context-string . "    \"-\" \n      \n")
+ (position . 246))
+("org-refile-last-stored"
+ (filename . "~/notes/home.org")
+ (front-context-string . "*** TODO watch f")
+ (rear-context-string . "lm\nonce a week\n\n")
+ (position . 13013))
 ("org-capture-last-stored"
- (filename . "~/notes/refile.org")
- (front-context-string . "** TODO check ou")
- (rear-context-string . "goes to\n* Tasks\n")
- (position . 648))
+ (filename . "~/notes/notes.org")
+ (front-context-string . "** TODO watch fi")
+ (rear-context-string)
+ (position . 9))
 )
