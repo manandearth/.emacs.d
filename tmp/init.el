@@ -1,19 +1,9 @@
- #+TITLE: Emacs init file written in org-mode
-#+STARTUP: indent
-#+LANGUAGE: en
-
-* requirements
-
-** set UTF encoding
-#+BEGIN_SRC emacs-lisp
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
-#+END_SRC
-** package archives
-#+BEGIN_SRC emacs-lisp
+
 (require 'package)
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.org/packages/") t)
@@ -26,9 +16,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-#+end_src
-** themes
-#+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/")
 ;;(load-theme 'zenburn t)
 (use-package color-theme-sanityinc-solarized :ensure t)
@@ -65,10 +52,6 @@
 (global-set-key (kbd "C-c t c") 'theme-clojure)
 (global-set-key (kbd "C-c t o") 'theme-org)
 
-#+END_SRC
-
-** require
-#+begin_src emacs-lisp
 (require 'transpose-frame)
 (require 'ob-ipython)
 (require 'conda)
@@ -81,21 +64,13 @@
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'lpy-mode)
-#+end_src
-** beacon
-#+BEGIN_SRC emacs-lisp
+
 ;; Make cursor more visible when you move a long distance
 (use-package beacon
   :config
   (beacon-mode 1))
-#+END_SRC
-** ivy bibtex
-#+BEGIN_SRC emacs-lisp
-(autoload 'ivy-bibtex "ivy-bibtex" "" t)
 
-#+END_SRC
-** my packages
-#+begin_src emacs-lisp
+(autoload 'ivy-bibtex "ivy-bibtex" "" t)
 
 (defvar myPackages
   '(better-defaults
@@ -118,15 +93,9 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-
-#+end_src
-** load other elisp files
-#+BEGIN_SRC emacs-lisp
 ;; (add-to-list 'load-path "~/.emacs.d")
 ;; (require 'scimax-org-babel-ipython)
-#+END_SRC
-** ivy
-#+BEGIN_SRC emacs-lisp
+
 ;;(add-to-list 'load-path "~/git/swiper/") (require 'ivy) 
 ;;(ivy-mode 1) 
 ;; for new users:
@@ -150,9 +119,7 @@
 (global-set-key (kbd "C-x l") 'counsel-locate)
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-#+END_SRC
-** IDO
-#+begin_src emacs-lisp
+
 (require 'ido) ;;interactively do things...
 ;;(ido-mode t)
 
@@ -173,21 +140,13 @@
 ;;Ivy is easier to read..:
 (setq projectile-completion-system 'ivy)
 
-#+END_SRC
-** package
-#+BEGIN_SRC emacs-lisp
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
       (package-install package)))
       myPackages)
-#+end_src
-** pdf-tools
-#+BEGIN_SRC emacs-lisp
+
 (pdf-tools-install)
 (setq pdf-view-use-unicode-ligther nil)
-#+END_SRC
-** some python commented functionality
-#+begin_src emacs-lisp
 
 ;;(elpy-enable)
 ;; (elpy-use-ipython)
@@ -201,25 +160,11 @@
 ;; (require 'py-autopep8)
 ;; (add-hook 'anaconda-mode-hook 'py-autopep8-enable-on-save)
 
-#+end_src
-** python enviornment (test)
-,#+BEGIN_SRC emacs-lisp
-(setenv "PYTHONPATH" "/home/adam/anaconda3/bin/ipython3")
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-,#+END_SRC
-
-#+BEGIN_SRC emacs-lisp
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
-#+END_SRC
 
-** ipython interperter
-#+BEGIN_SRC emacs-lisp
 (setq python-shell-interpreter "/home/adam/anaconda3/bin/ipython3")
 (setq ob-ipython-command "/home/adam/anaconda3/bin/jupyter")
-#+END_SRC
-** outline for python and org 
-#+BEGIN_SRC emacs-lisp
+
 (defun python-mode-outline-hook ()
   (setq outline-level 'python-outline-level)
 
@@ -261,22 +206,15 @@
 
 (add-hook 'python-mode-hook 'python-mode-outline-hook)
 
-#+END_SRC
-** scimax path inclusion
-#+BEGIN_SRC emacs-lisp
 (setq scimax-dir "/home/adam/scimax/")
 (add-to-list 'load-path "/home/adam/scimax/") ;; TODO find how to require from scimax
-#+END_SRC
-** js2
-#+BEGIN_SRC emacs-lisp
+
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; Better imenu
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-#+END_SRC
-** js2-refractor and xref-js2
-#+BEGIN_SRC emacs-lisp
+
 (require 'js2-refactor)
 (require 'xref-js2)
 
@@ -290,23 +228,6 @@
 
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
-#+END_SRC
-** js2 company and tern
-,#+BEGIN_SRC emacs-lisp
-(require 'company)
-(require 'company-tern)
-
-(add-to-list 'company-backends 'company-tern)
-(add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
-                           (company-mode)))
-                           
-;; Disable completion keybindings, as we use xref-js2 instead
-(define-key tern-mode-keymap (kbd "M-.") nil)
-(define-key tern-mode-keymap (kbd "M-,") nil)
-#+END_SRC
-** indium
-#+BEGIN_SRC emacs-lisp
 
 (use-package indium
   :ensure t
@@ -316,67 +237,42 @@
 
 (use-package simple-httpd
   :ensure t)
-#+END_SRC
 
-** ledger 
-#+BEGIN_SRC emacs-lisp
 (require 'ledger-mode)
-#+END_SRC
 
-** LaTeX
-#+BEGIN_SRC emacs-lisp
 (require 'ob-latex)
-#+END_SRC
-** Lispy
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (lispy-mode 1)))
-#+END_SRC
-*** evaluate with lispy in minibuffer
-#+BEGIN_SRC emacs-lisp
+
 (defun conditionally-enable-lispy ()
   (when (eq this-command 'eval-expression)
     (lispy-mode 1)))
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
-#+END_SRC
-** evil
-#+BEGIN_SRC emacs-lisp
+
 (setq evil-default-state 'emacs)    ;starts in emacs-state (C-z to toggle)
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1) ;positively start evil-mode when starting new buffer
-#+END_SRC
-* general functionality
-** projectile
-#+BEGIN_SRC emacs-lisp
+
 (projectile-mode +1)
 ;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-#+END_SRC
-** parenthesis
-#+BEGIN_SRC emacs-lisp
+
 (require 'paren)
 ;;(load-library "paren")
 (show-paren-mode 1)
 (transient-mark-mode t)
-#+END_SRC
-** comments
-#+BEGIN_SRC emacs-lisp
+
 (global-set-key (kbd "C-x ;") 'comment-line)
-#+END_SRC
-** TODO rainbow parenthesis
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'emacs-lisp-mode-hook (lambda () (rainbow-delimiters-mode 1)))
 (add-hook 'lisp-interaction-mode (lambda() (rainbow-delimiters-mode 1)))
 (add-hook 'clojure-mode (lambda() (rainbow-delimiters-mode 1)))
 ;;(global-rainbow-delimiters-mode t)
-#+END_SRC
-** Yes or no to y/n
-#+BEGIN_SRC emacs-lisp
+
 (defalias 'yes-or-no-p 'y-or-n-p)
-#+END_SRC
-** spaceline 
-#+BEGIN_SRC emacs-lisp
+
 (use-package spaceline
   :ensure t
   :config
@@ -386,21 +282,7 @@
     (setq spaceline-line-p nil)
     (setq powerline-default-separator (quote arrow))
     (spaceline-spacemacs-theme))
-#+END_SRC
 
-And spaceline-all-the-icons:
-
-;#+BEGIN_SRC emacs-lisp
-(use-package spaceline-all-the-icons
-  :after spaceline
-  :ensure t
-  :config
-  (spaceline-all-the-icons-theme)
-  (spaceline-all-the-icons--setup-anzu))
-#+END_SRC
-
-** which-key
-#+BEGIN_SRC emacs-lisp
 (use-package which-key
   :ensure t
   :config
@@ -409,12 +291,7 @@ And spaceline-all-the-icons:
 ;;custom face to fit more..:
 (set-face-attribute 'which-key-command-description-face nil :font "dejavu sans mono-15" :inherit nil)
 (set-face-attribute 'which-key-key-face nil :font "dejavu sans mono-15" :inherit nil)
-#+END_SRC
 
-#+RESULTS:
-
-** switch-window
-#+BEGIN_SRC emacs-lisp
 (use-package switch-window
   :ensure t
   :config
@@ -426,11 +303,7 @@ And spaceline-all-the-icons:
         '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
   :bind
     ([remap other-window] . switch-window))
-#+END_SRC
 
-** window-*split* and *swap*
-from: https://stackoverflow.com/a/33456622/8544157
-#+BEGIN_SRC emacs-lisp
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -460,11 +333,6 @@ from: https://stackoverflow.com/a/33456622/8544157
 ;;and swap:
 (global-set-key (kbd "C-x \\") 'window-swap-states)
 
-
-#+END_SRC
-
-** ace-window
-#+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-o") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 ;;(setq aw-background nil) ;to disable the dimming of window for visibility of key char.
@@ -482,9 +350,6 @@ from: https://stackoverflow.com/a/33456622/8544157
 	(?? aw-show-dispatch-help))
   "List of actions for `aw-dispatch-default'.")
 
-#+END_SRC
-** focus follows window split
-#+BEGIN_SRC emacs-lisp
 (defun split-and-follow-horizontally ()
   (interactive)
   (split-window-below)
@@ -498,10 +363,7 @@ from: https://stackoverflow.com/a/33456622/8544157
   (balance-windows)
   (other-window 1))
 (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
-#+END_SRC
 
-** temp file relocation
-#+BEGIN_SRC emacs-lisp
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
   '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
@@ -510,26 +372,13 @@ from: https://stackoverflow.com/a/33456622/8544157
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
 
-#+END_SRC
-
-** backup files folder
-#+BEGIN_SRC emacs-lisp
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
-#+END_SRC
 
-** move-text
-#+BEGIN_SRC emacs-lisp
 (require 'move-text)
 (move-text-default-bindings)
-#+END_SRC
 
-** remove whole line with C-k
-#+BEGIN_SRC emacs-lisp
 (setq kill-whole-line t)
-#+END_SRC
 
-** White spaces
-#+BEGIN_SRC emacs-lisp
 ;; delete space upto next word with `M-D` (from emacs wiki)
 (defun delete-horizontal-space-forward () ; adapted from `delete-horizontal-space'
       "*Delete all spaces and tabs after point."
@@ -549,48 +398,27 @@ from: https://stackoverflow.com/a/33456622/8544157
 
 (global-set-key [M-del] 'backward-delete-char-hungry)
 
-#+END_SRC
-** smex - improved M-x
-#+BEGIN_SRC emacs-lisp
 (use-package smex
   :bind (("M-x" . smex))
   :config (smex-initialize))
-#+END_SRC
 
-** iedit highlight occurences with C-:
-#+BEGIN_SRC emacs-lisp
 (require 'iedit)
 (use-package iedit
   :config (set-face-background 'iedit-occurrence "Magenta"))
 
 (global-set-key (kbd "C-:") 'iedit-mode)
-#+END_SRC
 
-** winner-mode
-#+BEGIN_SRC emacs-lisp
 (when (fboundp 'winner-mode)
       (winner-mode 1))
-#+END_SRC
 
-** openwith
-#+BEGIN_SRC emacs-lisp
  (require 'openwith)
 (openwith-mode t)
 (setq openwith-associations '(("\\.mp4\\'" "vlc" (file))))
-#+END_SRC
 
-** golden-ratio
-#+BEGIN_SRC emacs-lisp
 ;;(require 'golden-ratio)
 ;;(golden-ratio-mode 1)
 ;;(add-hook 'org-agenda-hook (lambda () (golden-ratio-mode -1)))
-#+END_SRC
-** hideshow
-hide-show
-https://www.emacswiki.org/emacs/HideShow HideShow is a minor mode similar to OutlineMode – 
-it hides and shows blocks of text. In particular, 
-it hides balanced-expression code blocks and multi-line comment blocks.
-#+BEGIN_SRC emacs-lisp
+
 (global-set-key (kbd "M-+") 'hs-show-block)
 (global-set-key (kbd "M-*") 'hs-show-all)
 (global-set-key (kbd "M--") 'hs-hide-block)
@@ -601,38 +429,25 @@ it hides balanced-expression code blocks and multi-line comment blocks.
 (add-hook 'cider-mode-hook 'hs-minor-mode)
 (add-hook 'lisp-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-#+END_SRC
-** save-place
-#+BEGIN_SRC emacs-lisp
+
 (save-place-mode 1)
-#+END_SRC
-** exec-path-from-shell
-#+BEGIN_SRC emacs-lisp
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
-#+END_SRC
-* tmux remaping
-** arrow keys
-#+BEGIN_SRC emacs-lisp
+
  (add-hook 'term-setup-hook
   '(lambda ()
      (define-key function-key-map "\e[1;5A" [C-up])
      (define-key function-key-map "\e[1;5B" [C-down])
      (define-key function-key-map "\e[1;5C" [C-right])
      (define-key function-key-map "\e[1;5D" [C-left])))
-#+END_SRC
-* emacsclient related
-** shutdown server
-#+BEGIN_SRC emacs-lisp
+
 (defun server-shutdown ()
   "Save buffers, Quit, and Shutdown (kill) server"
   (interactive)
   (save-some-buffers)
   (kill-emacs))
-#+END_SRC
-** startup toolbar removed and fontsize
-This is set here because emacsclient loads the frame before the init file.
-#+BEGIN_SRC emacs-lisp
+
 (defun my-frame-tweaks (&optional frame)
   "My personal frame tweaks."
   (unless frame
@@ -649,88 +464,31 @@ This is set here because emacsclient loads the frame before the init file.
 ;; For the case that the init file runs before the frame is created.
 ;; Call of emacs with --daemon option.
 (add-hook 'after-make-frame-functions #'my-frame-tweaks t)
-#+END_SRC
-* Shortcuts
-** Load emacs initialization file:
-#+BEGIN_SRC emacs-lisp
+
 (global-set-key (kbd "C-c i")
 (lambda() (interactive)(org-babel-load-file "~/.emacs.d/init.org")))
-#+END_SRC
-** js2r-kill (C-k) and xref-find-definition (M-.)
-#+BEGIN_SRC emacs-lisp
-(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-(define-key esc-map "." #'xref-find-definitions) 
-#+END_SRC
-* magit
-** status binding 
 
-#+BEGIN_SRC emacs-lisp
+(define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+(define-key esc-map "." #'xref-find-definitions)
+
 ; status globally
 (global-set-key (kbd "C-x g") 'magit-status)
 ; pop up of pop ups globally
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-#+END_SRC
-
-* ein
-** jupyter and notebook location 
-#+BEGIN_SRC emacs-lisp
 
 ;; Specify the jupyter executable name, and the start dir of the server
 (defvar my:jupyter_location (executable-find "jupyter"))
 (defvar my:jupyter_start_dir "/home/adam/notebooks/")
-#+END_SRC
 
-** backend 
-,#+BEGIN_SRC emacs-lisp
-(add-hook 'ein:notebook-mode-hook #'anaconda-mode)
-
-  (defun user-ein-reply-callback (args content -metadata-not-used-)
-    (let ((callback (plist-get args :callback))
-          (candidates (plist-get content :matches)))
-      (funcall callback candidates)))
-
-  (defun user-company-ein-callback (callback)
-    (ein:kernel-complete
-     (ein:get-kernel)
-     (thing-at-point 'line)
-     (current-column)
-     (list :complete_reply
-           (cons #'user-ein-reply-callback (list :callback callback))))
-    )
-
-  (defun user-company-ein-backend (command &optional arg &rest ignored)
-    (interactive (list 'interactive))
-    (case command
-      (interactive (company-begin-backend 'user-company-ein-backend))
-      (prefix (company-anaconda-prefix))
-      (candidates (cons :async #'user-company-ein-callback))
-      (location nil)
-      (sorted t)
-      )
-    )
-
-(add-to-list 'company-backends #'user-company-ein-backend)
-#+END_SRC
-* lpy
-#+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/lpy/")
 (require 'lpy)
-#+END_SRC
-* clojure
-** enable paredit for clojure
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-#+END_SRC
-** camel-case tokens (JavaClassNames)
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'clojure-mode-hook 'subword-mode)
-#+END_SRC
-** syntax highlihting
-#+BEGIN_SRC emacs-lisp
+
 (require 'clojure-mode-extra-font-locking)
-#+END_SRC
-** syntax highlighting for midje
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'clojure-mode-hook
           (lambda ()
             (setq inferior-lisp-program "lein repl")
@@ -742,9 +500,7 @@ This is set here because emacsclient loads the frame before the init file.
                 (1 font-lock-keyword-face))))
             (define-clojure-indent (fact 1))
             (define-clojure-indent (facts 1))))
-#+END_SRC
-** cider
-#+BEGIN_SRC emacs-lisp
+
 ;; provides minibuffer documentation for the code you're typing into the repl
 ;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
@@ -775,7 +531,7 @@ This is set here because emacsclient loads the frame before the init file.
 ;;       "(do (user/go)
 ;;            (user/cljs-repl))")
 
-;; (setq cider-cljs-lein-repl
+;; (cider-register-cljs-repl-type 'main-figwheel
 ;;       "(do (require 'figwheel-sidecar.repl-api)
 ;;            (figwheel-sidecar.repl-api/start-figwheel!)
 ;;            (figwheel-sidecar.repl-api/cljs-repl))")
@@ -809,9 +565,7 @@ This is set here because emacsclient loads the frame before the init file.
 ;;nrepl <ret> and <ctrl-ret>, newline and eval respectively...
 ;; (define-key cider-repl-mode-map (kbd "RET") #'cider-repl-newline-and-indent)
 ;; (define-key cider-repl-mode-map (kbd "RET") #'cider-repl-return)
-#+END_SRC
-** cider keybindings
-#+BEGIN_SRC emacs-lisp
+
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
   (interactive)
@@ -837,14 +591,9 @@ This is set here because emacsclient loads the frame before the init file.
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
 
-#+END_SRC
-** require ob-clojure
-#+BEGIN_SRC emacs-lisp
 (require 'ob-clojure)
 (setq org-babel-clojure-backend 'cider)
-#+END_SRC
-** clj-refractor
-#+BEGIN_SRC emacs-lisp
+
 (require 'clj-refactor)
 
 (defun my-clojure-mode-hook ()
@@ -854,9 +603,29 @@ This is set here because emacsclient loads the frame before the init file.
     (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-#+END_SRC
-* ibuffer 
-#+BEGIN_SRC emacs-lisp
+
+(setq-default prettify-symbols-alist '(("lambda" . 955)
+                               ("->" . 8594)
+                               ("->>" . 21A0)
+                               ("=>" . 8658)
+                               ("map" . 8614)
+                               ("/=" . 2260)
+                               ("==" . 2261)
+                               ("<=" . 2264)
+                               (">=" . 2265)
+                               ("=<<" . 226A)
+                               (">>=" . 226B)
+                               ("<=<" . 21A2)
+                               (">=>" . 21A3)
+                               ("&&" . 2227)
+                               ("||" . 2228)
+                               ("not" . 00AC)))
+
+(defun pretty-symbols-hook ()
+  (global-prettify-symbols-mode 1))
+
+(add-hook 'clojure-mode-hook 'pretty-symbols-hook)
+
 (global-set-key (kbd "C-x b") 'ibuffer)
 (setq ibuffer-expert t)
 
@@ -865,20 +634,12 @@ This is set here because emacsclient loads the frame before the init file.
 ;;(add-hook 'ibuffer-mode-hook
 ;;	  (lambda ()
 ;;	      (ibuffer-switch-to-saved-filter-groups "default")))
-#+END_SRC
 
-* TODO avy (avy-goto-char binding conflict with paredit)
-#+BEGIN_SRC emacs-lisp
 (use-package avy
   :ensure t
   :bind
     ("M-s" . avy-goto-char))
-#+END_SRC
 
-* Hydra
-
-** hydra-buffer
-#+BEGIN_SRC emacs-lisp
 (defhydra hydra-buffer-menu (:color pink
                              :hint nil)
   "
@@ -910,10 +671,7 @@ _~_: modified
   ("q" quit-window "quit" :color blue))
 
 (define-key Buffer-menu-mode-map "." 'hydra-buffer-menu/body)
-#+END_SRC
 
-** hydra-occur-dwim (C-o)
-#+BEGIN_SRC emacs-lisp
 (defun occur-dwim ()
   "Call `occur' with a sane default, chosen as the thing under point or selected region"
   (interactive)
@@ -952,10 +710,7 @@ _~_: modified
   ("r" (reattach-occur) "Re-attach" :color red))
 
 (global-set-key (kbd "C-o") 'hydra-occur-dwim/body)
-#+END_SRC
 
-** hydra-dired
-#+BEGIN_SRC emacs-lisp
 (defhydra hydra-dired (:hint nil :color pink)
   "
 _+_ mkdir          _v_iew           _m_ark             _(_ details        _i_nsert-subdir    wdired
@@ -1008,10 +763,7 @@ T - tag prefix
   ("." nil :color blue))
 
 (define-key dired-mode-map "." 'hydra-dired/body)
-#+END_SRC
 
-** hydra-ibuffer
-#+BEGIN_SRC emacs-lisp
 (defhydra hydra-ibuffer-main (:color pink :hint nil)
   "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
@@ -1102,16 +854,9 @@ T - tag prefix
   ("<" ibuffer-filter-by-size-lt "size")
   ("/" ibuffer-filter-disable "disable")
   ("b" hydra-ibuffer-main/body "back" :color blue))
-#+END_SRC
 
-the key binding:
-
-#+BEGIN_SRC emacs-lisp
 (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)
-#+END_SRC
 
-** hydra-org-agenda
-#+BEGIN_SRC emacs-lisp
 ;; Hydra for org agenda (graciously taken from Spacemacs)
 (defhydra hydra-org-agenda (:pre (setq which-key-inhibit t)
                                  :post (setq which-key-inhibit nil)
@@ -1191,10 +936,7 @@ _vr_ reset      ^^                       ^^                 ^^
   ("gd" org-agenda-goto-date)
   ("." org-agenda-goto-today)
   ("gr" org-agenda-redo))
-#+END_SRC
 
-** hydra-origami (C-c f)
-#+BEGIN_SRC emacs-lisp
 (global-set-key
  (kbd "C-c f")
  (defhydra hydra-folding (:color red)
@@ -1208,10 +950,7 @@ _vr_ reset      ^^                       ^^                 ^^
    ("p" origami-previous-fold)
    ("f" origami-forward-toggle-node)
    ("a" origami-toggle-all-nodes)))
-#+END_SRC
 
-** hydra-cider
-#+BEGIN_SRC emacs-lisp
 ;;; Code:
 
 (require 'cider-apropos)
@@ -1363,10 +1102,7 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
 
 (provide 'cider-hydra)
 ;;; cider-hydra.el ends here
-#+END_SRC
-* MU4E
-** requirements
-#+BEGIN_SRC emacs-lisp
+
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e/") ;;mu4e mail
 (require 'mu4e)
 (require 'smtpmail)
@@ -1386,9 +1122,7 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
    )
  (run-with-timer 0 60 'gjstein-refresh-mu4e-alert-mode-line)
  )
-#+end_src
-** offlineimap and more settings
-#+begin_src emacs-lisp
+
 (setq mu4e-get-mail-command "offlineimap")
 
 ;; tell message-mode how to send mail
@@ -1414,9 +1148,7 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
 (setq mu4e-update-interval 300)
 ;; for nullmailer:
 ;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-#+end_src
-** smtpmail parameters
-#+begin_src emacs-lisp
+
 ; I have my "default" parameters
 (setq mu4e-sent-folder "/Sent"
       mu4e-drafts-folder "/Drafts"
@@ -1428,9 +1160,7 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
       smtpmail-smtp-server "posteo.de"
       smtpmail-stream-type 'starttls
       smtpmail-smtp-service 587)
- #+end_src
-** starting mu4e in its own frame
-#+begin_src emacs-lisp
+
 ;; convenience function for starting the whole mu4e in its own frame
 ;; posted by the author of mu4e on the mailing list
 (defun mu4e-in-new-frame ()
@@ -1438,31 +1168,16 @@ _b_: Interrupt pending evaluations      _Q_: Quit CIDER
   (interactive)
   (select-frame (make-frame))
   (mu4e))
-#+end_src
-** TODO supressing minbuffer 'Retreiving mail ...' message
 
-look at /usr/share/emacs/site-lisp/mu4e/mu4e-utils.el for more functions to surpress
-,#+BEGIN_SRC emacs-lisp
-(let ((inhibit-message t))
-  (message mu4e-progress-reporter))
-#+END_SRC
-** inline images
-#+begin_src emacs-lisp
 ;; enable inline images
 (setq mu4e-view-show-images t)
 ;; use imagemagick, if available
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
-#+END_SRC
-** mu4e actions - view in browser (a V)
-#+BEGIN_SRC emacs-lisp
+
 (add-to-list 'mu4e-view-actions
   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
-#+END_SRC
-** Attachment Reminder
-Taken from:
-http://mbork.pl/2016-02-06_An_attachment_reminder_in_mu4e
-#+BEGIN_SRC emacs-lisp
+
 (defun mbork/message-attachment-present-p ()
   "Return t if an attachment is found in the current message."
   (save-excursion
@@ -1503,16 +1218,7 @@ there are no attachments."
       (keyboard-quit))))
 
 (add-hook 'message-send-hook #'mbork/message-warn-if-no-attachments)
-#+END_SRC
-* ORG
-** heading is done when all checkboxes are checked
-Mark heading done when all checkboxes are checked.
 
-An item consists of a list with checkboxes. When all of the checkboxes are checked, the item should be considered complete and its TODO state should be automatically changed to DONE. The code below does that. This version is slightly enhanced over the one in the mailing list (see http://thread.gmane.org/gmane.emacs.orgmode/42715/focus=42721) to reset the state back to TODO if a checkbox is unchecked.
-
-Note that the code requires that a checkbox statistics cookie (the [/] or [%] thingie in the headline - see the Checkboxes section in the manual) be present in order for it to work. Note also that it is too dumb to figure out whether the item has a TODO state in the first place: if there is a statistics cookie, a TODO/DONE state will be added willy-nilly any time that the statistics cookie is changed.
-
-#+BEGIN_SRC emacs-lisp
 ;; see http://thread.gmane.org/gmane.emacs.orgmode/42715
 (eval-after-load 'org-list
   '(add-hook 'org-checkbox-statistics-hook (function ndk/checkbox-list-complete)))
@@ -1534,12 +1240,7 @@ Note that the code requires that a checkbox statistics cookie (the [/] or [%] th
                        (equal (match-string 2) (match-string 3)))
                   (org-todo 'done)
                 (org-todo 'todo)))))))
-#+END_SRC
 
-#+RESULTS:
-: ndk/checkbox-list-complete
-** org-fill-paragraph ("M-q")
-#+BEGIN_SRC emacs-lisp
 ;;First the fillparagraph value can be defined like so:
 ;;C-u <number of char per line> C-x f
 ;;followed by leuven-good-old-fill-paragraph
@@ -1561,18 +1262,13 @@ Note that the code requires that a checkbox statistics cookie (the [/] or [%] th
     (fill-paragraph nil)))
 ;; Handy key definition
     (define-key global-map "\M-Q" 'unfill-paragraph)
-#+END_SRC
-** org basic configuration
-#+BEGIN_SRC emacs-lisp
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)(setq org-directory "~/notes")
 (setq org-default-notes-file "~/notes/refile.org")
-#+end_src
 
-** headings font size
-#+BEGIN_SRC emacs-lisp
 ;;this I reseted since starting to use solarized theme
 ;;previously with Leuven org-level-1 :height was 1.5
 (custom-set-faces
@@ -1583,83 +1279,38 @@ Note that the code requires that a checkbox statistics cookie (the [/] or [%] th
   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
 )
 
-#+END_SRC
-** days in english
-#+BEGIN_SRC emacs-lisp
 ;; Keep org-mode timestamps in English, e.g. [2016-11-05 Sat 10:03]
 (setq system-time-locale "C")
-#+END_SRC
-** hide markup(bold, emphasis, etc..)
-#+BEGIN_SRC emacs-lisp
-(setq org-hide-emphasis-markers t) 
-#+END_SRC
 
-** table export to csv
-#+BEGIN_SRC emacs-lisp
+(setq org-hide-emphasis-markers t)
 
 (add-hook 'org-mode-hook
                (lambda ()
                  (define-key org-mode-map "\C-csv"
                              'org-table-export)))
-                                             
-#+end_src
-** capture
-#+BEGIN_SRC emacs-lisp
+
 ;; I use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)
-#+END_SRC
-** files inclusion
-#+BEGIN_SRC emacs-lisp
+
 (setq org-agenda-files (quote ("~/notes"
                                "~/notes/study/")))
-#+end_src
-** org-ref-folders
-#+BEGIN_SRC emacs-lisp
+
 (setq org-ref-notes-directory "~/notes/ref/"
       org-ref-bibliography-notes "~/notes/ref/index.org"
       org-ref-default-bibliography '("~/notes/ref/index.bib")
       org-ref-pdf-directory "~/notes/ref/lib/")
-#+END_SRC
-** odt export
-#+begin_src emacs-lisp
+
 ;; Enable org export to odt (OpenDocument Text)
 ;; It is disabled by default in org 8.x
 (eval-after-load "org"
 '(require 'ox-odt nil t))
-#+end_src
-** email links to mu4e
-#+BEGIN_SRC emacs-lisp
+
 ;; email links to mu4e
 (require 'org-mu4e)
-#+END_SRC
-** refile targets
-#+BEGIN_SRC  emacs-lisp
+
 ;; For allowing refile to work between files stored in org-agenda-files variable.
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
-#+END_SRC
-** TODO tables bindings 
-need to look at this, the org-structure-template-alist gets this error:
-Symbol's value as variable is void: org-structure-template-alist
-,#+BEGIN_SRC emacs-lisp
-(loop for i from 1 to 6
-      do
-      (let ((template (make-string i ?t))
-	    (expansion (concat "|"
-			       (mapconcat
-				'identity
-				(loop for j to i collect "   ")
-				"|"))))
-	(setf (substring expansion 2 3) "?")
-	(add-to-list 'org-structure-template-alist
-		     `(,template ,expansion ""))))
-
-
-#+END_SRC 
-* ORG cont...
-** Key bindings
-
-#+BEGIN_SRC emacs-lisp
 
 (global-set-key (kbd "<f12>") 'org-agenda)
 (global-set-key (kbd "<f5>") 'bh/org-todo)
@@ -1697,9 +1348,6 @@ Symbol's value as variable is void: org-structure-template-alist
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-#+end_src
-** more on cycling
-#+begin_src emacs-lisp
 (defun bh/hide-other ()
   (interactive)
   (save-excursion
@@ -1727,11 +1375,6 @@ Symbol's value as variable is void: org-structure-template-alist
   (interactive)
   (switch-to-buffer "*scratch*"))
 
-#+END_SRC
-
-* org cont... todo
-** todo keywords
-#+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "SOMEDAY(s)" "|" "DONE(d)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "POSTPONED(p@/!)" "DELEGATED(e@/!)" "|" "PHONE" "MEETING"))))
@@ -1748,23 +1391,15 @@ Symbol's value as variable is void: org-structure-template-alist
               ("PHONE" :foreground "forest green" :weight bold)
               ("DELEGATED" :foreground "brown" :weight bold)
 	          ("POSTPONED" :foreground "light grey" :weight bold))))
-#+END_SRC
-** fast todo selection
-#+BEGIN_SRC emacs-lisp
+
 ;; fast todo selection, Use C-c C-t KEY (t, n, d)
 (setq org-use-fast-todo-selection t)
-#+END_SRC
-** cycling todo modes
-#+BEGIN_SRC emacs-lisp
+
 ;; this one is for quick cycling todo modes with S-left and S-right
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
-#+END_SRC
-** refile and ido
-#+BEGIN_SRC emacs-lisp
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
-#+END_SRC
-#+BEGIN_SRC emacs-lisp
 
 ;; refile in org:
 
@@ -1800,11 +1435,6 @@ Symbol's value as variable is void: org-structure-template-alist
 
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
 
-#+END_SRC
-
-* ORG agenda
-
-#+BEGIN_SRC emacs-lisp
 ;; Do not dim blocked tasks
 (setq org-agenda-dim-blocked-tasks nil)
 
@@ -1884,20 +1514,13 @@ Symbol's value as variable is void: org-structure-template-alist
                        (org-agenda-skip-function 'bh/skip-non-archivable-tasks)
                        (org-tags-match-list-sublevels nil)))
 		nil)))))
-  #+end_src
-   
-** org toggle display inline images
-#+begin_src emacs-lisp
+
 (defun do-org-show-all-inline-images ()
   (interactive)
   (org-display-inline-images t t))
 (global-set-key (kbd "C-c C-x C v")
                 'do-org-show-all-inline-images)
-#+END_SRC
 
-* babel
-** loading languages
-#+BEGIN_SRC emacs-lisp
 (unless (package-installed-p 'ob-http)
   (package-install 'ob-http))
 (require 'ob-http)
@@ -1917,16 +1540,12 @@ Symbol's value as variable is void: org-structure-template-alist
 (setq org-src-fontify-natively t
     org-src-preserve-indentation t
     org-src-tab-acts-natively t)
-#+END_SRC
-** evaluate python
-#+BEGIN_SRC emacs-lisp
+
 ;; all python code be safe
 (defun my-org-confirm-babel-evaluate (lang body)
 (not (string= lang "python")))
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
-#+END_SRC
-** use ipython
-#+BEGIN_SRC emacs-lisp
+
 (setq org-babel-python-command "/home/adam/anaconda3/bin/ipython3 --no-banner --classic --no-confirm-exit")
 
 ;; use %cpaste to paste code into ipython in org mode
@@ -1938,9 +1557,7 @@ Symbol's value as variable is void: org-structure-template-alist
 ad-do-it
 (if (stringp ad-return-value)
   (setq ad-return-value (replace-regexp-in-string "\\(^Pasting code; enter '--' alone on the line to stop or use Ctrl-D\.[\r\n]:*\\)" "" ad-return-value))))
-#+END_SRC
-** indentation
-#+BEGIN_SRC emacs-lisp
+
 ;; no extra indentation in the source blocks
 (setq org-src-preserve-indentation t)
 
@@ -1957,30 +1574,17 @@ ad-do-it
 	(:tangle . "no")
 	(:eval . "never-export")))
 
-
-#+END_SRC
-** don't prompt evalaluation confirmation
-#+BEGIN_SRC emacs-lisp
 (setq org-confirm-babel-evaluate nil)
-#+END_SRC
-** display inline images
-#+BEGIN_SRC emacs-lisp
+
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-#+END_SRC
-** clojure for babel
-#+BEGIN_SRC emacs-lisp
+
 ;; Useful keybindings when using Clojure from Org
 (org-defkey org-mode-map "\C-x\C-e" 'cider-eval-last-sexp)
 (org-defkey org-mode-map "\C-c\C-d" 'cider-doc)
 
 ;; No timeout when executing calls on Cider via nrepl
 (setq org-babel-clojure-sync-nrepl-timeout nil)
-#+END_SRC
 
-
-
-** code blocks key bindings
-#+begin_src emacs-lisp
 ;; add <p for python expansion
 (add-to-list 'org-structure-template-alist
 	     '("p" "#+BEGIN_SRC python :results output org drawer\n?\n#+END_SRC"
@@ -2040,134 +1644,6 @@ ad-do-it
 (add-to-list 'org-structure-template-alist
 	     '("ti" "#+title: " ""))
 
-#+end_src
-* LaTeX
-,#+BEGIN_SRC emacs-lisp
-;;; AUCTeX
-;; Customary Customization, p. 1 and 16 in the manual, and http://www.emacswiki.org/emacs/AUCTeX#toc2
-(setq TeX-parse-self t); Enable parse on load.
-(setq TeX-auto-save t); Enable parse on save.
-(setq-default TeX-master nil)
-
-(setq TeX-PDF-mode t); PDF mode (rather than DVI-mode)
-
-(add-hook 'TeX-mode-hook 'flyspell-mode); Enable Flyspell mode for TeX modes such as AUCTeX. Highlights all misspelled words.
-(add-hook 'emacs-lisp-mode-hook 'flyspell-prog-mode); Enable Flyspell program mode for emacs lisp mode, which highlights all misspelled words in comments and strings.
-;;(setq ispell-dictionary "english"); Default dictionary. To change do M-x ispell-change-dictionary RET.
-(add-hook 'TeX-mode-hook
-          (lambda () (TeX-fold-mode 1))); Automatically activate TeX-fold-mode.
-(setq LaTeX-babel-hyphen nil); Disable language-specific hyphen insertion.
-
-;; " expands into csquotes macros (for this to work babel must be loaded after csquotes).
-(setq LaTeX-csquotes-close-quote "}"
-      LaTeX-csquotes-open-quote "\\enquote{")
-
-;; LaTeX-math-mode http://www.gnu.org/s/auctex/manual/auctex/Mathematics.html
-(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
-
-;;; RefTeX
-;; Turn on RefTeX for AUCTeX http://www.gnu.org/s/auctex/manual/reftex/reftex_5.html
-(add-hook 'TeX-mode-hook 'turn-on-reftex)
-
-(eval-after-load 'reftex-vars; Is this construct really needed?
-  '(progn
-     (setq reftex-cite-prompt-optional-args t); Prompt for empty optional arguments in cite macros.
-     ;; Make RefTeX interact with AUCTeX, http://www.gnu.org/s/auctex/manual/reftex/AUCTeX_002dRefTeX-Interface.html
-     (setq reftex-plug-into-AUCTeX t)
-     ;; So that RefTeX also recognizes \addbibresource. Note that you
-     ;; can't use $HOME in path for \addbibresource but that "~"
-     ;; works.
-     (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
-;     (setq reftex-default-bibliography '("UNCOMMENT LINE AND INSERT PATH TO YOUR BIBLIOGRAPHY HERE")); So that RefTeX in Org-mode knows bibliography
-     (setcdr (assoc 'caption reftex-default-context-regexps) "\\\\\\(rot\\|sub\\)?caption\\*?[[{]"); Recognize \subcaptions, e.g. reftex-citation
-     (setq reftex-cite-format; Get ReTeX with biblatex, see https://tex.stackexchange.com/questions/31966/setting-up-reftex-with-biblatex-citation-commands/31992#31992
-           '((?t . "\\textcite[]{%l}")
-             (?a . "\\autocite[]{%l}")
-             (?c . "\\cite[]{%l}")
-             (?s . "\\smartcite[]{%l}")
-             (?f . "\\footcite[]{%l}")
-             (?n . "\\nocite{%l}")
-             (?b . "\\blockcquote[]{%l}{}")))))
-
-;; Fontification (remove unnecessary entries as you notice them) http://lists.gnu.org/archive/html/emacs-orgmode/2009-05/msg00236.html http://www.gnu.org/software/auctex/manual/auctex/Fontification-of-macros.html
-(setq font-latex-match-reference-keywords
-      '(
-        ;; biblatex
-        ("printbibliography" "[{")
-        ("addbibresource" "[{")
-        ;; Standard commands
-        ;; ("cite" "[{")
-        ("Cite" "[{")
-        ("parencite" "[{")
-        ("Parencite" "[{")
-        ("footcite" "[{")
-        ("footcitetext" "[{")
-        ;; ;; Style-specific commands
-        ("textcite" "[{")
-        ("Textcite" "[{")
-        ("smartcite" "[{")
-        ("Smartcite" "[{")
-        ("cite*" "[{")
-        ("parencite*" "[{")
-        ("supercite" "[{")
-        ; Qualified citation lists
-        ("cites" "[{")
-        ("Cites" "[{")
-        ("parencites" "[{")
-        ("Parencites" "[{")
-        ("footcites" "[{")
-        ("footcitetexts" "[{")
-        ("smartcites" "[{")
-        ("Smartcites" "[{")
-        ("textcites" "[{")
-        ("Textcites" "[{")
-        ("supercites" "[{")
-        ;; Style-independent commands
-        ("autocite" "[{")
-        ("Autocite" "[{")
-        ("autocite*" "[{")
-        ("Autocite*" "[{")
-        ("autocites" "[{")
-        ("Autocites" "[{")
-        ;; Text commands
-        ("citeauthor" "[{")
-        ("Citeauthor" "[{")
-        ("citetitle" "[{")
-        ("citetitle*" "[{")
-        ("citeyear" "[{")
-        ("citedate" "[{")
-        ("citeurl" "[{")
-        ;; Special commands
-        ("fullcite" "[{")))
-
-(setq font-latex-match-textual-keywords
-      '(
-        ;; biblatex brackets
-        ("parentext" "{")
-        ("brackettext" "{")
-        ("hybridblockquote" "[{")
-        ;; Auxiliary Commands
-        ("textelp" "{")
-        ("textelp*" "{")
-        ("textins" "{")
-        ("textins*" "{")
-        ;; supcaption
-        ("subcaption" "[{")))
-
-(setq font-latex-match-variable-keywords
-      '(
-        ;; amsmath
-        ("numberwithin" "{")
-        ;; enumitem
-        ("setlist" "[{")
-        ("setlist*" "[{")
-        ("newlist" "{")
-        ("renewlist" "{")
-        ("setlistdepth" "{")
-        ("restartlist" "{")))
-#+END_SRC
-* ERC
-#+BEGIN_SRC emacs-lisp
 ;; This causes ERC to connect to the Freenode network upon hitting
 ;; C-c e f.  Replace MYNICK with your IRC nick.
 (global-set-key "\C-cef" (lambda () (interactive)
@@ -2197,82 +1673,25 @@ ad-do-it
 ;; Interpret mIRC-style color commands in IRC chats
 (setq erc-interpret-mirc-color t)
 
-#+END_SRC
-* Forecast:
-#+BEGIN_SRC emacs-lisp
 (require 'forecast)
 (setq calendar-latitude 36.25
       calendar-longitude -5.966667
       calendar-location-name "Vejer de la Frontera, Spain"
       forecast-api-key "c0617e8ff49d67d1a95e1be105225a82")
 
-
-#+END_SRC
-
-* pacakges that have no configuration or bindings:
-
-- define-word-at-point
-- 
-* Appearance:
-** no splash screen
-#+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t) ;; hide the startup message
-#+END_SRC
-** enable line numbers globally
-#+BEGIN_SRC emacs-lisp
-;; (global-linum-mode t) ;; enable line numbers globally
-#+END_SRC
 
-#+BEGIN_SRC emacs-lisp
+;; (global-linum-mode t) ;; enable line numbers globally
+
 (add-hook 'text-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
 
-#+END_SRC
-** Increase/decrease text size in emacs                               
-#+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;; C-x C-0 restores the default font size
-#+END_SRC
 
-#+RESULTS:
-: text-scale-decrease
-
-   [11:26:47; 18.04.2014]
-** no tool bar, no scroll bar
-#+BEGIN_SRC emacs-lisp
 (if window-system
     (progn (tool-bar-mode -1)
 	   (scroll-bar-mode 0)))
-#+END_SRC
-** visible bell
-#+BEGIN_SRC emacs-lisp
-(setq visible-bell t); Flashes on error
-#+END_SRC
-* check out:
-** DONE abo abo in github for:
-- [X] lpy 
-- [ ] helm 
-- [ ] hydra
-** magit
-*** TODO a different file naming and organization
-*** TODO automatic upload? regular?
-*** TODO understanding it.
-** DONE uncle something, look at his configuration through the emacs overflow question I answered
-*** DONE a C-x o alternative
-*** DONE switch window focus patch he used
-** TODO the chua lady's blog
-** TODO get the archived and temp files in their own folders
-** DONE mu4e needs configuring
-*** DONE offlineimap and mu, or alternatives.
-offlineimap has offlineimap git in the AUR repository. Have  alook!
-*** TODO better communication with server, so that sent mail will be saved on server too. 
-*** TODO as well as mail sent from posteo web will show in mu4e
-** TODO ein still cant launch jupyter notebook by itself
-* tests
-** stack overflow test 01
-;#+BEGIN_SRC emacs-lisp
- (define-key org-mode-map (kbd "C-c C-x C-SPC") 'clock-in-and-out)
-(define-key org-mode-map (kbd "C-c C-x C-z") 'clock-in-and-out)
 
-;#+END_SRC
+(setq visible-bell t); Flashes on error

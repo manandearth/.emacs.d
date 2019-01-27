@@ -1,9 +1,8 @@
- #+TITLE: Emacs init file written in org-mode
+#+TITLE: Emacs init file written in org-mode
 #+STARTUP: indent
 #+LANGUAGE: en
 
 * requirements
-
 ** set UTF encoding
 #+BEGIN_SRC emacs-lisp
 (setq locale-coding-system 'utf-8)
@@ -329,8 +328,8 @@
 #+END_SRC
 ** Lispy
 #+BEGIN_SRC emacs-lisp
-(add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (lispy-mode 1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode 1)))
 #+END_SRC
 *** evaluate with lispy in minibuffer
 #+BEGIN_SRC emacs-lisp
@@ -352,6 +351,13 @@
 (projectile-mode +1)
 ;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+#+END_SRC
+** TODO Helm
+#+BEGIN_SRC emacs-lisp
+;; (global-set-key (kbd "H-s") 'helm-projectile-ag) ; search in project on steroids
+;; (global-set-key (kbd "C-M-s-s") 'helm-projectile-ag) ; until I figure out how to have my ergodox send hyper
+;; (global-set-key (kbd "M-t") 'helm-projectile-find-file) ;; default: C-c p f
+
 #+END_SRC
 ** parenthesis
 #+BEGIN_SRC emacs-lisp
@@ -775,7 +781,7 @@ This is set here because emacsclient loads the frame before the init file.
 ;;       "(do (user/go)
 ;;            (user/cljs-repl))")
 
-;; (setq cider-cljs-lein-repl
+;; (cider-register-cljs-repl-type 'main-figwheel
 ;;       "(do (require 'figwheel-sidecar.repl-api)
 ;;            (figwheel-sidecar.repl-api/start-figwheel!)
 ;;            (figwheel-sidecar.repl-api/cljs-repl))")
@@ -855,6 +861,47 @@ This is set here because emacsclient loads the frame before the init file.
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 #+END_SRC
+** pretty symbols
+#+BEGIN_SRC emacs-lisp
+
+(global-prettify-symbols-mode +1)
+
+
+(defconst clojure--prettify-symbols-alist
+  '(("lambda"  . ?λ)
+    (">=" . ?≥)
+    ("<=" . ?≤)))
+   
+
+;;adding according to BBatsov
+;;https://emacsredux.com/blog/2014/08/25/a-peek-at-emacs-24-dot-4-prettify-symbols-mode/
+;; (add-hook 'clojure-mode-hook
+;;             (lambda ()
+;;               (push '(">=" . ?≥) clojure--prettify-symbols-alist)))
+
+;; (defconst prettify-symbols-alist '(("lambda" . 955)
+;;                                ("->" . 8594)
+;;                                ("->>" . 21A0)
+;;                                ("=>" . 8658)
+;;                                ("map" . 8614)
+;;                                ("/=" . 2260)
+;;                                ("==" . 2261)
+;;                                ("<=" . 2264)
+;;                                (">=" . 2265)
+;;                                ("=<<" . 226A)
+;;                                (">>=" . 226B)
+;;                                ("<=<" . 21A2)
+;;                                (">=>" . 21A3)
+;;                                ("&&" . 2227)
+;;                                ("||" . 2228)
+;;                                ("not" . 00AC)))
+
+;; (defun pretty-symbols-hook ()
+;;   (global-prettify-symbols-mode +1))
+
+(add-hook 'clojure-mode-hook 'prettify-symbols-mode)
+#+END_SRC
+
 * ibuffer 
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x b") 'ibuffer)

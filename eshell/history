@@ -1,6 +1,3 @@
-cd default+test+test/
-cd ../default/
-ls
 cd ..
 ls
 cd ..
@@ -126,3 +123,6 @@ lein run
 lein run
 lein run
 lein run
+grep -cR def
+ls
+rm .dir-locals.el 

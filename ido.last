@@ -2,6 +2,8 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/adam/clojure-projects/onefish/src/" . "onefish/")
+ ("/home/adam/clojure-projects/onefish/" . "src/")
  ("/home/adam/clojure-projects/component_example/src/" . "component_example/")
  ("/home/adam/clojure-projects/component_example/" . "src/")
  ("/home/adam/local-clojure-repo/" . "jutsu/")
@@ -36,7 +38,7 @@
  ("/home/adam/clojure-projects/spheres/src/clj/spheres/" . "db/")
  ("/home/adam/clojure-projects/spheres/src/clj/" . "spheres/")
  ("/home/adam/clojure-projects/spheres/src/" . "clj/")
- ("/home/adam/clojure-projects/spheres/" . "spheres-ju/")
+ ("/home/adam/clojure-projects/spheres/" . "spheres-rf-ha/")
  ("/home/adam/clojure-projects/reporting-example/src/clj/" . "reporting_example/")
  ("/home/adam/clojure-projects/spheres/resources/" . "migrations/")
  ("/home/adam/clojure-projects/db-examples/" . "doc/")
@@ -65,7 +67,7 @@
  ("/home/adam/clojure-projects/clojure_koans/" . "src/")
  ("/home/adam/clojure-projects/clojure-test/src/" . "clojure_test/")
  ("/home/adam/clojure-projects/clojure-test/" . "src/")
- ("/home/adam/clojure-projects/" . "component_example/")
+ ("/home/adam/clojure-projects/" . "spheres/")
  ("/home/adam/anaconda3/share/jupyter/" . "lab/")
  ("/home/adam/anaconda3/share/" . "jupyter/")
  ("/home/adam/anaconda3/pkgs/notebook-5.4.0-py36_0/" . "bin/")
@@ -93,11 +95,17 @@
  ("/home/adam/.emacs.d/elpa/" . "ein-20171107.1314/")
  ("/home/adam/.emacs.d/" . "gauche-mode-master/")
  ("/home/" . "adam/")
- ("/home/adam/" . "notes/")
+ ("/home/adam/" . "clojure-projects/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/adam/clojure-projects/figmacs/"
+ "/home/adam/clojure-projects/figmacs/src/"
+ "/home/adam/cljs-compiler/"
+ "/home/adam/clojure-projects/li39-integrant/src/li38/"
+ "/home/adam/notes/"
+ "/home/adam/tmux-powerline/"
  "/home/adam/clojure-projects/pegthing-master/src/pegthing/"
  "/home/adam/notes/ref/lib/"
  "/home/adam/clojure-projects/"
@@ -115,7 +123,6 @@
  "/home/adam/Dropbox/"
  "/home/adam/clojure-projects/spheres/resources/migrations/"
  "/home/adam/Downloads/"
- "/home/adam/notes/"
  "/home/adam/.emacs.d/"
  "/home/adam/scimax/"
  "/home/adam/.emacs.d/elpa/ob-ipython-20180113.929/"
@@ -142,31 +149,67 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "figmacs.cljs.edn"
+ "core.cljs"
+ "core.clj"
+ "conversations.org"
+ "user.clj"
+ "with_ig.clj"
  "core.cljc"
  "Graph_of_example_function.svg"
  "home.org"
  "init.org"
- "packages.el"
- "pianobar.el"
- "org-editmarks.el"
- "org-db.el"
- "org-mime.el"
- "bootstrap.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/adam/clojure-projects/component_example/" (23545 14460 373540 422000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".git/" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "README.md")
+ ("/home/adam/clojure-projects/spheres/spheres-rf-ha/docs/" (23599 20112 326574 361000) "../" "doc.org" ".#doc.org" "./")
 
- ("/home/adam/clojure-projects/component_example/src/component_example/" (23545 33952 771520 732000) "../" ".#core.clj" "components/" "db.clj" "util.clj" "core.clj" "./")
+ ("/home/adam/clojure-projects/spheres/spheres-rf-ha/" (23595 48260 853221 853000) "target/" "../" "figwheel_server.log" "Procfile" ".gitignore" "env/" ".git/" "project.clj" "src/" "./" "resources/" "README.md")
+
+ ("/home/adam/clojure-projects/spheres/" (23592 42501 259854 274000) "spheres-simple/" "../" "spheres-re/" "spheres-reagent/" "spheres.org" "spheres/" "spheres-rf-website/" "spheres-scratch/" "spheres-rf/" "spheres-rf-ha/" "spheres-fw/" "spheres-ju/" "./")
+
+ ("/home/adam/clojure-projects/" (23576 49377 237406 455000) "fwpd/" "clojure-study/" "duct_test/" "hanami/" "us-energy-slopegraph/" "../" "serpent-talk/" "markov-elear/" "heyaworld/" "fluo-example/" "jdbc-tutorials/" "reddit-viewer/" "network-six/" "hello/" "spheres/" "pegthing-master/" "rolodex/" "kanban/" "calculator/" "my-blog/" "rolodex-gui/" "alex_miller/" "cljapplied/" "hello-world/" "saite-a/" "the-divine-cheese-code/" "cheshire-cat/" "kanban2/" "clojure_applied/" "compspheres/" "reporting-example/" "learn-reagent-course-files/" "saite/" "component_example/" "polymorphism/" "sin-wave/" "lein-cljsbuild/" "insane-noises/" "minimal-shadow-cljs-browser/" "flappy-bird-demo-new/" "kids-bank/" "jutsu/" "weasel/" "figmacs/" "redolist/" "ep23deftype/" "hello-cljs/" "clojure_koans/" "web_development_with_clojure/" "li39-integrant/" "./" "helloworld/" "async-tea-party/" "clojure-test/" "db-examples/" "programming_clojure/" "cotrex-tutorial/" "onefish/" "wonderland/" "breakout/" "Clojure_Reactive_Programming_Code/" "clojure-noob/" "lambwiki/" "gorilla_test/" "ring-tutorial/")
+
+ ("/home/adam/" (23595 48271 193157 122000) ".babel.json" ".icons/" ".viminfo" "the_ultimate_dev_setup/" ".lein/" "cljs-compiler/" ".bash_logout" ".zcompdump" ".pulse/" "Music/" ".xsession" ".Xclients" "../" ".dbus/" ".bashrc-anaconda3.bak" ".clojure_history" ".gvfs/" "Emacs_Lisp/" ".authinfo" ".viminfo.tmp" "Data_Visualisation_with_Python_and_JavaScript/" "temp/" ".boot/" "Statistics_Study/" ".offlineimaprc" ".xsession-errors" "Dropbox/" ".condarc" "foo/" ".xprofile" "Pictures/" ".Xauthority" ".gnupg/" "akvo-lumen/" "leini" ".java/" ".jupyter/" ".bash_history" "jdk8/" "dockstation/" ".inxi_info" "anaconda/" "test-move-pointer.el" ".urxvt/" "local-clojure-repo/" ".gitconfig" "racket_files/" ".lesshst" ".python_history" ".android/" "Templates/" ".extend.bashrc" "drewr3.dat" ".mozilla/" ".m2/" "nutshell/" ".offlineimap/" "Public/" "anaconda3/" ".ssh/" ".gimp-2.8/" ".anaconda/" "docker_test/" "my-awk.csv" ".viminfz.tmp" ".dropbox-dist/" ".xsession-errors.old" "in/" ".swp" ".dropbox/" ".ed_history" "latex-wrapfig/" ".npmrce" "temp_mem_com.txt" ".thumbnails/" ".waterfox/" "touchpad/" "Spoon-Knife/" "start_jack.sh" "Downloads/" "yaourt/" ".offlineimaprc~" ".electron/" ".gtkrc-2.0" "Documents/" ".dmenurc" ".gnome/" ".emacs.d/" "notebooks/" ".racket/" ".gftp/" "Maildir/" ".env" ".clojure/" ".elinks/" "google-chrome/" "lein-gorilla/" ".overtone/" ".bashrc" ".v8flags.6.2.414.46-node.23.1d7c2923c1684726dc23d2901c4d8157.json" "waterfox-bin/" ".mu/" "Videos/" ".pki/" ".local/" "dropbox/" ".histfile" ".v8flags.6.7.288.46-node.8.1d7c2923c1684726dc23d2901c4d8157.json" ".npmrc" "leiningen/" ".cache/" ".moc/" ".profile" "statistics_in_a_nutshell.org" "linux_akvo_lumen.org" ".ipython/" "clojure-projects/" ".moonchild productions/" "vysor/" "skypeforlinux-stable-bin/" "notes/" ".netrc" ".extend.Xresources" "battery.sh" ".running_kernel" ".Xresources" ".wget-hsts" ".asoundrc" "Desktop/" ".zshrc" "./" ".conda/" ".node-gyp/" ".ff-theme-util_1strun" ".esd_auth" ".xinitrc" ".vim/" "postgresql/" ".log/" "tmp/" ".i3/" ".dir_colors" ".cljs/" ".dmrc" "Python_Projects/" "androidscreencast-bin/" ".bash_profile" "heroku-cli/" ".config/" ".npm/" ".extend.xinitrc" ".tmux.conf" ".node_repl_history")
+
+ ("/home/adam/clojure-projects/calculator/" (23567 31485 864746 494000) "system.properties" ".nrepl-port" "target/" "../" "code_of_conduct.md" "Procfile" "LICENSE" "test/" ".gitignore" "dev/" ".git/" "project.clj" "src/" "./" "resources/" "log/" "README.md" ".lein-env")
+
+ ("/home/adam/clojure-projects/figmacs/" (23566 22917 284627 57000) ".lein-repl-history" ".nrepl-port" "target/" "../" "figwheel_server.log" ".dir-locals.el" "project.txt" "project.clj" "src/" "./" ".cljs_rhino_repl/" "resources/")
+
+ ("/home/adam/cljs-compiler/" (23565 2122 301661 504000) "out/" "../" "index.html" "cljs.jar" "compiled.js.map" "compiled.js" "cljs/" "clj/" "./")
+
+ ("/home/adam/clojure-projects/figmacs/src/" (23565 28938 214749 766000) "../" "core.clj" "./" "core.cljs")
+
+ ("/home/adam/.emacs.d/elpa/" (23550 48724 428561 121000) "f-20171107.1248/" "exec-path-from-shell-20170508.4/" "find-file-in-project-20171115.316/" "frameshot-20180723.2128/" "magit-20180410.651/" "flycheck-20171109.216/" "counsel-20180113.711/" "anaconda-mode-20170924.704/" "gntp-20141024.1950/" "hydra-20180226.1116/" "xref-js2-20170530.126/" "multiple-cursors-20180406.1350/" "restclient-20180316.1551/" "yasnippet-20170923.1646/" "monokai-theme-20171013.236/" "key-chord-20160227.438/" "pyvenv-20171005.1106/" "4clojure-20131014.1507/" "0blayout-readme.txt" "request-20170131.1747/" "heap-readme.txt" "ob-sql-mode-20180426.1911/" "spaceline-all-the-icons-20170829.820/" "ob-http-20180707.1448/" "autopair-20160304.437/" "let-alist-1.0.5/" "goto-chg-20180105.1033/" "beacon-20171017.1540/" "conda-20171109.903/" "color-theme-sanityinc-solarized-20181021.2055/" "log4e-20170401.604/" "all-the-icons-20180125.1557/" "forecast-20180106.920/" "spinner-1.7.3/" "epl-20150517.433/" "origami-readme.txt" "define-word-20180327.1935/" "ob-sql-mode-readme.txt" "counsel-readme.txt" "memoize-20180614.1930/" "org-9.1.9.signed" "http-twiddle-readme.txt" "4clojure-readme.txt" "zenburn-theme.el" "seq-2.20/" "ein-20171107.1314/" "exec-path-from-shell-readme.txt" "spinner-1.7.3.signed" "transpose-frame-20151126.626/" "use-package-20171121.1430/" "gnupg/" "darkroom-readme.txt" "py-autopep8-20160925.352/" "zenburn-theme-readme.txt" "with-editor-20180318.1253/" "function-args-20171031.1004/" "define-word-readme.txt" "undo-tree-0.6.5/" "ivy-20180112.958/" "flx-20151030.1812/" "ghub-20180409.1314/" "move-text-readme.txt" "js2-refactor-20180410.201/" "simple-httpd-20171004.938/" "js2-mode-20171107.333/" "tern-20170925.1333/" "function-args-readme.txt" "org-wc-readme.txt" "cider-readme.txt" "ob-ipython-20180113.929/" "clj-refactor-20180826.2149/" "ivy-readme.txt" "async-20180103.2312/" "evil-20180517.1300/" "sesman-20180903.1826/" "deferred-20170901.630/" "company-anaconda-20160809.705/" "pdf-tools-readme.txt" "forecast-readme.txt" "smex-20151212.1409/" "tablist-20170219.1935/" "skewer-mode-20170730.1241/" "queue-0.2.signed" "org-ref-readme.txt" "elpy-20171110.657/" "company-tern-20161004.1147/" "powerline-20180321.1948/" "cider-20181008.1547/" "zenburn-theme-20180911.1244/" "dash-20171028.854/" "smooth-scrolling-20161002.1249/" "helm-bibtex-readme.txt" "ace-window-20180123.1111/" "auto-complete-20170124.1845/" "lispy-20180405.1200/" "sx-readme.txt" "tagedit-20161121.55/" "pdf-tools-20180428.827/" "openwith-readme.txt" "sx-20180606.736/" "cider-20180903.2111/" "rainbow-delimiters-20170929.432/" "pdf-tools-20180109.1234/" "mu4e-alert-20170901.1027/" "golden-ratio-20150819.420/" "seq-2.20.signed" "better-defaults-20170613.2104/" "swiper-20180112.1001/" "solarized-theme-20171114.1506/" "helm-20180114.2330/" "markdown-mode-readme.txt" "org-9.1.9/" "emacsql-psql-readme.txt" "popup-20160709.729/" "request-deferred-20160419.1605/" "biblio-20161014.1604/" "ht-20171112.1405/" "avy-20180322.1333/" "ivy-bibtex-readme.txt" "evil-readme.txt" "solarized-theme-20180808.539/" "ivy-20171113.1024/" "restclient-readme.txt" "flx-ido-20180117.1519/" "s-20171102.227/" "dash-functional-20180107.818/" "bind-key-20161218.1520/" "pythonic-20160221.1123/" "helm-bibtex-20180110.1209/" "makey-20131231.1430/" "parsebib-20180111.20/" "switch-window-20180222.1731/" "diminish-20170419.1036/" "material-theme-20160908.1538/" "web-mode-20180813.1350/" "ivy-hydra-readme.txt" "lispy-readme.txt" "inflections-20170913.916/" "hydra-20171120.1042/" "which-key-20180321.331/" "discover-20140103.2139/" "move-text-20170908.2030/" "queue-0.2/" "websocket-20171113.2045/" "leuven-theme-20170919.252/" "openwith-20120531.1436/" "spaceline-20180330.1332/" "company-20171017.1638/" "biblio-core-20160901.1115/" "frameshot-readme.txt" "projectile-20180324.2226/" "cider-20180430.444/" "http-twiddle-20160801.1911/" "peg-20150708.641/" "ivy-bibtex-20180110.1209/" "archives/" "ivy-hydra-20180208.912/" "edn-20160215.1219/" "exec-path-from-shell-20180324.204/" "color-theme-sanityinc-tomorrow-20181024.1728/" "speed-type-20171230.1647/" "indium-20180410.457/" "undo-tree-0.6.5.signed" "alert-20171024.1907/" "org-wc-20180610.253/" "hydra-readme.txt" "iedit-20180207.219/" "markdown-mode-20180619.1015/" "beacon-readme.txt" "magit-readme.txt" "ob-ipython-readme.txt" "origami-20180101.753/" "let-alist-1.0.5.signed" "paredit-20171126.1805/" "clojure-mode-readme.txt" "discover-clj-refactor-20150328.1459/" "clojure-mode-extra-font-locking-20180114.911/" "interleave-20171003.2324/" "clojure-mode-20180429.540/" "leuven-theme-readme.txt" "pkg-info-20150517.443/" "ledger-mode-readme.txt" "highlight-indentation-20170502.43/" "ledger-mode-20180414.802/" "git-commit-20180405.1137/" "zoutline-20180314.1059/" "magit-popup-20180329.1302/" "helm-core-20180113.40/" "erc-5.3/" "swiper-readme.txt" "../" "./")
+
+ ("/home/adam/.emacs.d/" (23561 19100 767679 769000) "elpa/" "projectile-bookmarks.eld" "highlight-current-line-0.57/" "autosaves/" "../" "bookmarks" "snippets/" "ido.last" "auto-save-list/" "network-security.data" "company-mode/" "init.org" "tutorial/" "gauche-mode-master/" "eshell/" "scimax-org-babel-ipython.el" "o.py" "init.org~" ".gitignore" ".org-id-locations" "themes/" "url/" "smex-items" "init.el" "games/" ".git/" ".sx/" "request/" "recentf" "speed-type/" "transpose-frame.el" "anaconda-mode/" "src/" "init.el~" "eww-bookmarks" "ac-comphist.dat" "lpy/" "places" "./" "cider-history" "projectile.cache" "ido.last~" "backups/")
+
+ ("/home/adam/Downloads/" (23558 13607 309969 687000) "manjaro-gnome-17.1.10-stable-x86_64.iso.sha1" "facebook.tar" "VID-20180621-WA0007.mp4" "87291_FT.pdf" "download (3)" "Caching-searches-using-biblio-and-only-seeing-new-results.org" "overtone-cheat-sheet (4).pdf" "../" "discord-0.0.5.tar.gz" "overtone-cheat-sheet (3).pdf" "index.html" "IMG_20181121_113454.jpg" "form-rr-07-18.pdf" "my_face.jpeg" "akvo-lumen-develop.zip" "planets-cartoon.jpg" "overtone-cheat-sheet (1).pdf" "manjaro-gnome-17.1.10-stable-x86_64.iso" "wp-config.php" "cat-tongue-out-48.jpg" "overtone-cheat-sheet.pdf" "emacs-for-clojure-book1/" "download (4)" "cartoon.jpg" "index (1).htm" "download (2)" "glass-hit.ogg" "pg_verify_checksums-vi.po" "postgresql-42.2.5.jre7.jar" "download" "cider-refcard.pdf" ".ipynb_checkpoints/" "gauche-mode-master.zip" "jack-audio-connection-kit-0.125.0.tar.gz" "manjaro-gnome-17.1.10-stable-x86_64.iso.sig" "f6a.eps" "pegthing-master.zip" "emacs-for-clojure-book1.zip" "bookmarks.html" "elementsofclojure-sample.pdf" "evil.pdf" "Graph_of_example_function.svg" "justificante_alquiler_Julio.pdf" "WorldCupMatches.csv" "graph.zip" "decoration.html" "gd-config.php" "download (5)" "vmclojeco-code.tgz" "project.clj" "download (1)" "web.config.txt" "shcloj3-code.tgz" "ecoVeritas-Application-Form-Data-Analyst-or-Consultant-2017-1.docx" "index.php" "article-2199186-14E3DEEE000005DC-717_470x480.jpg" "./" "core.cljs" "cat-lifespan-the-life-expectancy-of-cats-568e40723c336.webp" "overtone-cheat-sheet (2).pdf" "Untitled.ipynb" "dswdcloj2-code.tgz" "wp-config-sample.php" "index.htm" "dvdrental.tar" "elementsofclojure-sample (1).pdf" "9781783986668_code.zip" "Guest Cabin worksheet.xlsx" "dvdrental.zip" "ufo-air-quality.zip")
+
+ ("/home/adam/notes/ref/lib/" (23556 5815 673904 81000) "thinkstats.pdf" "../" "Clojure_for_Finance_PACKT_2016.pdf" "progit.pdf" "PP.Clojure.for.Machine.Learning.2014.4.pdf" "Programming.Clojure.2nd.edition.pdf" "functional-programming-python.pdf" "Living_Clojure.pdf" "Manning.Clojure.in.Action.2nd.Edition.1617291528.pdf" "Paradigms-of-Artificial-Intelligence-Programming.pdf" "Realm of Racket.pdf" "thinkpython2.pdf" "The_Little_Schemer_4th_2.pdf" "Land.of.Lisp.pdf" "PP.Mastering.Clojure.Data.Analysis.2014.5.pdf" "Pragmatic.Clojure.Applied.From.Practice.to.Practitioner.1680500740.pdf" "thinkbayes.pdf" "Mastering_Clojure_PACKT.pdf" "Clojure_Data_Structure_and_Alogrithms_Cookbook_PACKT.pdf" "what-is-database-design-anyway.pdf" "Clojure_for_the_Brave_and_True.pdf" "The_Joy_Of_Clojure_2nd_Edition.pdf" "KruchkeBayesian.pdf" "practical_clojure.pdf" "Clojure_Reactive_Programming_PACKT_2015.pdf" "./" "Clojure_High_Performence_Programming_PACKT_2015.pdf" "Learning_ClojureScript.pdf" "Clojure_for_Data_Science_PACKT_2015.pdf" "Professional_Clojure.pdf" "TLCL-17.10.pdf")
+
+ ("/home/adam/notes/" (23560 20802 38054 176000) "20180903-18:00:57.png" "how_to_become_a_data_scientist.org~" "jobs_woodwork.org_archive" "../" "alvarez_cadiz_series_2nd_rev.docx" "guitar_making.org" "alvarez_cadiz_series_2nd_rev.odt" "notes.org~" "home.org" "todo.org~" "init_imag_fr.org" "20180903-18:06:10.png" "init_imag_fr.org~" "refile.org" "ledger.org" "ledger.ledger" "babel_test.org~" "20180903-18:04:48.png" "study/" "adam_gefen_resume.pdf" "test.eps" "project_planning.org" "adam_gefen_resume.org" "analytics_course.org~" "study.org" "purely_finance.org_archive" "images/" "org-check.org~" "jobs_woodwork.org~" "jobs_woodwork.org" "papers.org" ".gitignore" "home.org_archive" "home.org~" "alvarez_cadiz_series.org" "refile.org~" ".#study.org" "study.org_archive" "study.org~" ".#babel_test.org" "home.org_archive~" "diary.org" "guitar_making.org~" ".git/" "journal.org" "20180903-18:05:24.png" "garden.org" "roof.csv" "work_alvarez.org" "work_related.org~" "scimax.org~" "purely_finance.org~" "test.png" "ledger.org_archive" "work_alvarez.org~" "org-check.org" "./" "purely_finance.org" "papers.org~" "babel_test.org" "scimax.org" "notes.org" "obipy-resources/" "how_to_become_a_data_scientist.org" "alvarez_cadiz_series.org~" "ref/" "adam_gefen_resume.tex" "diary.org~" "your_friend_in.org" "conversations.org")
+
+ ("/home/adam/clojure-projects/li39-integrant/src/li38/" (23561 19776 422505 200000) "../" ".#records.clj" "records.clj" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/li39-integrant/" (23561 19031 481135 67000) ".nrepl-port" "../" ".cpcache/" ".git/" "project.clj" "config.edn" "src/" "deps.edn" "./" "tmp/" "resources/")
+
+ ("/home/adam/clojure-projects/onefish/src/onefish/" (23553 49576 53366 301000) "../" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/onefish/src/" (23553 30411 473599 824000) "../" "./" "onefish/")
+
+ ("/home/adam/clojure-projects/onefish/" (23553 35145 626935 805000) ".nrepl-port" "../" ".cpcache/" "src/" "deps.edn" "./")
+
+ ("/home/adam/clojure-projects/component_example/" (23548 24348 270980 709000) ".nrepl-port" "target/" "../" "LICENSE" "test/" ".gitignore" ".git/" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "README.md")
+
+ ("/home/adam/clojure-projects/component_example/src/component_example/" (23549 16426 817321 119000) "../" "components/" "db.clj" "util.clj" "core.clj" "./")
+
+ ("/home/adam/clojure-projects/li39-integrant/src/" (23550 65478 607570 47000) "user.clj" "../" "li38/" "./")
+
+ ("/home/adam/tmux-powerline/" (23549 10085 513385 57000) "../" "LICENSE" "config/" ".#status_right.sh" ".gitignore" "themes/" "mute_powerline.sh" "lib/" "segments/" "status_right.sh" "generate_rc.sh" ".git/" "AUTHORS" "powerline.sh" "./" "img/" "color_palette.sh" "README.md")
 
  ("/home/adam/clojure-projects/component_example/src/" (23545 14077 8968 406000) "../" "component_example/" "./")
-
- ("/home/adam/clojure-projects/" (23545 14075 825641 789000) "fwpd/" "clojure-study/" "duct_test/" "hanami/" "us-energy-slopegraph/" "../" "serpent-talk/" "markov-elear/" "heyaworld/" "fluo-example/" "jdbc-tutorials/" "reddit-viewer/" "network-six/" "hello/" "spheres/" "pegthing-master/" "rolodex/" "my-blog/" "rolodex-gui/" "alex_miller/" "cljapplied/" "hello-world/" "saite-a/" "the-divine-cheese-code/" "cheshire-cat/" "clojure_applied/" "compspheres/" "reporting-example/" "learn-reagent-course-files/" "saite/" "component_example/" "polymorphism/" "sin-wave/" "lein-cljsbuild/" "insane-noises/" "minimal-shadow-cljs-browser/" "flappy-bird-demo-new/" "kids-bank/" "jutsu/" "weasel/" "ep23deftype/" "hello-cljs/" "clojure_koans/" "web_development_with_clojure/" "./" "helloworld/" "async-tea-party/" "clojure-test/" "db-examples/" "programming_clojure/" "cotrex-tutorial/" "wonderland/" "Clojure_Reactive_Programming_Code/" "clojure-noob/" "gorilla_test/" "ring-tutorial/")
-
- ("/home/adam/" (23542 63145 606456 748000) ".babel.json" ".icons/" ".viminfo" "the_ultimate_dev_setup/" ".lein/" ".bash_logout" ".zcompdump" ".pulse/" "Music/" ".xsession" ".Xclients" "../" ".dbus/" ".bashrc-anaconda3.bak" ".clojure_history" ".gvfs/" "Emacs_Lisp/" ".authinfo" ".viminfo.tmp" "Data_Visualisation_with_Python_and_JavaScript/" "temp/" ".boot/" "Statistics_Study/" ".offlineimaprc" ".xsession-errors" "Dropbox/" ".condarc" "foo/" ".xprofile" "Pictures/" ".Xauthority" ".gnupg/" "akvo-lumen/" "leini" ".java/" ".jupyter/" ".bash_history" "jdk8/" "dockstation/" ".inxi_info" "anaconda/" "test-move-pointer.el" ".urxvt/" "local-clojure-repo/" ".gitconfig" "racket_files/" ".lesshst" ".python_history" ".android/" "Templates/" ".extend.bashrc" "drewr3.dat" ".mozilla/" ".m2/" "nutshell/" ".offlineimap/" "Public/" "anaconda3/" ".ssh/" ".gimp-2.8/" ".anaconda/" "docker_test/" ".viminfz.tmp" ".dropbox-dist/" ".xsession-errors.old" "in/" ".swp" ".dropbox/" ".ed_history" "latex-wrapfig/" ".npmrce" "temp_mem_com.txt" ".thumbnails/" ".waterfox/" "touchpad/" "Spoon-Knife/" "start_jack.sh" "Downloads/" "yaourt/" ".offlineimaprc~" ".electron/" ".gtkrc-2.0" "Documents/" ".dmenurc" ".gnome/" ".emacs.d/" "notebooks/" ".racket/" ".gftp/" "Maildir/" ".env" ".clojure/" ".elinks/" "google-chrome/" "lein-gorilla/" ".overtone/" ".bashrc" ".v8flags.6.2.414.46-node.23.1d7c2923c1684726dc23d2901c4d8157.json" "waterfox-bin/" ".mu/" "Videos/" ".pki/" ".local/" "dropbox/" ".v8flags.6.7.288.46-node.8.1d7c2923c1684726dc23d2901c4d8157.json" ".npmrc" "leiningen/" ".cache/" ".moc/" ".profile" "statistics_in_a_nutshell.org" "linux_akvo_lumen.org" ".ipython/" "clojure-projects/" ".moonchild productions/" "vysor/" "skypeforlinux-stable-bin/" "notes/" ".extend.Xresources" ".running_kernel" ".Xresources" ".wget-hsts" ".asoundrc" "Desktop/" ".zshrc" "./" ".conda/" ".node-gyp/" ".ff-theme-util_1strun" ".esd_auth" ".xinitrc" ".vim/" "postgresql/" ".log/" "tmp/" ".i3/" ".dir_colors" ".cljs/" ".dmrc" "Python_Projects/" "androidscreencast-bin/" ".bash_profile" ".config/" ".npm/" ".extend.xinitrc" ".tmux.conf" ".node_repl_history")
-
- ("/home/adam/notes/" (23545 12504 664165 891000) "20180903-18:00:57.png" "how_to_become_a_data_scientist.org~" "jobs_woodwork.org_archive" "../" "alvarez_cadiz_series_2nd_rev.docx" "guitar_making.org" "alvarez_cadiz_series_2nd_rev.odt" "notes.org~" "home.org" "todo.org~" "init_imag_fr.org" "20180903-18:06:10.png" "init_imag_fr.org~" "refile.org" "ledger.org" "ledger.ledger" "babel_test.org~" "20180903-18:04:48.png" "study/" "adam_gefen_resume.pdf" "test.eps" "project_planning.org" "adam_gefen_resume.org" "analytics_course.org~" "study.org" "purely_finance.org_archive" "images/" "org-check.org~" "jobs_woodwork.org~" "jobs_woodwork.org" "papers.org" ".gitignore" "home.org_archive" "home.org~" "alvarez_cadiz_series.org" "refile.org~" "study.org~" ".#babel_test.org" "home.org_archive~" "diary.org" "guitar_making.org~" ".git/" "journal.org" "20180903-18:05:24.png" "garden.org" "roof.csv" "work_alvarez.org" "work_related.org~" "scimax.org~" "purely_finance.org~" "test.png" "ledger.org_archive" "work_alvarez.org~" "org-check.org" "./" "purely_finance.org" "papers.org~" "babel_test.org" "scimax.org" "notes.org" "obipy-resources/" "how_to_become_a_data_scientist.org" "alvarez_cadiz_series.org~" "ref/" "adam_gefen_resume.tex" "diary.org~" "your_friend_in.org")
 
  ("/home/adam/clojure-projects/ep23deftype/src/ep23deftype/" (23544 17944 734733 365000) "pair.cljs" "../" "binary_tree.cljs" ".#scratch.clj" "scratch.clj" "pair.clj" "binary_tree.clj" "core.clj" "scratch.cljs" ".#binary_tree.clj" "./")
 
@@ -180,21 +223,13 @@
 
  ("/home/adam/.emacs.d/elpa/dash-20171028.854/" (23540 19821 324942 797000) "../" "dash-pkg.el" "dash.el" "dash.elc" "./" "dash-autoloads.el")
 
- ("/home/adam/.emacs.d/elpa/" (23540 19308 423574 977000) "f-20171107.1248/" "exec-path-from-shell-20170508.4/" "find-file-in-project-20171115.316/" "frameshot-20180723.2128/" "magit-20180410.651/" "flycheck-20171109.216/" "counsel-20180113.711/" "anaconda-mode-20170924.704/" "gntp-20141024.1950/" "hydra-20180226.1116/" "xref-js2-20170530.126/" "multiple-cursors-20180406.1350/" "yasnippet-20170923.1646/" "monokai-theme-20171013.236/" "key-chord-20160227.438/" "pyvenv-20171005.1106/" "4clojure-20131014.1507/" "0blayout-readme.txt" "request-20170131.1747/" "heap-readme.txt" "ob-sql-mode-20180426.1911/" "spaceline-all-the-icons-20170829.820/" "ob-http-20180707.1448/" "autopair-20160304.437/" "let-alist-1.0.5/" "goto-chg-20180105.1033/" "beacon-20171017.1540/" "conda-20171109.903/" "log4e-20170401.604/" "all-the-icons-20180125.1557/" "forecast-20180106.920/" "spinner-1.7.3/" "epl-20150517.433/" "origami-readme.txt" "define-word-20180327.1935/" "ob-sql-mode-readme.txt" "counsel-readme.txt" "memoize-20180614.1930/" "org-9.1.9.signed" "4clojure-readme.txt" "zenburn-theme.el" "seq-2.20/" "ein-20171107.1314/" "exec-path-from-shell-readme.txt" "spinner-1.7.3.signed" "transpose-frame-20151126.626/" "use-package-20171121.1430/" "gnupg/" "darkroom-readme.txt" "py-autopep8-20160925.352/" "zenburn-theme-readme.txt" "with-editor-20180318.1253/" "function-args-20171031.1004/" "define-word-readme.txt" "undo-tree-0.6.5/" "ivy-20180112.958/" "flx-20151030.1812/" "ghub-20180409.1314/" "move-text-readme.txt" "js2-refactor-20180410.201/" "simple-httpd-20171004.938/" "js2-mode-20171107.333/" "tern-20170925.1333/" "function-args-readme.txt" "org-wc-readme.txt" "cider-readme.txt" "ob-ipython-20180113.929/" "clj-refactor-20180826.2149/" "ivy-readme.txt" "async-20180103.2312/" "evil-20180517.1300/" "sesman-20180903.1826/" "deferred-20170901.630/" "company-anaconda-20160809.705/" "pdf-tools-readme.txt" "forecast-readme.txt" "smex-20151212.1409/" "tablist-20170219.1935/" "skewer-mode-20170730.1241/" "queue-0.2.signed" "org-ref-readme.txt" "elpy-20171110.657/" "company-tern-20161004.1147/" "powerline-20180321.1948/" "cider-20181008.1547/" "zenburn-theme-20180911.1244/" "dash-20171028.854/" "smooth-scrolling-20161002.1249/" "helm-bibtex-readme.txt" "ace-window-20180123.1111/" "auto-complete-20170124.1845/" "lispy-20180405.1200/" "sx-readme.txt" "tagedit-20161121.55/" "pdf-tools-20180428.827/" "openwith-readme.txt" "sx-20180606.736/" "cider-20180903.2111/" "rainbow-delimiters-20170929.432/" "pdf-tools-20180109.1234/" "mu4e-alert-20170901.1027/" "golden-ratio-20150819.420/" "seq-2.20.signed" "better-defaults-20170613.2104/" "swiper-20180112.1001/" "solarized-theme-20171114.1506/" "helm-20180114.2330/" "markdown-mode-readme.txt" "org-9.1.9/" "emacsql-psql-readme.txt" "popup-20160709.729/" "request-deferred-20160419.1605/" "biblio-20161014.1604/" "ht-20171112.1405/" "avy-20180322.1333/" "ivy-bibtex-readme.txt" "evil-readme.txt" "solarized-theme-20180808.539/" "ivy-20171113.1024/" "flx-ido-20180117.1519/" "s-20171102.227/" "dash-functional-20180107.818/" "bind-key-20161218.1520/" "pythonic-20160221.1123/" "helm-bibtex-20180110.1209/" "makey-20131231.1430/" "parsebib-20180111.20/" "switch-window-20180222.1731/" "diminish-20170419.1036/" "material-theme-20160908.1538/" "web-mode-20180813.1350/" "ivy-hydra-readme.txt" "lispy-readme.txt" "inflections-20170913.916/" "hydra-20171120.1042/" "which-key-20180321.331/" "discover-20140103.2139/" "move-text-20170908.2030/" "queue-0.2/" "websocket-20171113.2045/" "leuven-theme-20170919.252/" "openwith-20120531.1436/" "spaceline-20180330.1332/" "company-20171017.1638/" "biblio-core-20160901.1115/" "frameshot-readme.txt" "projectile-20180324.2226/" "cider-20180430.444/" "http-twiddle-20160801.1911/" "peg-20150708.641/" "ivy-bibtex-20180110.1209/" "archives/" "ivy-hydra-20180208.912/" "edn-20160215.1219/" "indium-20180410.457/" "undo-tree-0.6.5.signed" "alert-20171024.1907/" "org-wc-20180610.253/" "hydra-readme.txt" "iedit-20180207.219/" "markdown-mode-20180619.1015/" "beacon-readme.txt" "magit-readme.txt" "ob-ipython-readme.txt" "origami-20180101.753/" "let-alist-1.0.5.signed" "paredit-20171126.1805/" "clojure-mode-readme.txt" "discover-clj-refactor-20150328.1459/" "clojure-mode-extra-font-locking-20180114.911/" "interleave-20171003.2324/" "clojure-mode-20180429.540/" "leuven-theme-readme.txt" "pkg-info-20150517.443/" "ledger-mode-readme.txt" "highlight-indentation-20170502.43/" "ledger-mode-20180414.802/" "git-commit-20180405.1137/" "zoutline-20180314.1059/" "magit-popup-20180329.1302/" "helm-core-20180113.40/" "erc-5.3/" "swiper-readme.txt" "../" "./")
-
  ("/home/adam/.emacs.d/elpa/ob-ipython-20180113.929/" (23540 19869 38060 189000) "../" "ob-ipython-pkg.el" "ob-ipython-autoloads.el" "ob-ipython.elc" "ob-ipython.el" "ob-ipython.el~" "./" "client.py")
-
- ("/home/adam/.emacs.d/" (23540 64042 359883 961000) "elpa/" "projectile-bookmarks.eld" "highlight-current-line-0.57/" "autosaves/" "../" "bookmarks" "snippets/" "ido.last" "auto-save-list/" "network-security.data" "company-mode/" "init.org" "tutorial/" "gauche-mode-master/" "eshell/" "scimax-org-babel-ipython.el" "o.py" "init.org~" ".gitignore" ".org-id-locations" "themes/" "url/" "smex-items" "init.el" ".git/" ".sx/" "request/" "recentf" "transpose-frame.el" "anaconda-mode/" "src/" "init.el~" "eww-bookmarks" "ac-comphist.dat" "lpy/" "./" "cider-history" "projectile.cache" "ido.last~" "backups/")
 
  ("/home/adam/clojure-projects/jutsu/src/jutsu/" (23533 33581 126716 874000) "../" "attempts.clj" "./")
 
  ("/home/adam/clojure-projects/pegthing-master/src/pegthing/" (23540 20642 1256 142000) "../" "tictactoe.clj" "core.clj" "./")
 
- ("/home/adam/Downloads/" (23540 17350 329923 716000) "manjaro-gnome-17.1.10-stable-x86_64.iso.sha1" "facebook.tar" "VID-20180621-WA0007.mp4" "87291_FT.pdf" "download (3)" "Caching-searches-using-biblio-and-only-seeing-new-results.org" "overtone-cheat-sheet (4).pdf" "../" "discord-0.0.5.tar.gz" "overtone-cheat-sheet (3).pdf" "index.html" "form-rr-07-18.pdf" "my_face.jpeg" "akvo-lumen-develop.zip" "planets-cartoon.jpg" "overtone-cheat-sheet (1).pdf" "manjaro-gnome-17.1.10-stable-x86_64.iso" "wp-config.php" "cat-tongue-out-48.jpg" "overtone-cheat-sheet.pdf" "emacs-for-clojure-book1/" "download (4)" "cartoon.jpg" "index (1).htm" "download (2)" "glass-hit.ogg" "pg_verify_checksums-vi.po" "postgresql-42.2.5.jre7.jar" "download" "cider-refcard.pdf" ".ipynb_checkpoints/" "gauche-mode-master.zip" "jack-audio-connection-kit-0.125.0.tar.gz" "manjaro-gnome-17.1.10-stable-x86_64.iso.sig" "f6a.eps" "pegthing-master.zip" "emacs-for-clojure-book1.zip" "bookmarks.html" "elementsofclojure-sample.pdf" "evil.pdf" "Graph_of_example_function.svg" "justificante_alquiler_Julio.pdf" "WorldCupMatches.csv" "graph.zip" "decoration.html" "gd-config.php" "download (5)" "vmclojeco-code.tgz" "project.clj" "download (1)" "web.config.txt" "shcloj3-code.tgz" "ecoVeritas-Application-Form-Data-Analyst-or-Consultant-2017-1.docx" "index.php" "article-2199186-14E3DEEE000005DC-717_470x480.jpg" "./" "core.cljs" "cat-lifespan-the-life-expectancy-of-cats-568e40723c336.webp" "overtone-cheat-sheet (2).pdf" "Untitled.ipynb" "dswdcloj2-code.tgz" "wp-config-sample.php" "index.htm" "9781783986668_code.zip" "Guest Cabin worksheet.xlsx" "ufo-air-quality.zip")
-
  ("/tmp/publish/" (23537 12088 912019 244000) "scratch.org" "../" "./")
-
- ("/home/adam/notes/ref/lib/" (23529 58888 915438 416000) "thinkstats.pdf" "../" "Clojure_for_Finance_PACKT_2016.pdf" "progit.pdf" "PP.Clojure.for.Machine.Learning.2014.4.pdf" "Programming.Clojure.2nd.edition.pdf" "functional-programming-python.pdf" "Living_Clojure.pdf" "Manning.Clojure.in.Action.2nd.Edition.1617291528.pdf" "Paradigms-of-Artificial-Intelligence-Programming.pdf" "Realm of Racket.pdf" "thinkpython2.pdf" "The_Little_Schemer_4th_2.pdf" "Land.of.Lisp.pdf" "PP.Mastering.Clojure.Data.Analysis.2014.5.pdf" "Pragmatic.Clojure.Applied.From.Practice.to.Practitioner.1680500740.pdf" "thinkbayes.pdf" "Mastering_Clojure_PACKT.pdf" "Clojure_Data_Structure_and_Alogrithms_Cookbook_PACKT.pdf" "Clojure_for_the_Brave_and_True.pdf" "The_Joy_Of_Clojure_2nd_Edition.pdf" "KruchkeBayesian.pdf" "practical_clojure.pdf" "Clojure_Reactive_Programming_PACKT_2015.pdf" "./" "Clojure_High_Performence_Programming_PACKT_2015.pdf" "Learning_ClojureScript.pdf" "Clojure_for_Data_Science_PACKT_2015.pdf" "Professional_Clojure.pdf" "TLCL-17.10.pdf")
 
  ("/home/adam/notes/ref/" (23242 23765 608261 372000) "../" "lib/" "./")
 
@@ -203,8 +238,6 @@
  ("/home/adam/local-clojure-repo/" (23533 56939 503061 244000) "../" "jutsu/" "./")
 
  ("/home/adam/clojure-projects/spheres/spheres-ju/" (23533 53479 51012 283000) "../" "checkouts/" "LICENSE" "test/" ".gitignore" ".hgignore" "doc/" "project.clj" "src/" "CHANGELOG.md" "./" "resources/" "README.md")
-
- ("/home/adam/clojure-projects/spheres/" (23533 53378 978590 89000) "spheres-simple/" "../" "spheres-re/" "spheres-reagent/" "spheres.org" "spheres/" "spheres-scratch/" "spheres-fw/" "spheres-ju/" "./")
 
  ("/home/adam/.clojure/" (23484 41394 287580 24000) "../" ".cpcache/" "deps.edn" "./")
 
@@ -330,32 +363,6 @@
  ("/home/adam/clojure-projects/us-energy-slopegraph/resources/public/" (23498 58741 807913 21000) "../" "index.html" "./" "js/" "css/")
 
  ("/home/adam/clojure-projects/us-energy-slopegraph/resources/public/css/" (23498 59473 943677 750000) "../" "style.css" "./")
-
- ("/home/adam/clojure-projects/flappy-bird-demo-new/src/flappy_bird_demo/" (23487 48854 692140 6000) "../" "./" "core.cljs" ".#core.cljs")
-
- ("/home/adam/clojure-projects/flappy-bird-demo-new/src/" (23487 41726 961652 564000) "../" "flappy_bird_demo/" "./")
-
- ("/dev/" (23487 33971 693325 21000) "vga_arbiter" "mem" "null" "port" "zero" "full" "random" "urandom" "kmsg" "tty" "console" "tty0" "vcs" "vcsa" "vcs1" "vcsa1" "tty1" "tty2" "tty3" "tty4" "tty5" "tty6" "tty7" "tty8" "tty9" "tty10" "tty11" "tty12" "tty13" "tty14" "tty15" "tty16" "tty17" "tty18" "tty19" "tty20" "tty21" "tty22" "tty23" "tty24" "tty25" "tty26" "tty27" "tty28" "tty29" "tty30" "tty31" "tty32" "tty33" "tty34" "tty35" "tty36" "tty37" "tty38" "tty39" "tty40" "tty41" "tty42" "tty43" "tty44" "tty45" "tty46" "tty47" "tty48" "tty49" "tty50" "tty51" "tty52" "tty53" "tty54" "tty55" "tty56" "tty57" "tty58" "tty59" "tty60" "tty61" "tty62" "tty63" "snapshot" "autofs" "ptmx" "ttyS0" "ttyS1" "ttyS2" "ttyS3" "hpet" "rtc0" "mcelog" "cpu/" "cpu_dma_latency" "network_latency" "network_throughput" "memory_bandwidth" "core" "fd/" "stdin" "stdout" "stderr" "char/" "rtc" "bus/" "bsg/" "sda" "sda1" "sda2" "block/" "disk/" "shm/" "pts/" "log" "mqueue/" "hugepages/" "initctl" "fuse" "cuse" "btrfs-control" "loop-control" "net/" "ppp" "uinput" "mapper/" "vfio/" "vhci" "uhid" "vhost-net" "snd/" "rfkill" "nvram" "mei0" "tpm0" "input/" "ptp0" "dri/" "drm_dp_aux0" "drm_dp_aux1" "drm_dp_aux2" "vcs6" "vcsa6" "vcs2" "vcsa2" "vcs3" "vcsa3" "vcs4" "vcsa4" "vcs5" "vcsa5" "fb0" "watchdog" "watchdog0" "video0" "media0" "v4l/" "psaux" "vcs7" "vcsa7" "ttyACM0" "ttyACM1" "cdc-wdm0" "cdc-wdm1" "cdc-wdm2" "ttyACM2" "serial/" "../" "./")
-
- ("/home/adam/clojure-projects/flappy-bird-demo-new/" (23487 41784 377924 529000) "target/" "../" "LICENSE" ".gitignore" ".git/" "project.clj" "src/" "deps.edn" "flappy.cljs.edn" "./" "resources/" "README.md")
-
- ("/home/adam/clojure-projects/spheres/spheres/src/clj/spheres/" (23482 9615 314293 820000) "../" "sounds.clj" "config.clj" "db/" "records.clj" "nrepl.clj" "handler.clj" "middleware/" "core.clj" "./" "routes/" "layout.clj" "middleware.clj" "scrape.clj")
-
- ("/home/adam/clojure-projects/spheres/spheres/src/clj/" (23482 9615 314293 820000) "../" "spheres/" "./")
-
- ("/home/adam/clojure-projects/spheres/spheres/src/cljs/spheres/" (23482 9615 314293 820000) "../" "./" "core.cljs")
-
- ("/home/adam/clojure-projects/spheres/spheres/src/cljs/" (23482 9615 314293 820000) "../" "spheres/" "./")
-
- ("/home/adam/clojure-projects/spheres/spheres/src/" (23482 9615 314293 820000) "../" "cljc/" "cljs/" "clj/" "./")
-
- ("/home/adam/clojure-projects/spheres/spheres/" (23482 9615 400960 351000) "target/" "../" "Dockerfile" "Capstanfile" "hs_err_pid1927.log" "dev-config.edn" "Procfile" "hs_err_pid2199.log" "test/" ".gitignore" "hs_err_pid1669.log" "env/" ".git/" "project.clj" "test-config.edn" "src/" "./" "resources/" "log/" "README.md")
-
- ("/home/adam/clojure-projects/spheres/spheres-fw/" (23486 56185 690658 567000) ".#project.clj" ".nrepl-port" "target/" "../" "Dockerfile" "Capstanfile" "dev-config.edn" "Procfile" "test/" ".gitignore" "env/" "project.clj" "test-config.edn" "src/" "./" "resources/" "log/" "README.md" ".rebel_readline_history")
-
- ("/home/adam/clojure-projects/spheres/spheres-fw/src/cljs/spheres_fw/" (23485 40492 682176 316000) "../" "ajax.cljs" "./" "core.cljs")
-
- ("/home/adam/clojure-projects/spheres/spheres-fw/src/" (23484 51620 240405 836000) "../" "cljc/" "cljs/" "clj/" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----

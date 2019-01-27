@@ -242,8 +242,8 @@
 
 (require 'ob-latex)
 
-(add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (lispy-mode 1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode 1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode 1)))
 
 (defun conditionally-enable-lispy ()
   (when (eq this-command 'eval-expression)
@@ -258,6 +258,10 @@
 (projectile-mode +1)
 ;;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; (global-set-key (kbd "H-s") 'helm-projectile-ag) ; search in project on steroids
+;; (global-set-key (kbd "C-M-s-s") 'helm-projectile-ag) ; until I figure out how to have my ergodox send hyper
+;; (global-set-key (kbd "M-t") 'helm-projectile-find-file) ;; default: C-c p f
 
 (require 'paren)
 ;;(load-library "paren")
@@ -366,8 +370,15 @@
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
-  '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
-  '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
+ '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
+ '(package-selected-packages
+   (quote
+    (zenburn-theme xref-js2 which-key web-mode use-package transpose-frame tagedit sx switch-window speed-type spaceline-all-the-icons solarized-theme smooth-scrolling smex restclient rainbow-delimiters py-autopep8 projectile pdf-tools origami org-wc org openwith ob-sql-mode ob-ipython ob-http mu4e-alert move-text monokai-theme material-theme magit lispy leuven-theme ledger-mode key-chord js2-refactor ivy-hydra ivy-bibtex interleave indium http-twiddle helm-bibtex golden-ratio function-args frameshot forecast flycheck flx-ido exec-path-from-shell evil erc elpy ein discover-clj-refactor define-word counsel conda company-tern company-anaconda color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clojure-mode-extra-font-locking better-defaults beacon autopair 4clojure))))
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
@@ -531,7 +542,7 @@
 ;;       "(do (user/go)
 ;;            (user/cljs-repl))")
 
-;; (setq cider-cljs-lein-repl
+;; (cider-register-cljs-repl-type 'main-figwheel
 ;;       "(do (require 'figwheel-sidecar.repl-api)
 ;;            (figwheel-sidecar.repl-api/start-figwheel!)
 ;;            (figwheel-sidecar.repl-api/cljs-repl))")
@@ -603,6 +614,43 @@
     (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+
+(global-prettify-symbols-mode +1)
+
+
+(defconst clojure--prettify-symbols-alist
+  '(("lambda"  . ?λ)
+    (">=" . ?≥)
+    ("<=" . ?≤)))
+   
+
+;;adding according to BBatsov
+;;https://emacsredux.com/blog/2014/08/25/a-peek-at-emacs-24-dot-4-prettify-symbols-mode/
+;; (add-hook 'clojure-mode-hook
+;;             (lambda ()
+;;               (push '(">=" . ?≥) clojure--prettify-symbols-alist)))
+
+;; (defconst prettify-symbols-alist '(("lambda" . 955)
+;;                                ("->" . 8594)
+;;                                ("->>" . 21A0)
+;;                                ("=>" . 8658)
+;;                                ("map" . 8614)
+;;                                ("/=" . 2260)
+;;                                ("==" . 2261)
+;;                                ("<=" . 2264)
+;;                                (">=" . 2265)
+;;                                ("=<<" . 226A)
+;;                                (">>=" . 226B)
+;;                                ("<=<" . 21A2)
+;;                                (">=>" . 21A3)
+;;                                ("&&" . 2227)
+;;                                ("||" . 2228)
+;;                                ("not" . 00AC)))
+
+;; (defun pretty-symbols-hook ()
+;;   (global-prettify-symbols-mode +1))
+
+(add-hook 'clojure-mode-hook 'prettify-symbols-mode)
 
 (global-set-key (kbd "C-x b") 'ibuffer)
 (setq ibuffer-expert t)
@@ -1250,12 +1298,15 @@ there are no attachments."
 ;;this I reseted since starting to use solarized theme
 ;;previously with Leuven org-level-1 :height was 1.5
 (custom-set-faces
-  '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
-  '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
-  '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
-  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
-  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
-)
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
 
 ;; Keep org-mode timestamps in English, e.g. [2016-11-05 Sat 10:03]
 (setq system-time-locale "C")

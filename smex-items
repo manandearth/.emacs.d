@@ -1,20 +1,20 @@
 
 ;; ----- smex-history -----
 (
+ cider-quit
  mu4e
+ clojure-mode
+ cider-jack-in
+ cider-jack-in-cljs
  package-reinstall
  package-refresh-contents
- package-list-packages
- package-install
- mu4e-interrupt-update-mail
- wdired-change-to-wdired-mode
 )
 
 ;; ----- smex-data -----
 (
  (ein:notebooklist-login . 5)
  (ein:notebooklist-open . 5)
- (mu4e . 101)
+ (mu4e . 104)
  (elpy-mode . 1)
  (flop-frame . 9)
  (calc . 1)
@@ -48,7 +48,7 @@
  (cider-version . 1)
  (paredit-mode . 39)
  (rainbow-delimiters-mode . 2)
- (cider-jack-in . 4)
+ (cider-jack-in . 5)
  (interleave-mode . 3)
  (column-number-mode . 2)
  (line-number-mode . 2)
@@ -61,7 +61,7 @@
  (projectile-find-file-dwim-other-frame . 1)
  (projectile-find-implementation-or-test-other-frame . 1)
  (projectile-mode . 2)
- (list-packages . 1)
+ (list-packages . 2)
  (cider-inspect-last-sexp . 4)
  (org-sparse-tree . 2)
  (org-table-eval-formula . 3)
@@ -71,7 +71,7 @@
  (shell . 13)
  (mu4e-interrupt-update-mail . 7)
  (cider-connect . 44)
- (cider-quit . 2)
+ (cider-quit . 12)
  (mu4e~view-browse-url-from-binding . 1)
  (semantic-analyze-possible-completions . 1)
  (pdf-tools-install . 1)
@@ -107,7 +107,7 @@
  (cider-connect-cljs . 7)
  (sesman-quit . 18)
  (sesman-restart . 1)
- (cider-jack-in-cljs . 2)
+ (cider-jack-in-cljs . 3)
  (cider-connect-clj&cljs . 4)
  (follow-mode . 8)
  (follow-recenter . 1)
@@ -118,7 +118,13 @@
  (flip-frame . 1)
  (wdired-mode . 1)
  (wdired-change-to-wdired-mode . 1)
- (package-refresh-contents . 2)
+ (package-refresh-contents . 3)
  (package-install . 1)
- (package-reinstall . 2)
+ (package-reinstall . 4)
+ (eshell . 1)
+ (cider-restart . 4)
+ (customize-variable . 1)
+ (cider-refresh . 1)
+ (cider-connect-sibling-cljs . 1)
+ (clojure-mode . 1)
 )

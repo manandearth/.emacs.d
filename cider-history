@@ -2,149 +2,93 @@
 ;; Automatically written history of CIDER REPL session
 ;; Edit at your own risk
 
-("(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/suspend)" "(ig-repl/resume)" "(ig-repl/suspend)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/resume)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/resume)" "(ig-repl/suspend)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(ig-repl/halt)" "(ig-repl/go)" "(go)" "(stop)" "(start)" "(into {} new-endpoint)" "new-endpoint" "end-point" "my-map" "(defn square-bea [m]
-        (let [{:keys [bea noah robin]} m]
-          (str (* bea bea))))" "(let [req \"/\"]
-        req)" "(let [\"/\" req]
-        req)" "(let [this 3]
-        (str this))" "(extract-noah {:bea 3 :noah 9})" "(defn extract-noah [{:keys [noah]}]
-        (java.lang.Math/sqrt noah))" "(square-bea {:bea 4.5 :noah 3.3})" "(defn square-bea [m]
-        (let [{:keys [bea noah robin]} m]
-          (str (* bea bea))))" "(extract-bea {:bea 1 :noah 3 :robin 7.8 :martha 9})" "(defn extract-bea [m]
-        (let [{:keys [bea noah robin]} m]
-          (str bea)))" "(defn extract-keys [m]
-        (let [{:keys [bea noah robin]} names]
-          (str names)))" "(defn extract-bea [m]
-        (let [{:keys [bea noah robin]} names]
-          (str bea)))" "(let [{:keys [noah bea robin]}] {:noah 1 :bea 2 :robin 3})" "(let [{:keys [noah bea robin]} m])" "(let [{:keys [noah bea robin]} m] m)" "(let [{:keys noah bea robin} m] m)" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        {a b c d :all e})" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        {a b c d })" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        [a b c d e])" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        e)" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        [a b c d e])" "(let [[a b c & d :as e] [1 2 3 4 5 6 7 8]]
-        a b c d e)" "(destruct-vec [1 2 3])" "(defn destruct-vec [v]
-        (let [[a b c] v] (str b)))" "(defn destruct-vec [v] (str b))" "(destruct-vec [1 2 3])" "(defn destruct-vec [[a b c] v]
-        (str b))" "(print-count my-map)" "(defn print-count [{count :count}]
-        (str count))" "(print-state my-map)" "(defn print-state [{state :state}]
-        (str state))" "(defn print-state [{:state state}]
-        (str state))" "(let [state (:state my-map)]
-        (str state))" "(let [state {:state my-map}]
-        (str state))" "(str state)" "(let [state {:state my-map}])" "(def my-map {:state \"active\" :ref \"book_01\" :count 3 :build \"3.0.1\"})" "(.start server)" "(start server)" "server" "(server)" "(require 'compspheres.core)" "(+ 9 9)" "(+ 1 1)" "(.stop server)" "(and (= 50 (+ 10 10 10 10 10)) (= 20 (+ 10 10)))" "(and (= 50 (+ 10 10 10 10 10)) (= 20 (10 10)))" "(= 50 (+ 10 10 10 10 10) (20 20 10))" "(= 50 (+ 10 10 10 10 10))" "(= 40 (+ 20 10 10))" "(= 40 (+ 10 10 10 10))" "(= 2 (+ 1 1))" "(= 20 (+ 10 10))" "(= 6 (+ 4 5))" "(= 6 (+ 5 1))" "(= 6 (+ 3 3))" "(update {:name \"jo\" :age 20} :age #(-> % inc str))" "(update {:name \"jo\" :age 20} :age (-> inc str))" "(update {:name \"jo\" :age 20} :age str)" "(update my-map :body prn-str )" "(assoc-in my-map [:headers \"Content-Type\"] \"application/edn\")" "(associ my-map )" "my-map" "(def my-map {:body {:fname \"Jo\" :lname \"Carlston\"}})" "(assoc-in se-map [:C ] 0)" "(assoc-in se-map [:C :X] 0)" "(def se-map {:A 1 :B 2 :C {:X 5 :Y 5 :Z 5} :D 1})" "(defn connect
-  \"Form a mutual connection between two positions\"
-  [board max-pos pos neighbor destination]
-(reduce (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neighbor))
-board
-[[pos destination] [destination pos]]))
-" "(defn connect
-  \"Form a mutual connection between two positions\"
-  [board max-pos pos neighbor destination]
-  (if (in-bounds? max-pos neighbor destination)
-    (reduce (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neighbor))
-            board
-            [[pos destination] [destination pos]])
-    board))
-" "(defn connect
-  \"Form a mutual connection between two positions\"
-  [board maxq-pos pos neighbor destination]
-  (if (in-bounds? max-pos neighbor destination)
-    (reduce (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neighbor))
-            board
-            [[pos destination] [destination pos]])
-    board))
-" "(assoc-in my-map [:connections 3] [5 7])" "(assoc-in my-map [:connections 1] [5 7])" "(assoc-in my-map [:connections 1] 5)" "(def my-map {:connections {1 [3] 2 [4]}})" "(assoc-in my-map [:connections 1] 5)" "my-map" "(def my-map {:connections {1 3 2 4}})" "(assoc-in {:connections {1 3 2 4}} [:connections 1]  5 )" "(assoc-in {:connections {1 3 2 4}} {1 5} )" "(reduce + [1 2 3])" "(connect-down-left (connect-down-right (connect-right
-                                                       {}  21 5)))" "(-> connect-down-left
-                   connect-down-right
-                   connect-right
-                   {}  21 5)" "(->> connect-down-left
-                   connect-down-right
-                   connect-right
-                   {}  21 5)" "(connect-down-left  {}  21 5)" "(connect-down-left  {}  21 1)" "(connect-down-right  {}  21 1)" "(connect-down-right 21 1)" "(connect-right 21 1)" "(connect-right {} 21 1)" "(connect-right {} 10 1)" "(connect-right {} 10 3)" "(connect-right {} 10 2)" "(connect-right {} 15 2)" "(connect-right [{} 15 2])" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (cons (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neighbor))
-                         board
-                         [[pos destination] [destination pos]]))
-                 board)" "(connect-without-reduce {1 {:connections {3 2} }} 10 1 2 3)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (cons (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neighbor))
-                         board
-                         [[pos destination] [destination pos]]))
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (cons (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neigbor))
-                         board
-                         [[pos destination] [destination pos]]))
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (cons (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neigbour))
-                         board
-                         [[pos destination] [destination pos]]))
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neigbour)
-                   board
-                   [[pos destination] [destination pos]])
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] neigbour))
-                   board
-                   [[pos destination] [destination pos]])
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neighbor destination)
-                   (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections ps] neigbour))
-                   board
-                   [[pos destination] [destination pos]])
-                 board)" "(defn connect-without-reduce
-                 \"like connect without reducing - unuseful\"
-                 [board max-pos pos neighbor destination]
-                 (if (in-bounds? max-pos neigbor destination)))" "(defn connect-without-reduce )" "(connect {1 {:connections {3 2} }} 10 1 2 3)" "(connect {1 {:connections {1 2} }} 10 1 2 3)" "(connect {1 {:connections {20 22} }} 10 1 2 3)" "(connect {1 {:connections }} 10 1 2 3)" "(connect {:take 1} 10 1 2 3)" "(connect {} 10 1 2 3)" "(connect {} 10 2 3)" "(t [1 2])" "(t 3)" "(t {})" "(t)" "t" "(def t (fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] 2)))" "(fn [new-board [p1 p2]] (assoc-in new-board [p1 :connections p2] 2))" "(in-bounds? 15 )" "(in-bounds? 15 6 17 1)" "(in-bounds? 15 6 5 7)" "(in-bounds? 15 6)" "(in-bounds? 15 0)" "(in-bounds? 15 15)" "(in-bounds? 15 16)" "(in-bounds? 15 3 )" "(connect {} 15 1 2 4)" "(doc triangular?)" "(triangular? 6)" "(triangular? 3)" "(triangular? 4)" "(triangular? 5)" "(inc (count (take-while #(> 2 %) tri)))" "(count (take-while #(> 2 %) tri))" "(count (take-while #(> 1 %) tri))" "(count (take-while #(> 10 %) tri))" "(row-num 9)" "(row-num 10)" "(row-num 1)" "(row-num 4)" "(row-num 3)" "tri" "(row-tri 4)" "(row-tri 3)" "(rowitri 3)" "(count (take-while #(> 30 %) tri))" "(last (take-while #(> 30 % tri)) )" "(last take-while #(> 30 % tri) )" "(take-while #(> 29 %) tri)" "(take-while #(> 20 %) tri)" "(take-while #(< 20 %) tri)" "(take 5 tri)" "tri" "(inc (count (take-while #(> pos %) tri)))" "(last (take 3 tri))" "(last (take 2 tri))" "(last (take 10 tri))" "(last (take 7 tri))" "(= 10 (last (take-while #(>= 10 %) tri)))" "(= 9 (last (take-while #(>= 9 %) tri)))" "(let [newsum (+ sum n)]
-                 (cons newsum (lazy-seq (tri* newsum (inc n)))))" "(let [newsum (+ sum n)]
-                 (cons newsum (lazy-seq (tr* newsum (inc n)))))" "(let [newsum (+ sum n)]
-                 newsum)" "(let [newsum (+ sum n)])" "(def n 1)" "(def sum 0)" "(tri*)" "(tri* 1 1)" "(tri* 1)" "(tri* 100 100)" "(tri* 100 10)" "(tri* 2 10)" "(tri* 1 10)" "(tri* 1 2)" "(tri* 2 3)" "(tri*)" "tri*" "(.stop server)" "(jutsu.web/stop-web-server!)" "(justu.web/stop-web-server!)" "(j/start-jutsu!)" "(fapply [(partial * 2) (partial + 3)] [1 2 3])
-" "(<*> [(partial * 2) (partial + 3)] [1 2 3])
-" "(tweet-text)" "(generate-text \"On the\" functional-leary)" "(generate-text \"And the\" (process-file \"quangle_wangle.txt\"))" "(generate-text \"we sat\" cat-chain)" "markov-elear.genrator/cat-transition" "(doc cat-transition)" "(generate-text \"cold cold\" cat-chain)" "(def cat-example \"The sun did not shine It was too wet to play So we sat in the house All that cold cold wet day I sat there with Sally We sat there we two  And I said How I wish We had something to do Too wet to go out And too cold to play ball So we sat in the house We did nothing at all\")" "cat-example" "(generate-text \"cold cold\" cat-chain)" "(generate-text \"sat there\" cat-chain)" "(generate-text \"Sat there\" cat-chain)" "(generate-text \"Sally and\" cat-chain)" "(generate-text [\"Sally\" \"and\"] cat-chain)" "(walk-chain [\"The\" \"sun\"] cat-chain [\"The\" \"Sun\"]  )" "cat-chain" "(walk-chain [\"The\" \"sun\"] cat-chain [\"The\" \"Sun\"]  )" "(walk-chain [\"The\" \"sun\"] cat-chain (\"The\" \"Sun\")  )" "cat-example" "(walk-chain [\"The\" \"sun\"] cat-chain [\"The\" \"Sun\"]  )" "(walk-chain [\"The\" \"sun\"] cat-chain (\"The\" \"Sun\")  )" "cat-example" "(walk-chain [\"I\" \"said\"] cat-chain  )" "(walk-chain [\"I\" \"said\"] cat-chain [] )" "(walk-chain [\"I\" \"said\"] )" "(chain->text [\"and\" \"the\" \"forest\" \"Hoo\"])" "(walk-chain [\"I\" \"said\"] )" "(walk-chain [\"I\" \"said\"] cat-chain [])" "(walk-chain [\"I\" \"said\"] cat-chain [\"I\" \"said\"])" "(walk-chain [\"I\" \"said\"] cat-chain [\"boom\"])" "(walk-chain [\"I\" \"said\"] cat-chain)" "(walk-chain [\"I\" \"said\"] cat-chain [\"in\"])" "(walk-chain [\"I\" \"said\"] cat-chain [\"in\" \"the\"])" "(get cat-chain [\"I\" \"said\"])" "(get cat-chain [\"the\" \"cat\"])" "cat-chain" "(walk-chain [\"the\" \"cat\"] cat-chain [\"in\" \"the\"])" "(walk-chain [\"the\" \"cat\"] cat-chain [\"the\" \"hat\"])" "(walk-chain [\"the\" \"cat\"] cat-chain [\"hat\"])" "(walk-chain [\"the\" \"cat\"] cat-chain \"hat\")" "(walk-chain \"cat\" cat-chain \"hat\")" "(walk-chain \"cat\" cat-chain)" "(walk-chain \"cat\" cat-chain \"sat\")" "(walk-chain \"cat\" cat-chain \"cat\")" "(text->word-chain cat-example)" "cat-chain" "(def cat-chain (word-chain cat-transition))" "(word-chain cat-transition)" "cat-transition" "(def cat-transition (partition-all 3 1 (clojure.string/split cat-example  #\" \")))" "(def cat-transition (partition-all 3 1 (clojure.string/split #\" \" cat-example)))" "cat-transition" "(def cat-transition (partition-all 3 1 cat-example))" "cat-example" "(def cat-example \"The sun did not shine It was too wet to play So we sat in the house All that cold, cold wet day I sat there with Sally We sat there we two  And I said How I wish We had something to do Too wet to go out And too cold to play ball So we sat in the house We did nothing at all\")" "(text->word-chain example)" "(clojure.string/split s #\"[\\s|\\n]\" \"fox fix foox\")" "(clojure.string/split #\"[\\s|\\n]\" \"fox fix foox\")" "((clojure.string/split #\"[\\s|\\n]\") \"fox fix foox\")" "(def word-chain [word-transitions]) (reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]
-                                                        {[a b] (if c #{c} #{})})))
-                                {}
-                                word-transitions)" "(reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]
-                                                        {[a b] (if c #{c} #{})})))
-                                {}
-                                word-transitions)" "(def word-transitions (partition-all 3 1 words))" "(def words (clojure.string/split example  #\" \" ))" "(def example \"And the Golden Grouse And the Pobble who\")" "(reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]
-                                                        {[a b] (if c #{c} #{})})))
-                                {}
-                                word-transitions)" "(reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]
-                                                        {[a b] (if c #{c})})))
-                                {}
-                                word-transitions)" "(reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]
-                                                        {[a b] (if c #{})})))
-                                {}
-                                word-transitions)" "(reduce (fn [r t] (merge-with clojure.set/union r
-                                                      (let [[a b c] t]))))" "(merge-with clojure.set/union {:a #{1}} {:a #{3}})" "(merge-with clojure.set/union {:a [1]} {:a [3]})" "(merge-with concat {:a [1]} {:a [3]})" "word-transitions" "(def word-transitions (partition-all 3 1 words))" "words" "(def words (clojure.string/split example  #\" \" ))" "(def example \"And the Golden Grouse and the Pobble who\")" "(+ 1 1)" "(ns markov-elear.generator)" "(require '[network-six.graph :as g]
-               '[network-six.ego :as ego])" "(require '[network-six.graph :as g])" "empty-graph" "(take 3 tri)" "(take 3 (tri))" "tri" "(tri*)" "tri*" "(+ 1 1)" "(require '[oz.core :as oz])" "(js/alert \"2\")" "(+ 91 2)" "(js/alert \"5\")" "(js/alert \"can I?\")" "(+ 3 3)" "(js/alert \"d\")" "(js/alert \"ho ho ho!\")" "(slurp \"../../assets/data/cars.json\")" "(slurp \"assets/data/cars.json\")" "(slurp \"test.txt\")" "(start)" "*ns*" "(*ns*)" "(start)" "(js/alert \"2\")" "(stop)" " (js/alert \"ff..\")" "(js/alert \"ff..\")" "k" "(+ 9 1)" "(js/alert \"2\")" "(start)" "(- 1 2)" "s" "(js/alert \"now?\")" "(aerial.hanami.core/start 3000)" "(ariel.saite.core/start 3000)" "(as/start 3000)" "(figwheel-sidecar.repl-api/start-figwheel!)" "(as/start 3000)" "(require '[aerial.saite.core :as as] )" "(+ 1 1)" "(start 3000)" "(+ 2 (/ 2 3 ))" "(+ 2 (/ 2 3))" "(+ 3 3)" "(+ 1 1)" "(js/alert \"boo!\")" "(alert \"boo!\")" "(+ 3 3)" "(* 5 6)" "(+ 1 1)" "(+ 1 1)" "d3.select" "(d3.select)" "circle-demo" "(circle-demo)" "(- 1 1)" "(js/alert \"h\")" "(log2 10)" "(fig-status)" "(js/alert \"yes?\")" "(+ 1 1)" "*1" "(+ 1 1)" "(+ 2 2)" "()" "(run)" "(cljs-repl)" "(go)" "(+ 1 1)" "(fig-status)" "(+ 1 1)" "(fig-status)" "(cljs-repl)" "(run)" "" "(+ 1 1)" "(cljs-repl)" "(browser-repl)" "(run)" "(+ 1 1)" "(+ 1 1)" "(+ 27 78)" "(+ 27)" "(+ 3 3)" "(+ 1 1)" "(1 + 1)" "(some :a [:a :b])" "(contains? [:a :b] :b)
-" "(contains? [:a :b] 4)
-" "(contains? [:a :b] 1)
-" "(contains? [:a :b] b)
-" "(contains? [:a :b] :b)
-" "(get [1 2 3] 1)" "(get 1 [1 2 3])" "(+ 1 1)" "focused-bodies" "(focused-bodies)" "(+ 1 1)" "(focu)" "(+ 1 1)" "`" "(+ 2 2)" "(+ 0 9)" "(+0 9)" "(+ 3 3)" "(+ 9 9)" "(+ 3 3)" "(+ 1 1)" "(ping 440)" "(ping)" "ping" "(+ 3 3)" "(+ 1 1)" "(coll? '( 1 1 1))" "(not (= 1 1))" "(+ 1 1)" "(class \"\")" "(+ 3 3)" "(.getTime (Date.))" "(getTime. (Date.))" "((getTime.) (Date.))" "(. (Date.) getTime)" "(Date.)" "(.Date)" "(import java.util.Date)" "(str/replace \"this is a test\" #\"[a-o]\" \"9\")" "(str/replace \"this is a test\" #\"[a-o]\" 9)" "(str/replace \"this is a test\" #\"a-o\" str/upper-case)" "(str/replace \"this is a test\" #\"a-o\" \"9\")" "(str/replace \"this is a test\" #\"a-o\" 9)" "(str/replace \"this is a test\" #\"[a-o]\" str/upper-case)" "(\"this is a test\" #\"[a-o]\" str/upper-case)" "(str \"this is a test\" #\"[a-o]\" str/upper-case)" "(str #\"[a-o]\")" "(str #\"[a-o\")" "(str #\"[a-0\")" "#\"[a-o]\"" "(#\"[a-o]\")" "(#[a-o])" "#[a-o]" "# [a-o]" "(str/reverse \"abcdefg\") " "(require '[clojure.string :as str])" "(require 'clojure.string :as str)" "(clojure.string/blank? \"\")" "(require 'clojure.string)" "(difference #{1 2 3} #{3 4 5})" "(intersection #{1 2 3} #{3 4 5})" "(use 'clojure.set)" "(print-and-say-hello \"Jo\")" "(defn print-and-say-hello
-               [fname]
-               (print \"saying hello to \" fname)
-               (str \"Hello, \" fname))" "(do (println \"hello\") \" world\")" "(do (print \"hello\") \" world\")" "(if (even? 2) 1 2)" "(if true 1 2)" "(if false 1 2)" "(#{1 2 3} 3)" "(#{1 2 3} 2)" "(#{1 2 3} 4)" "(set [1 2 3 1 2 3 4])" "(conj #{ 1 2 3 4} 5)" "(conj #{ 1 2 3 4} 4)" "(disj #{ 1 2 3 4} 4)" "(disj map-1 {:one 1})" "(disj map-1 {:three 3})" "(conj map-1 {:three 3})" "(conj map-1 {:one 1})" "(disj map-1 {:one 1})" "(disj map-1)" "(disj map-1 :two)" "(conj map-1 map-1 )" "(assoc map-1 map-1 map-1)" "(assoc map-1 map-1)" "(assoc map-1 :three )" "(assoc map-1 :three 3)" "(assoc map-1 :three )" "(map-1 :two)" "(map-1 :2)" "map-1" "(def map-1 (hash-map :one 1 :two 2))" "(def map-1 (hash-map [:one 1 :two 2]))" "(count-args 1 2 3 89 9 456)" "(defn count-args [& args]
-               (str \"You passed \" (count args) \" args:\" args))" "(count-args 1 2 3 89 9 456)" "(defn count-args [& args]
-               (str \"You passed \" (count args) \" args:\" (args)))" "(defn count-args [& args])" "(anon-hello \"Bob\")" "(def anon-hello #(str \"hello, \" %))" "(hello-world)")
+("(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(-> (ping 440)
+    (connect-> destination)
+    (run-with context (current-time context) 1.0)))" "(ping 255)" "(ping)" "ping" "(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(js/alert \"Boo!\")" "(prn \"Boo!\")" "(println \"Boo!\")" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "@(subscribe [::selected-system])" "(subscribe [::selected-system])" "(subscribe [::spheres])" "(subscribe [::sphere])" "(subscribe [::name])" "(subscribe ::name)" "(subscribe ::sphere)" "(subscribe ::spheres)" "(+ 2 2)" "aaa" "(+ 1 1)" "(fig-status)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/re-start-figwheel!)" "(+ 1 1)" "(js/alert \"2\")" "(+ 1 1)" "(js/alert \"2\")" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(get-in spheres-map [:volume \"Venus\"])" "(get-in spheres-map [:volume] \"Venus\")" "(get-in spheres-map :volume \"Venus\")" "(get spheres-map \"Venus\")" "spheres-map" "(js/alert \"2\")" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/start-figwheel!)" "(+ 9 9)" "(+ 2 2)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 2 2)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(midday-habit person-2)" "(midday-habit person-1)" "(midday-habit person-2)" "(js/alert \"2\")" "  (for [item (vals (:spheres my-map))]
+                      (if (:included item)
+                        item))" "my-map" "  (def my-map {:spheres {\"one\" {:id 1 :number 1 :name \"one\"}
+                                           \"two\" {:id 2 :number 2 :name \"two\"}
+                                           \"three\" {:id 3 :number 3 :name \"three\" :included true}}})" "my-map" "  (for [item (vals (:spheres my-map))]
+                      (if (:included item)
+                        item))" "  (for [item (:spheres my-map)]
+                      (if (:included item)
+                        item))" "  (get (:spheres my-map) \"three\")" "(:spheres my-map)" "my-map" "  (def my-map {:spheres {\"one\" {:id 1 :number 1 :name \"one\"}
+                                           \"two\" {:id 2 :number 2 :name \"two\"}
+                                           \"three\" {:id 3 :number 3 :name \"three\" :included true}}})" "  (def my-map {:spheres {\"one\" {:id 1 :number 1 :name \"one\"}
+                                           \"two\" {:id 2 :number 2 :name \"two\"}
+                                           \"three\" (:id 3 :number 3 :name \"three\" :included true)}})" "  (update (:spheres default-db) dissoc [\"Sun\" :vis] )" "  (update (:spheres default-db) assoc-in [\"Sun\" :vis] false)" "(update default-db assoc-in :spheres [\"Sun\" :vis] false)" "(assoc-in default-db [:spheres \"Sun\" :vis] false)" "(assoc-in default-db [:spheres \"Sun\" :included] false)" "( map :included (vals (:spheres default-db)))" "( map :vis (vals (:spheres default-db)))" "( map :included (vals (:spheres default-db)))" "  (:included (get (:spheres default-db) \"Uranus\"))" "  (:included (get (:spheres default-db) \"Deimos\"))" "  (:included (get (:spheres default-db) \"Uranus\"))" "  (get (:spheres default-db) \"Uranus\")" "  (get default-db \"Uranus\")" "  (\"Uranus\" default-db)" "default-db" "( map :included (vals (:spheres default-db)))" "( map :vis (vals (:spheres default-db)))" "( map :form (vals (:spheres default-db)))" "( map :form (:spheres default-db))" "(:spheres default-db)" "(map :vis (:spheres default-db))" "default-db" " (filter #(> ( :mass %) 10000000) (subscribe [::subs/spheres-vals]))" " (comp :mass (subscribe [::subs/spheres-vals]))" " (:mass (subscribe [::subs/spheres-vals]))" " (map :mass (subscribe [::subs/spheres-vals]))" " (subscribe [::subs/spheres-vals])" " (\"Earth\" (subscribe [::subs/spheres-vals]))" " (\"earth\" (subscribe [::subs/spheres-vals]))" " (subscribe [::subs/spheres-vals])" "(first (subscribe [::subs/spheres-vals]))" " (subscribe [::subs/spheres-vals])" "(filter :id (subscribe [::subs/spheres-vals]))" "(subscribe [::subs/spheres-vals])" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(+ 9 9)" "(fw/cljs-repl)" "(+ 9 9)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(balance bea-account)" "(transaction bea-account 101 \"Money from Christmas\")" "(balance bea-account)" "(js/alert \"2\")" "(+ 9 9)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(s/explain-data ::string-int :string)" "(s/explain ::string-int :string)" "(s/explain ::string-int *)" "(s/explain ::string-int 3)" "(s/explain ::string-int 0.3)" "(s/explain ::string-int 0,3)" "(s/valid? ::string-int 0.3)" "(s/valid? ::string-int \"22\")" "(s/valid? ::string-int 12)" "(s/def ::string-int (s/or :string string?
+                                :int int?))" "(s/valid? ::big-or-small-or-string \"Bob\")" "(s/valid? ::big-or-small-or-string 1002)" "(s/valid? ::big-or-small-or-string 1000)" "(s/valid? ::big-or-small-or-string 100)" "(s/valid? ::big-or-small-or-string 10)" "(s/def ::big-or-small-or-string (s/or :big #( > % 1000)
+                                            :small #(> 100 %)
+                                            :string string?))" "(s/def ::big-or-small-or-string (s/or :big #( > % 1000)
+                                            :small #(> 100 %)
+                                            :string strig?))" "(s/valid? ::big-or-small 99)" "(s/valid? ::big-or-small 100)" "(s/valid? ::big-or-small 1000)" "(s/valid? ::big-or-small 1001)" "(valid? ::big-or-small 1001)" "(s/def ::big-or-small (s/or :big #( > % 1000)
+                                 :small #(> 100 %)))" "(s/def :big-or-small (s/or :big #(> % 1000)
+                                 :small #(> 100 %)))" "(s/def :big-or-small (s/or  :big #(> % 1000)
+                                  :small #(> 100 %)))" "(s/def :big-or-small (s/or  #(> % 1000) #(> 100 %)))" "(s/def :big-or-small (s/or  #(> % 1000) #(< 100 %)))" "(s/def :big-or-small (s/or  #(> % 1000) #(< % 100)))" "(s/conform ::big-even 10010)" "(s/conform ::big-even 1001)" "(s/conform ::big-even 1002)" "(s/def ::big-even (s/and #(> % 1000) even? int?))" "(s/def ::big-even (s/and (> % 1000) even? int?))" "(doc ::suit)" "(s/conform ::suit :spade)" "(s/conform ::suit :diamo)" "(s/conform ::suit :diamond)" "(s/def ::suit #{:club :diamond :heart :spade})" "(s/def ::suit #{:club :diamond :heart :spade} :spade)" "(s/valid? #{:club :diamond :heart :spade} :spade)" "(s/valid? #{:club :diamond :heart :spade})" "(s/conform #(< 10 % 20) 19)" "(s/conform #(< 10 % 20) 191)" "(s/conform #(> 10 % 20) 191)" "(s/conform #(> 10 % 20) 19)" "(s/conform #(> 10 % 20) 9)" "(s/conform #(> 10 % 20) 13)" "(s/conform even? 14)" "(s/conform even? 13)" "(s/valid? even? 13)" "(s/valid? even? 14)" "(s/valid even? 14)" "(s/valid even? 13)" "(require '[clojure.spec.alpha :as s])" "(require [clojure.spec.alpha :as s])" "(import java.util.Date)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 1 1)" "(print \"ASDASD\")" "print (\"ASDASD\")" "earth" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(require [figwheel-sidecar.repl-api :as fw])" " (.log js/Math 1)" " (.log js/Math 0)" "(* 40 (.log js/Math 0))" "(filter #(= (:name %) \"Sun\") @(subscribe [::subs/spheres-vals]))" "(filter (= :name \"Sun\") @(subscribe [::subs/spheres-vals]))" "(get @(subscribe [::subs/spheres-vals]) :sun)" "(get @(subscribe [::subs/spheres-vals]) \"sun\")" "(get @(subscribe [::subs/spheres-vals]) \"Sun\")" "@ (subscribe [::subs/spheres-vals])" " (subscribe [::subs/spheres-vals])" "(get (subscribe [::subs/spheres-vals]) \"Sun\")" "(\"Sun\" (subscribe [::subs/spheres-vals]))" "(:sun  (subscribe [::subs/spheres-vals]))" "(subscribe [::subs/spheres-vals])" "(:earth (subscribe ::subs/spheres-vals))" "(subscribe ::subs/spheres-vals)" "@(subscribe ::subs/spheres-vals)" "(subscribe [::subs/x-select])" "(subscribe [::subs/spheres-vals])" "default-db" "(in-ns spheres-rf.db)" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 1 1)" "(update my-vec 3 {:g 8})" "(update my-vec 1 {:g 8})" "(update my-vec {:g 8})" "(update my-vec  assoc {:g 8})" "(update-in my-vec 2 assoc {:g 8})" "(dissoc my-vec 2 )" "(dissoc my-vec  {:e 5 :f 6} )" "(update my-vec dissoc {:e 5 :f 6} )" "(def my-vec [{:a 1 :b 2} {:c 3 :d 4} {:e 5 :f 6}])" "(.indexof (to-array my-vec) (first (to-array my-vec)))" "(first (to-array my-vec))" "(first (to-arr))" "(for [i (to-array my-vec)] i)" "(.indexOf (to-array my-vec) {})" "(.indexOf (to-array my-vec) :b)" "(.indexOf (to-array my-vec) 3)" "(.indexOf (to-array my-vec) {:a 1 :b 2})" "(.indexOf (to-array my-vec) #{:a 1 :b 2})" "(.indexOf (to-array my-vec) {:a 1 :b 2})" "(.indexOf {:a 1 :b 2} (to-array my-vec))" "(.indexOf {:a 1 :b 2} my-vec)" "(def my-vec [{:a 1 :b 2} {:c 3 :d 4} {:e 5 :f 6}])" "(for [a [:a :b :c] b])" "(for [a [:a :b :c] b (range (count [:a :b :c]))] {a b})" "(for [a [:a :b :c] b (range [:a :b :c])] {a b})" ")] {a b})" "(for [a [:a :b :c] b (range [:a :b :c])] {a b})" "(for [a [:a :b :c] b (count [:a :b :c])] {a b})" "(for [a [:a :b :c] b (count a)] (a b))" "(for [a [:a :b :c]] a)" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(js/Math.log 1000000000000000)" "(js/Math.log 100000000000)" "(js/Math.log 100000000)" "(js/Math.log 100000)" "(js/Math.log 10)" "(.log 10)" "(.log js/Math 10)" "(js.Math/log 10)" "(.Math/log 10)" "(js/log 10)" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(+ 9 9)" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(require 'tubax.core)" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "\"2\"" "(fw/cljs-repl
+       )" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(:todos my-subs)" "(filter :completed (:todos my-subs))" "(remove :completed (:todos my-subs))" "(remove :completed my-subs)" "(filter :completed my-subs)" "(def my-subs {:todos [{:id random-uuid
+                                       :title \"go go!\"
+                                      :completed false}
+                                     {:id random-uuid
+                                      :title \"cutie pie\"
+                                      :completed false}]})" "(def my-subs {:todos {:id random-uuid
+:title \"go go!\"
+:completed false}
+{:id random-uuid
+:title \"cutie pie\"
+:completed false}})" "(def my-subs {:todos {:id random-uuid}})" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "\"2\"" "counter" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "(for [[[a b] c] my-db]
+                 {:pair {a b}
+                    :color c})" "(for [[[a b] c] my-db]
+                 {:paira a
+                  :pairb b
+                  :color c})" "(for [[[a b] c] my-db]
+                 ({:pair {a b} :color c}))" "(map (fn [[[a b] c]]
+                      (for [])) my-db)" "(map (fn [[[a b] c]] [a b c]) my-db)" "(map (fn [[[a b] c]] {a c}) my-db)" "(map (fn [[[a b] c]] (* a b)) my-db)" "(map (fn [[a b] c] (* a b)) my-db)" "my-db" "(def my-db {[1 2] 3
+                           [4 5] 6
+                           [7 8] 9})" "(def my-db {[1 2] 3})" "db" "(let [{a b} el]
+              a)" "(let [a el]
+             (keys a))" "(let [el a]
+             (keys a))" "(let [{[a b] c} el ]
+             (+ a b))" "(let [el {[a b] c}]
+             (+ a b))" "(let [{[a b ] c} el]
+             (+ a b))" "(let [[[a b ] c] el]
+             (+ a b))" "(let [el [[a b ] c ]]
+             (+ a b))" "(let [el [[a b ] c ]]
+             (+ a c))" "(let [el [[a b ] c]]
+             (+ a c))" "(let [el [[a b ]c]]
+             (+ a c))" "(let [[[a b ]c] el]
+             (+ a c))" "(let [[[a b ]c] el])" "el" "(def el {[1 2] 3})" "(js/alert \"2\")" "(alert \"2\")" "(fw/cljs-repl)" "(fw/start-figwheel!)" "(require '[figwheel-sidecar.repl-api :as fw])" "my-vec" "(filter (even?) (map :id my-vec))" "(filter (even? :id) my-vec)" "(contains? #(:id 1) my-vec)" "(contains? (:id 1) my-vec)" "(filter (contains? (:id 1)) my-vec)" "(filter #(:id 1) my-vec)" "my-vec" "(def my-vec [{:id 1 :name \"Jo\"} {:id 2 :name \"Chris\"} {:id 3 :name \"Sophie\"} {:id 4 :name \"Adam\"}])" "@app-state" "(swap! app-state update-in [:columns 0 :cards] disj 0 )" "(swap! app-state update-in [:columns 0 :cards] (.-delete 0 ) )" "(swap! app-state update-in [:columns 0 :cards] disj 0 )" "(swap! app-state update-in [:columns 0 :cards 1] dissoc :title )" "(swap! app-state update-in [:columns 0 :cards 0] dissoc :title )" "(swap! app-state update-in [:columns 0 :cards 0] dissoc :id )" "(swap! app-state update-in [:columns 0] dissoc :id )" "(swap! app-state update-in [:columns 0] disj :id )" "(swap! app-state update :column disj {})" "(swap! app-state update :column disj 0)" "@app-state" "@my-atom" "@app-state" "(swap! my-atom dissoc [:cards 1] :title)" "(swap! my-atom assoc-in [:cards 1 :title] \"choochoo\")" "(swap! my-atom update (:title (nth (:cards) 1)) \"choochoo\")" "(swap! my-atom update (:title (nth (:cards %) 1)) \"choochoo\")" "(swap! my-atom update #(:title (nth (:cards %) 1)) \"choochoo\")" "(swap! my-atom update #(:title (nth (:cards %)1 )) \"choochoo\")" "@my-atom" "(swap! my-atom update #(:title (nth (:cards) % )1) \"choochoo\")" "(swap! my-atom update #(:title (nth (:cards) % 1)) \"choochoo\")" "(swap! my-atom update (:title (nth (:cards) % 1)) \"choochoo\")" "(:title (nth (:cards @my-atom) 1))" "@my-atom" "(swap! my-atom update-in :cards  :title \"choochoo!\" )" "@my-atom" "(swap! my-atom update-in :cards 1 :title \"choochoo!\" )" "(def my-atom (atom {:id 1
+                                  :title \"todo\"
+                                  :cards [{:id 11 :title \"coco\"}
+                                          {:id 12 :title \"banana\"}
+                                          {:id 13 :title \"chocolate\"}]}))" "@my-atom" "(swap! my-atom update-in :cards 1 :title \"choochoo!\" )" "(swap! my-atom assoc :cards  update :title \"choochoo!\" )" "@my-atom" "(swap! my-atom update :cards \"choo!\" )" "(filter even? (:id (get @my-atom :cards)))" "(every? #(< 11 (:id %)) (get @my-atom :cards))" "@my-atom" "(every? #(> 11 (:id %)) (get @my-atom :cards))" "(filter (contains? :id) (get @my-atom :cards))" "(filter (= 1 :id) (get @my-atom :cards))" "(concat (subvec (get @my-atom :cards ) 0 1) (subvec (get @my-atom :cards ) 2))" "(subvec (get @my-atom :cards ) 0 1)" "(subvec (get @my-atom :cards ) 1)" "(get @my-atom :cards )" "@my-atom" "(get-in @my-atom :cards 1)" "(get-in @my-atom :cards)" "@my-atom" "(def my-atom (atom {:id 1
+                                  :title \"todo\"
+                                  :cards [{:id 11 :title \"coco\"}
+                                          {:id 12 :title \"banana\"}
+                                          {:id 13 :title \"chocolate\"}]}))" "@my-atom" "(swap! @my-atom   :cards 1  )" "(swap! @my-atom  update :cards 1  )" "@my-atom" "(swap! @my-atom  :cards :a 1 )" "(swap! @my-atom update :cards :a 1 )" "(swap! @my-atom merge :cards :a 1 )" "(swap! @my-atom assoc :cards :a 1 )" "(swap! @my-atom assoc :cards {:a 1} )" "(swap! @my-atom update :cards  dissoc 1 )" "(swap! @my-atom update-in :cards  dissoc 1 )" "@my-atom" "(swap! @my-atom update-in 2 dissoc 1 )" "(swap! @my-atom update-in 2 disj 1 )" "(swap! @my-atom update-in 2 concat {:result 1} )" "(swap! @my-atom update-in 2 conj {:result 1} )" "(swap! @my-atom update-in 2 merge {:result 1} )" "(swap! @my-atom disj :cards)" "(swap! @my-atom disj :cards 1 )" "@my-atom" "(swap! @my-atom assoc :cards {1 2}  )" "(swap! @my-atom assoc :cards 1 2  )" "(swap! @my-atom dissoc :cards  )" "@my-atom" "(swap! @my-atom dissoc :cards 2 )" "@my-atom" "(swap! @my-atom dissoc :cards)" "@my-atom" "(def my-atom (atom {:id 1
+                                  :title \"todo\"
+                                  :cards [{:id 11 :title \"coco\"}
+                                          {:id 12 :title \"banana\"}
+                                          {:id 13 :title \"chocolate\"}]}))" "@my-atom" "my-reset" "@my-atom" "(swap! @my-atom get-in [:val :cards])" "(swap! @my-atom get-in :val :cards)" "@my-atom" "my-reset" "(swap! @my-atom dissoc :val 1)" "@my-atom" "(swap! my-atom update :cards assoc :1 2)" "(swap! my-atom update :cards assoc 1)" "(swap! my-atom update :cards assoc [1])" "(swap! my-atom update :cards assoc 1 [1])" "(swap! my-atom dissoc :cards)" "my-reset" "(def my-reset (reset! my-atom (atom {:id 1
+                                                   :title \"todo\"
+                                                   :cards [{:id 11 :title \"coco\"}
+                                                           {:id 12 :title \"banana\"}
+                                                           {:id 13 :title \"chocolate\"}]})))" "@my-atom" "(def my-atom (atom {:id 1
+                                  :title \"todo\"
+                                  :cards [{:id 11 :title \"coco\"}
+                                          {:id 12 :title \"banana\"}
+                                          {:id 13 :title \"chocolate\"}]}))" "@my-atom" "(swap! my-atom dissoc :cards)" "(swap! my-atom dissoc-in :cards 1  )" "(swap! my-atom dissoc :cards  )" "(swap! my-atom update :cards disj 1)" "(swap! my-atom update :cards dissoc 1 1)" "(swap! my-atom update :cards dissoc 1)" "(swap! my-atom update :cards assoc 1 [1])" "(swap! my-atom update :cards assoc [1])" "(swap! my-atom update :cards [1])" "@my-atom" "(def my-atom (atom {:id 1
+                                  :title \"todo\"
+                                  :cards [{:id 11 :title \"coco\"}
+                                          {:id 12 :title \"banana\"}
+                                          {:id 13 :title \"chocolate\"}]}))" "@my-atom" "(def my-atom {:id 1
+                            :title \"todo\"
+                            :cards [{:id 11 :title \"coco\"}
+                                    {:id 12 :title \"banana\"}
+                                    {:id 13 :title \"chocolate\"}]})" "@app-state" "@my-atom" "my-atom" "@app-state" "app-state" "(nth (:cards (nth (:columns @app-state) 1))1)" "(:cards (nth (:columns @app-state) 1))" "(nth (:columns @app-state) 1)" "(nth (nth (:columns @app-state) 1) 1)" "(nth (:columns @app-state) 1)" "(:cards @app-state)" "@app-state" "(swap! my-atom update :cards (concat (subvec 0 1) (subvec inc 1)))" "(swap! my-atom update :cards subvec 2 )" "(!swap my-atom update :cards subvec 2 )" "@my-atom" "my-atom" "(def my-atom (atom {:cards [{:id \"a\", :type \"thing\"} {:id \"b\", :type \"thing\"} {:id \"c\", :type \"thing\"}]}))" "my-atom" "(def my-atom my-map)" "my-map" "(subvec (:cards my-map) 1 )" "(update (:cards my-map) 1 )" "(dissoc (:cards my-map) 1 )" "(disj (:cards my-map) 1 )" "(disj  my-map :cards )" "(dissoc my-map (1 :cards) )")

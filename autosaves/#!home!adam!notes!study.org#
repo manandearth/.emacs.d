@@ -1,0 +1,94 @@
+#+TITLE: STUDY
+#+STARTUP: indent showeverything
+#+TAGS: STUDY(s) CONFIGURATION(c) ISSUE(i)
+
+
+* SHELL
+
+** TODO grep 
+
+** TODO sed [[http://www.grymoire.com/Unix/Sed.html][sed on grymoire]]
+
+** TODO awk <2018-12-01 Sat>
+
+* GIT and github
+
+** DONE workflow test<2018-12-01 Sat>
+
+* Lambda Island
+
+** DONE clojurescript 
+
+** DONE reagent
+
+** TODO reframe
+
+* other Clojure tutorials
+
+* PostgreSQL
+
+** DONE read 'What-is-database-design-anyway?'
+[[file:ref/lib/what-is-database-design-anyway.pdf][file:~/notes/ref/lib/what-is-database-design-anyway.pdf]]
+
+** tutorial on postgresql 
+http://www.postgresqltutorial.com/
+
+
+* For Juan project
+
+** TODO docs.expo.io
+https://docs.expo.io/versions/latest/sdk/facebook that eases the
+android/ios development writing only javascript 12:13 PM well, there
+is also a interesting clojurescript way to use expo.io
+https://docs.expo.io/versions/latest/guides/using-clojurescript 12:14
+PM that uses internally https://github.com/reagent-project/reagent
+reagent-project/reagent A minimalistic ClojureScript interface to
+React.js Website http://reagent-project.github.io/ Stars 3242
+￼reagent-project/reagentDec 18th, 2013Added by GitHub 12:15 PM so i
+think it could be used with https://github.com/Day8/re-frame too
+Day8/re-frame A Reagent Framework For Writing SPAs, in Clojurescript.
+Stars 3505 Language Clojure ￼Day8/re-frameDec 5th, 2014Added by GitHub
+12:15 PM re-frame is very interesting to get robust UI code 12:16 PM …
+12:16 PM so the thing is setting up a prototype that uses
+re-frame-with-expo (edited) 12:17 PM to solve “easy and simple” movile
+apps 12:18 PM but … we need also a backend side to make this mobile
+apps useful ￼ 
+
+** TODO clojurescript-on-google-cloud-functions
+related to backend … I’m very inclined to use
+free version usage of gcloud
+http://blog.colinwilliams.name/clojure/2017/05/13/clojurescript-on-google-cloud-functions.html
+blog.colinwilliams.name ClojureScript On Google Cloud Functions I
+wanted to try out Google Cloud Functions, and when I saw that it only
+supported JavaScript I thought “What a perfect opportunity to try
+ClojureScript as we... ￼
+
+* For Migres
+** TODO find out about meta data and relating it to postgres.<2018-12-22 Sat>
+This is for Pablo in Migres, I am looking for a way to collaborate
+with them.
+** DONE send something to Pablo as soon as:
+preyes@fundacionmigres.org
+[2019-01-13 Sun] sent him the spheres project.
+
+* For vemv
+
+** https://juxt.pro/blog/posts/edging-forward.html , being reasonably productive with it, being able to implement some sample features
+
+** TODO Cool! It also might help you at some point my Emacs distro https://github.com/zenmacs/.emacs.d , as the README explains it's rather unique and easy.
+
+** the Seemann (in the Magnet convo) article is really good, and also relatively easy to grasp. Shows us how we can do 'purer' FP without resorting to monads/etc
+
+* data science
+
+** bherrmann [12:42 PM]
+any recommendations for a clojure notebook which can run locally?
+
+henrygarner [12:44 PM]
+@bherrmann I get a lot of mileage out of http://gorilla-repl.org/ and https://github.com/JonyEpsilon/gg4clj (edited)
+
+bherrmann [12:47 PM]
+@henrygarner Thanks!
+
+
+
